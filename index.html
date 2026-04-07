@@ -58,13 +58,20 @@ h2{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(36px,4vw
 .p-metrics{display:flex;gap:32px;margin-top:auto}
 .pm-n{font-family:'Playfair Display',serif;font-weight:700;font-size:24px;line-height:1;letter-spacing:-.01em}
 .pm-l{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray);margin-top:4px}
+
+/* SCREEN MOCKUP */
 .p-screen{background:var(--off);overflow:hidden;display:flex;flex-direction:column}
 .b-chrome{background:var(--white);border-bottom:1px solid var(--line);padding:11px 18px;display:flex;align-items:center;gap:10px;flex-shrink:0}
 .b-dots{display:flex;gap:5px}
 .bd{width:10px;height:10px;border-radius:50%}
 .bd-r{background:#fe5f57}.bd-y{background:#febc2e}.bd-g{background:#29c740}
 .b-addr{background:var(--off);border:1px solid var(--line);border-radius:4px;padding:5px 14px;font-family:'DM Mono',monospace;font-size:10px;color:var(--gray);flex:1}
-.p-iframe{width:200%;height:560px;border:none;transform:scale(0.5);transform-origin:top left;pointer-events:none;display:block}
+.p-screenshot{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;flex:1;min-height:480px;transition:transform 6s ease}
+.project:hover .p-screenshot{transform:translateY(-8%)}
+
+/* Fallback gradient when no screenshot yet */
+.p-screenshot-placeholder{flex:1;min-height:480px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--off) 0%,#ececea 100%)}
+.p-screenshot-placeholder span{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--line)}
 
 /* SERVICES */
 .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);border-left:1px solid var(--line)}
@@ -112,7 +119,7 @@ footer{padding:28px 72px;display:flex;justify-content:space-between;align-items:
   .project{grid-template-columns:1fr}
   .p-info{border-right:none;border-bottom:1px solid var(--line);padding:36px 24px}
   .p-screen{min-height:220px}
-  .p-iframe{height:440px}
+  .p-screenshot{min-height:260px}
   .svc-grid{grid-template-columns:1fr}
   .cta{padding:100px 24px}
   footer{flex-direction:column;gap:10px;padding:24px;text-align:center}
@@ -191,6 +198,10 @@ footer{padding:28px 72px;display:flex;justify-content:space-between;align-items:
         <div class="b-dots"><div class="bd bd-r"></div><div class="bd bd-y"></div><div class="bd bd-g"></div></div>
         <div class="b-addr">dealledger.org</div>
       </div>
+      <!-- Replace src with your screenshot: e.g. /screenshots/dealledger.png -->
+      <img class="p-screenshot" src="/screenshots/dealledger.png" alt="DealLedger screenshot"
+        onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="p-screenshot-placeholder" style="display:none"><span>dealledger.org</span></div>
     </div>
   </a>
 
@@ -215,6 +226,9 @@ footer{padding:28px 72px;display:flex;justify-content:space-between;align-items:
         <div class="b-dots"><div class="bd bd-r"></div><div class="bd bd-y"></div><div class="bd bd-g"></div></div>
         <div class="b-addr">atmbrokerage.com</div>
       </div>
+      <img class="p-screenshot" src="/screenshots/atmbrokerage.png" alt="ATM Brokerage screenshot"
+        onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="p-screenshot-placeholder" style="display:none"><span>atmbrokerage.com</span></div>
     </div>
   </a>
 
@@ -239,6 +253,9 @@ footer{padding:28px 72px;display:flex;justify-content:space-between;align-items:
         <div class="b-dots"><div class="bd bd-r"></div><div class="bd bd-y"></div><div class="bd bd-g"></div></div>
         <div class="b-addr">cleaningexits.com</div>
       </div>
+      <img class="p-screenshot" src="/screenshots/cleaningexits.png" alt="CleaningExits screenshot"
+        onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="p-screenshot-placeholder" style="display:none"><span>cleaningexits.com</span></div>
     </div>
   </a>
 
@@ -263,6 +280,9 @@ footer{padding:28px 72px;display:flex;justify-content:space-between;align-items:
         <div class="b-dots"><div class="bd bd-r"></div><div class="bd bd-y"></div><div class="bd bd-g"></div></div>
         <div class="b-addr">connectatm.com</div>
       </div>
+      <img class="p-screenshot" src="/screenshots/connectatm.png" alt="ConnectATM screenshot"
+        onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="p-screenshot-placeholder" style="display:none"><span>connectatm.com</span></div>
     </div>
   </a>
 
@@ -287,6 +307,9 @@ footer{padding:28px 72px;display:flex;justify-content:space-between;align-items:
         <div class="b-dots"><div class="bd bd-r"></div><div class="bd bd-y"></div><div class="bd bd-g"></div></div>
         <div class="b-addr">vendingexits.com</div>
       </div>
+      <img class="p-screenshot" src="/screenshots/vendingexits.png" alt="VendingExits screenshot"
+        onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="p-screenshot-placeholder" style="display:none"><span>vendingexits.com</span></div>
     </div>
   </a>
 
