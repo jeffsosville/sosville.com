@@ -1,784 +1,391 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Platform Brokerage | Intelligent Acquisitions</title>
-    <meta name="description" content="Platform Brokerage specializes in the sale of Financial, Technology and Recurring Revenue based businesses.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Instrument+Serif&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --navy: #0f172a;
-            --navy-light: #1e293b;
-            --accent: #3b82f6;
-            --accent-light: #60a5fa;
-            --gray-50: #f8fafc;
-            --gray-100: #f1f5f9;
-            --gray-400: #94a3b8;
-            --gray-500: #64748b;
-            --gray-600: #475569;
-            --white: #ffffff;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--white);
-            color: var(--navy);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        h1, h2, h3 {
-            font-family: 'Instrument Serif', Georgia, serif;
-            font-weight: 400;
-            letter-spacing: -0.02em;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: color 0.2s ease;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-
-        /* Header */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 100;
-            border-bottom: 1px solid var(--gray-100);
-        }
-
-        .header-inner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-        }
-
-        .logo {
-            font-family: 'Instrument Serif', serif;
-            font-size: 1.25rem;
-            color: var(--navy);
-        }
-
-        nav {
-            display: flex;
-            align-items: center;
-            gap: 2.5rem;
-        }
-
-        nav a {
-            font-size: 0.9rem;
-            color: var(--gray-600);
-            font-weight: 500;
-        }
-
-        nav a:hover {
-            color: var(--navy);
-        }
-
-        .nav-cta {
-            background: var(--navy);
-            color: var(--white) !important;
-            padding: 0.625rem 1.25rem;
-            border-radius: 6px;
-            font-size: 0.875rem;
-        }
-
-        .nav-cta:hover {
-            background: var(--navy-light);
-        }
-
-        .mobile-menu {
-            display: none;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0.5rem;
-        }
-
-        .mobile-menu svg {
-            width: 24px;
-            height: 24px;
-            stroke: var(--navy);
-        }
-
-        /* Hero */
-        .hero {
-            padding: 10rem 0 6rem;
-            background: linear-gradient(180deg, var(--gray-50) 0%, var(--white) 100%);
-        }
-
-        .hero-content {
-            max-width: 680px;
-        }
-
-        .hero-label {
-            display: inline-block;
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--accent);
-            margin-bottom: 1.5rem;
-        }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 3.5rem);
-            line-height: 1.15;
-            color: var(--navy);
-            margin-bottom: 1.5rem;
-        }
-
-        .hero p {
-            font-size: 1.125rem;
-            color: var(--gray-500);
-            line-height: 1.7;
-            margin-bottom: 2.5rem;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.875rem 1.5rem;
-            border-radius: 6px;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: all 0.2s ease;
-        }
-
-        .btn-primary {
-            background: var(--navy);
-            color: var(--white);
-        }
-
-        .btn-primary:hover {
-            background: var(--navy-light);
-            transform: translateY(-1px);
-        }
-
-        .btn-secondary {
-            background: var(--white);
-            color: var(--navy);
-            border: 1px solid var(--gray-100);
-        }
-
-        .btn-secondary:hover {
-            border-color: var(--gray-400);
-        }
-
-        .btn svg {
-            width: 16px;
-            height: 16px;
-        }
-
-        /* Stats */
-        .stats {
-            padding: 4rem 0;
-            border-bottom: 1px solid var(--gray-100);
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-        }
-
-        .stat {
-            text-align: center;
-        }
-
-        .stat-value {
-            font-family: 'Instrument Serif', serif;
-            font-size: 2.5rem;
-            color: var(--navy);
-            margin-bottom: 0.25rem;
-        }
-
-        .stat-label {
-            font-size: 0.875rem;
-            color: var(--gray-500);
-        }
-
-        /* Section styling */
-        section {
-            padding: 5rem 0;
-        }
-
-        .section-label {
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--accent);
-            margin-bottom: 1rem;
-        }
-
-        .section-title {
-            font-size: 2.25rem;
-            margin-bottom: 1rem;
-        }
-
-        .section-desc {
-            color: var(--gray-500);
-            font-size: 1.05rem;
-            max-width: 540px;
-        }
-
-        /* About */
-        .about {
-            background: var(--gray-50);
-        }
-
-        .about-grid {
-            max-width: 640px;
-        }
-
-        .about-content p {
-            color: var(--gray-600);
-            margin-bottom: 1.25rem;
-            font-size: 1.025rem;
-        }
-
-        .founder-info {
-            margin-top: 2rem;
-            padding-top: 2rem;
-            border-top: 1px solid var(--gray-100);
-        }
-
-        .founder-info h4 {
-            font-family: 'DM Sans', sans-serif;
-            font-weight: 600;
-            margin-bottom: 0.25rem;
-        }
-
-        .founder-info span {
-            color: var(--gray-500);
-            font-size: 0.9rem;
-        }
-
-        /* Services */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-            margin-top: 3rem;
-        }
-
-        .service-card {
-            background: var(--gray-50);
-            border: 1px solid var(--gray-100);
-            border-radius: 12px;
-            padding: 2rem;
-            transition: all 0.2s ease;
-        }
-
-        .service-card:hover {
-            border-color: var(--gray-400);
-            transform: translateY(-2px);
-        }
-
-        .service-icon {
-            width: 48px;
-            height: 48px;
-            background: var(--navy);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-        }
-
-        .service-icon svg {
-            width: 24px;
-            height: 24px;
-            stroke: var(--white);
-            stroke-width: 1.5;
-            fill: none;
-        }
-
-        .service-card h3 {
-            font-size: 1.375rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .service-card > p {
-            color: var(--gray-500);
-            font-size: 0.95rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .service-list {
-            list-style: none;
-            margin-bottom: 1.5rem;
-        }
-
-        .service-list li {
-            padding: 0.5rem 0;
-            padding-left: 1.25rem;
-            position: relative;
-            font-size: 0.925rem;
-            color: var(--gray-600);
-        }
-
-        .service-list li::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 5px;
-            height: 5px;
-            background: var(--accent);
-            border-radius: 50%;
-        }
-
-        .link-arrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-weight: 500;
-            font-size: 0.9rem;
-            color: var(--navy);
-        }
-
-        .link-arrow svg {
-            width: 14px;
-            height: 14px;
-            transition: transform 0.2s ease;
-        }
-
-        .link-arrow:hover {
-            color: var(--accent);
-        }
-
-        .link-arrow:hover svg {
-            transform: translateX(3px);
-        }
-
-        /* CTA */
-        .cta {
-            background: var(--navy);
-            padding: 5rem 0;
-        }
-
-        .cta-inner {
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .cta h2 {
-            color: var(--white);
-            font-size: 2.25rem;
-            margin-bottom: 1rem;
-        }
-
-        .cta p {
-            color: var(--gray-400);
-            font-size: 1.05rem;
-            margin-bottom: 2rem;
-        }
-
-        .cta .btn-primary {
-            background: var(--white);
-            color: var(--navy);
-        }
-
-        .cta .btn-primary:hover {
-            background: var(--gray-100);
-        }
-
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            margin-top: 2.5rem;
-            flex-wrap: wrap;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 0.625rem;
-            color: var(--gray-400);
-            font-size: 0.925rem;
-        }
-
-        .contact-item svg {
-            width: 18px;
-            height: 18px;
-            stroke: var(--accent-light);
-        }
-
-        .contact-item a {
-            color: var(--gray-400);
-        }
-
-        .contact-item a:hover {
-            color: var(--white);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--navy-light);
-            padding: 3rem 0 2rem;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 3rem;
-            margin-bottom: 2.5rem;
-        }
-
-        .footer-brand p {
-            color: var(--gray-400);
-            font-size: 0.9rem;
-            line-height: 1.7;
-            margin-top: 0.75rem;
-        }
-
-        .footer-col h4 {
-            color: var(--white);
-            font-family: 'DM Sans', sans-serif;
-            font-weight: 600;
-            font-size: 0.875rem;
-            margin-bottom: 1rem;
-        }
-
-        .footer-col ul {
-            list-style: none;
-        }
-
-        .footer-col li {
-            margin-bottom: 0.5rem;
-        }
-
-        .footer-col a {
-            color: var(--gray-400);
-            font-size: 0.875rem;
-        }
-
-        .footer-col a:hover {
-            color: var(--white);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
-            padding-top: 1.5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .footer-bottom p {
-            color: var(--gray-500);
-            font-size: 0.8rem;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 0.75rem;
-        }
-
-        .social-links a {
-            width: 32px;
-            height: 32px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background 0.2s ease;
-        }
-
-        .social-links a:hover {
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        .social-links svg {
-            width: 16px;
-            height: 16px;
-            fill: var(--gray-400);
-        }
-
-        /* Responsive */
-        @media (max-width: 900px) {
-            .about-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .footer-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-            
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 640px) {
-            nav a:not(.nav-cta) {
-                display: none;
-            }
-            
-            .mobile-menu {
-                display: block;
-            }
-            
-            .hero {
-                padding: 8rem 0 4rem;
-            }
-            
-            .stats-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 1.5rem;
-            }
-            
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .footer-bottom {
-                flex-direction: column;
-                gap: 1rem;
-                text-align: center;
-            }
-            
-            .contact-info {
-                flex-direction: column;
-                gap: 1rem;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sosville Group — Digital Agency & AI Automation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{--black:#0f0f0f;--white:#ffffff;--off:#f8f8f6;--gray:#999;--mid:#555;--line:#e4e4e4}
+body{background:var(--white);color:var(--black);font-family:'DM Sans',sans-serif;font-weight:300;overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:22px 72px;background:rgba(255,255,255,.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--line)}
+.nav-logo{font-family:'Playfair Display',serif;font-weight:900;font-size:20px;letter-spacing:-.02em;color:var(--black);text-decoration:none}
+.nav-logo span{font-style:italic;font-weight:400;color:var(--gray)}
+.nav-right{display:flex;gap:40px;align-items:center}
+.nav-right a{font-family:'DM Sans',sans-serif;font-size:13px;color:var(--gray);text-decoration:none;transition:color .2s}
+.nav-right a:hover{color:var(--black)}
+.nav-cta{font-family:'DM Mono',monospace!important;font-size:10px!important;letter-spacing:.12em!important;text-transform:uppercase!important;background:var(--black)!important;color:var(--white)!important;padding:10px 24px!important;transition:opacity .2s!important}
+.nav-cta:hover{opacity:.7!important}
+
+/* HERO */
+.hero{min-height:100vh;padding:140px 72px 100px;display:flex;flex-direction:column;justify-content:flex-end;border-bottom:1px solid var(--line);position:relative}
+.hero-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:80px}
+.hero-tag{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gray);padding-top:4px}
+.hero-top-right{font-size:14px;color:var(--gray);max-width:320px;text-align:right;line-height:1.7}
+.hero h1{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(72px,9vw,148px);line-height:.9;letter-spacing:-.03em;margin-bottom:0}
+.hero h1 em{font-style:italic;font-weight:400;color:var(--gray)}
+.hero-bottom{display:flex;justify-content:space-between;align-items:flex-end;margin-top:60px;padding-top:40px;border-top:1px solid var(--line)}
+.hero-desc{font-size:16px;line-height:1.75;color:var(--mid);max-width:420px}
+.hero-stats{display:flex;gap:48px}
+.hs{text-align:right}
+.hs-n{font-family:'Playfair Display',serif;font-weight:700;font-size:36px;line-height:1;letter-spacing:-.02em}
+.hs-l{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray);margin-top:4px}
+
+/* SECTIONS */
+.sec{padding:100px 72px}
+.sec-border{border-bottom:1px solid var(--line)}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;padding-bottom:40px;border-bottom:1px solid var(--line)}
+.sec-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gray);margin-bottom:12px}
+h2{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(36px,4vw,60px);line-height:.95;letter-spacing:-.03em}
+.sec-note{font-size:13px;color:var(--gray);max-width:240px;text-align:right;line-height:1.65}
+
+/* PROJECTS */
+.project{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--line);text-decoration:none;color:inherit;transition:background .2s}
+.project:hover{background:var(--off)}
+.p-info{padding:56px;border-right:1px solid var(--line);display:flex;flex-direction:column}
+.p-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:36px}
+.p-num{font-family:'DM Mono',monospace;font-size:11px;color:var(--line)}
+.p-tags{display:flex;gap:6px}
+.p-tag{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--line);color:var(--gray);padding:3px 9px}
+.p-name{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(28px,2.8vw,44px);line-height:1;letter-spacing:-.02em;margin-bottom:6px}
+.p-url{font-family:'DM Mono',monospace;font-size:11px;color:var(--gray);margin-bottom:24px}
+.p-desc{font-size:14px;line-height:1.75;color:var(--mid);flex:1;margin-bottom:40px}
+.p-metrics{display:flex;gap:32px;margin-top:auto}
+.pm-n{font-family:'Playfair Display',serif;font-weight:700;font-size:24px;line-height:1;letter-spacing:-.01em}
+.pm-l{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray);margin-top:4px}
+
+/* SCREEN MOCKUP */
+.p-screen{background:var(--off);overflow:hidden;display:flex;flex-direction:column}
+.b-chrome{background:var(--white);border-bottom:1px solid var(--line);padding:11px 18px;display:flex;align-items:center;gap:10px;flex-shrink:0}
+.b-dots{display:flex;gap:5px}
+.bd{width:10px;height:10px;border-radius:50%}
+.bd-r{background:#fe5f57}.bd-y{background:#febc2e}.bd-g{background:#29c740}
+.b-addr{background:var(--off);border:1px solid var(--line);border-radius:4px;padding:5px 14px;font-family:'DM Mono',monospace;font-size:10px;color:var(--gray);flex:1}
+.p-screenshot{width:100%;flex:1;min-height:480px;object-fit:cover;object-position:top center;display:block;transition:transform 6s ease}
+.project:hover .p-screenshot{transform:translateY(-8%)}
+
+/* Mock UI fallback (VendingExits) */
+.browser-body{flex:1;padding:24px;display:flex;flex-direction:column;gap:14px;min-height:480px}
+.live-badge{display:inline-flex;align-items:center;gap:6px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--gray)}
+.live-dot{width:6px;height:6px;border-radius:50%;background:#29c740;animation:pulse 2s infinite;flex-shrink:0}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.mock-stat-row{display:flex;gap:10px}
+.mock-stat{flex:1;background:var(--white);border:1px solid var(--line);padding:12px 14px;border-radius:2px}
+.mock-stat-n{font-family:'Playfair Display',serif;font-weight:700;font-size:20px;line-height:1;color:var(--black)}
+.mock-stat-l{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray);margin-top:3px}
+.mock-table{background:var(--white);border:1px solid var(--line);border-radius:2px;overflow:hidden;flex:1}
+.mock-table-head{display:grid;padding:7px 12px;background:var(--off);border-bottom:1px solid var(--line)}
+.mock-table-head span{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray)}
+.mock-row{display:grid;padding:8px 12px;border-bottom:1px solid var(--line);align-items:center}
+.mock-row:last-child{border-bottom:none}
+.mock-cell{font-size:11px;color:var(--mid);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mock-cell.bold{font-weight:500;color:var(--black)}
+.mock-badge{display:inline-block;font-family:'DM Mono',monospace;font-size:8px;padding:2px 6px;border-radius:2px}
+.badge-green{background:#e8f7ec;color:#1a7a36}
+.badge-yellow{background:#fdf6e3;color:#8a6a00}
+
+/* SERVICES */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);border-left:1px solid var(--line)}
+.svc{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:44px 40px;transition:background .2s}
+.svc:hover{background:var(--off)}
+.svc-n{font-family:'DM Mono',monospace;font-size:10px;color:var(--line);margin-bottom:20px}
+.svc-title{font-family:'Playfair Display',serif;font-weight:700;font-size:18px;letter-spacing:-.01em;margin-bottom:12px}
+.svc-desc{font-size:13px;line-height:1.7;color:var(--gray)}
+
+/* CTA */
+.cta{padding:140px 72px;background:var(--black);color:var(--white);text-align:center}
+.cta .sec-label{color:#555}
+.cta h2{font-size:clamp(52px,7vw,108px);color:var(--white);margin-bottom:20px}
+.cta h2 em{color:#444}
+.cta-sub{font-size:16px;color:#666;margin-bottom:48px}
+.cta-email{display:block;font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(22px,3vw,44px);color:var(--white);text-decoration:none;letter-spacing:-.02em;margin-bottom:56px;transition:opacity .2s}
+.cta-email:hover{opacity:.5}
+.cta-row{display:flex;justify-content:center;gap:40px;flex-wrap:wrap}
+.cta-link{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#555;text-decoration:none;transition:color .2s}
+.cta-link:hover{color:var(--white)}
+
+/* FOOTER */
+footer{padding:28px 72px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line)}
+.f-l{font-family:'Playfair Display',serif;font-weight:700;font-size:16px;letter-spacing:-.01em}
+.f-l span{font-style:italic;font-weight:400;color:var(--gray)}
+.f-r{font-family:'DM Mono',monospace;font-size:10px;color:var(--gray);letter-spacing:.1em}
+
+/* REVEAL */
+.r{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.r.on{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  nav{padding:16px 24px}
+  .nav-right a:not(.nav-cta){display:none}
+  .hero{padding:120px 24px 64px}
+  .hero-top{flex-direction:column;gap:16px}
+  .hero-top-right{text-align:left;max-width:100%}
+  .hero-bottom{flex-direction:column;gap:32px;align-items:flex-start}
+  .hero-stats{gap:24px}
+  .hs{text-align:left}
+  .sec{padding:72px 24px}
+  .sec-head{flex-direction:column;align-items:flex-start;gap:12px}
+  .sec-note{text-align:left;max-width:100%}
+  .project{grid-template-columns:1fr}
+  .p-info{border-right:none;border-bottom:1px solid var(--line);padding:36px 24px}
+  .p-screenshot{min-height:220px}
+  .svc-grid{grid-template-columns:1fr}
+  .cta{padding:100px 24px}
+  footer{flex-direction:column;gap:10px;padding:24px;text-align:center}
+}
+</style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="header-inner">
-                <a href="#" class="logo">Platform Brokerage</a>
-                <nav>
-                    <a href="#about">About</a>
-                    <a href="#services">Services</a>
-                    <a href="https://platformbrokerage.com/businesses-for-sale/" target="_blank">Listings</a>
-                    <a href="#contact" class="nav-cta">Contact</a>
-                </nav>
-                <button class="mobile-menu" aria-label="Menu">
-                    <svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
-                        <path d="M4 6h16M4 12h16M4 18h16"/>
-                    </svg>
-                </button>
-            </div>
+
+<nav>
+  <a class="nav-logo" href="#">Sosville<span>.co</span></a>
+  <div class="nav-right">
+    <a href="#work">Work</a>
+    <a href="#services">Services</a>
+    <a href="#contact" class="nav-cta">Start a Project</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-top">
+    <div class="hero-tag">Digital Agency · AI Automation · Custom Platforms</div>
+    <div class="hero-top-right">We build platforms that work while you sleep — automated, intelligent, built to convert.</div>
+  </div>
+  <h1>We build<br>platforms<br>that <em>close deals.</em></h1>
+  <div class="hero-bottom">
+    <p class="hero-desc">From idea to live product — we design, engineer, and automate custom digital platforms for operators, brokers, and marketplaces. Powered by AI. Built to scale.</p>
+    <div class="hero-stats">
+      <div class="hs"><div class="hs-n">$100M+</div><div class="hs-l">Deals Closed</div></div>
+      <div class="hs"><div class="hs-n">65K+</div><div class="hs-l">Listings Live</div></div>
+      <div class="hs"><div class="hs-n">13yr</div><div class="hs-l">Industry Depth</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- WORK -->
+<section id="work" class="sec sec-border">
+  <div class="sec-head r">
+    <div>
+      <div class="sec-label">Our Work</div>
+      <h2>Live Platforms</h2>
+    </div>
+    <div class="sec-note">Every platform we ship runs on automated AI infrastructure. Daily updates. Zero manual maintenance.</div>
+  </div>
+
+  <!-- 01 DealLedger -->
+  <a class="project r" href="https://dealledger.org" target="_blank">
+    <div class="p-info">
+      <div class="p-top">
+        <span class="p-num">01</span>
+        <div class="p-tags"><span class="p-tag">AI Platform</span><span class="p-tag">Open Data</span></div>
+      </div>
+      <div class="p-name">DealLedger</div>
+      <div class="p-url">dealledger.org</div>
+      <p class="p-desc">A public intelligence layer for the business-for-sale market. 65,000+ listings indexed daily with AI quality scoring, days-on-market tracking, and buyer demand signals — scraped from 1,500+ broker sources and updated every morning without human intervention.</p>
+      <div class="p-metrics">
+        <div><div class="pm-n">65K+</div><div class="pm-l">Listings</div></div>
+        <div><div class="pm-n">1,500+</div><div class="pm-l">Sources</div></div>
+        <div><div class="pm-n">Daily</div><div class="pm-l">AI Pipeline</div></div>
+      </div>
+    </div>
+    <div class="p-screen">
+      <div class="b-chrome">
+        <div class="b-dots"><div class="bd bd-r"></div><div class="bd bd-y"></div><div class="bd bd-g"></div></div>
+        <div class="b-addr">dealledger.org</div>
+      </div>
+      <img class="p-screenshot" src="/screenshots/dealledger.jpg" alt="DealLedger">
+    </div>
+  </a>
+
+  <!-- 02 ATM Brokerage -->
+  <a class="project r" href="https://atmbrokerage.com" target="_blank">
+    <div class="p-info">
+      <div class="p-top">
+        <span class="p-num">02</span>
+        <div class="p-tags"><span class="p-tag">Brokerage</span><span class="p-tag">CRM</span><span class="p-tag">AI Agent</span></div>
+      </div>
+      <div class="p-name">ATM Brokerage</div>
+      <div class="p-url">atmbrokerage.com</div>
+      <p class="p-desc">The dominant national marketplace for ATM route businesses — 90% market share, 200+ closed transactions, $100M+ in volume since 2013. Backed by a custom AI-powered CRM with Gmail sync, an AI email agent that drafts replies in the broker's voice, and an automated deal pipeline from seller intake to close.</p>
+      <div class="p-metrics">
+        <div><div class="pm-n">$100M+</div><div class="pm-l">Deal Volume</div></div>
+        <div><div class="pm-n">200+</div><div class="pm-l">Transactions</div></div>
+        <div><div class="pm-n">90%</div><div class="pm-l">Market Share</div></div>
+      </div>
+    </div>
+    <div class="p-screen">
+      <div class="b-chrome">
+        <div class="b-dots"><div class="bd bd-r"></div><div class="bd bd-y"></div><div class="bd bd-g"></div></div>
+        <div class="b-addr">atmbrokerage.com</div>
+      </div>
+      <img class="p-screenshot" src="/screenshots/atmbrokerage.jpg" alt="ATM Brokerage">
+    </div>
+  </a>
+
+  <!-- 03 CleaningExits -->
+  <a class="project r" href="https://cleaningexits.com" target="_blank">
+    <div class="p-info">
+      <div class="p-top">
+        <span class="p-num">03</span>
+        <div class="p-tags"><span class="p-tag">Marketplace</span><span class="p-tag">SEO</span><span class="p-tag">AI</span></div>
+      </div>
+      <div class="p-name">CleaningExits</div>
+      <div class="p-url">cleaningexits.com</div>
+      <p class="p-desc">A vertical acquisition marketplace for the commercial cleaning industry. AI-scored listings, real-time days-on-market badges, direct broker sourcing, and automated weekly buyer digests. Built to rank organically and convert serious buyers — without paid traffic.</p>
+      <div class="p-metrics">
+        <div><div class="pm-n">1K+</div><div class="pm-l">Listings</div></div>
+        <div><div class="pm-n">Weekly</div><div class="pm-l">Buyer Digest</div></div>
+        <div><div class="pm-n">Auto</div><div class="pm-l">Daily Updates</div></div>
+      </div>
+    </div>
+    <div class="p-screen">
+      <div class="b-chrome">
+        <div class="b-dots"><div class="bd bd-r"></div><div class="bd bd-y"></div><div class="bd bd-g"></div></div>
+        <div class="b-addr">cleaningexits.com</div>
+      </div>
+      <img class="p-screenshot" src="/screenshots/cleaningexits.jpg" alt="CleaningExits">
+    </div>
+  </a>
+
+  <!-- 04 ConnectATM -->
+  <a class="project r" href="https://connectatm.com" target="_blank">
+    <div class="p-info">
+      <div class="p-top">
+        <span class="p-num">04</span>
+        <div class="p-tags"><span class="p-tag">E-Commerce</span><span class="p-tag">Automation</span></div>
+      </div>
+      <div class="p-name">ConnectATM</div>
+      <div class="p-url">connectatm.com</div>
+      <p class="p-desc">ATM equipment and wireless services for operators at every scale. Deep CRM integration with ATM Brokerage means every transaction — machine purchase, wireless activation, service call — routes through the same intelligent pipeline and cross-sells automatically.</p>
+      <div class="p-metrics">
+        <div><div class="pm-n">National</div><div class="pm-l">Coverage</div></div>
+        <div><div class="pm-n">Auto</div><div class="pm-l">Cross-Sell</div></div>
+        <div><div class="pm-n">Full</div><div class="pm-l">CRM Sync</div></div>
+      </div>
+    </div>
+    <div class="p-screen">
+      <div class="b-chrome">
+        <div class="b-dots"><div class="bd bd-r"></div><div class="bd bd-y"></div><div class="bd bd-g"></div></div>
+        <div class="b-addr">connectatm.com</div>
+      </div>
+      <img class="p-screenshot" src="/screenshots/connectatm.jpg" alt="ConnectATM">
+    </div>
+  </a>
+
+  <!-- 05 VendingExits — mock UI fallback (site was down during screenshot run) -->
+  <a class="project r" href="https://vendingexits.com" target="_blank">
+    <div class="p-info">
+      <div class="p-top">
+        <span class="p-num">05</span>
+        <div class="p-tags"><span class="p-tag">Marketplace</span><span class="p-tag">Vertical</span></div>
+      </div>
+      <div class="p-name">VendingExits</div>
+      <div class="p-url">vendingexits.com</div>
+      <p class="p-desc">A vertical acquisition marketplace for vending machine businesses — the same infrastructure powering CleaningExits, deployed to a new market in days. AI-scored listings, weekly buyer digest, and no-spam filtering built in. Proof that the playbook scales.</p>
+      <div class="p-metrics">
+        <div><div class="pm-n">486+</div><div class="pm-l">Listings</div></div>
+        <div><div class="pm-n">Weekly</div><div class="pm-l">Buyer Digest</div></div>
+        <div><div class="pm-n">Auto</div><div class="pm-l">AI Scored</div></div>
+      </div>
+    </div>
+    <div class="p-screen">
+      <div class="b-chrome">
+        <div class="b-dots"><div class="bd bd-r"></div><div class="bd bd-y"></div><div class="bd bd-g"></div></div>
+        <div class="b-addr">vendingexits.com</div>
+      </div>
+      <div class="browser-body">
+        <div class="live-badge"><span class="live-dot"></span>486 listings · digest sent this week</div>
+        <div class="mock-stat-row">
+          <div class="mock-stat"><div class="mock-stat-n">486</div><div class="mock-stat-l">Listings</div></div>
+          <div class="mock-stat"><div class="mock-stat-n">Days</div><div class="mock-stat-l">To Deploy</div></div>
+          <div class="mock-stat"><div class="mock-stat-n">∞</div><div class="mock-stat-l">Verticals</div></div>
         </div>
-    </header>
-
-    <main>
-        <section class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <span class="hero-label">Business Brokerage</span>
-                    <h1>Intelligent acquisitions for technology & financial businesses</h1>
-                    <p>Platform Brokerage specializes in the sale of Financial, Technology, and Recurring Revenue based businesses. We guide owners and buyers through every step of the transaction.</p>
-                    <div class="hero-buttons">
-                        <a href="https://platformbrokerage.com/businesses-for-sale/" target="_blank" class="btn btn-primary">
-                            View Listings
-                            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                        </a>
-                        <a href="#contact" class="btn btn-secondary">Get in Touch</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="stats">
-            <div class="container">
-                <div class="stats-grid">
-                    <div class="stat">
-                        <div class="stat-value">20+</div>
-                        <div class="stat-label">Years Experience</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-value">$10M+</div>
-                        <div class="stat-label">Brokered Annually</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-value">100%</div>
-                        <div class="stat-label">Client Focused</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-value">CO</div>
-                        <div class="stat-label">Licensed Broker</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="about" class="about">
-            <div class="container">
-                <div class="about-grid">
-                    <div class="about-content">
-                        <span class="section-label">About</span>
-                        <h2 class="section-title">Trusted expertise in business brokerage</h2>
-                        <p>Platform Brokerage handles the sale of platforms in the tech industry—from large IT, MSPs, SaaS companies and other online businesses.</p>
-                        <p>We separate ourselves from the pack by providing business buyers and sellers with all the insights needed to make sound decisions. We pride ourselves on honesty, reliability, and dedication to helping clients fully understand the process.</p>
-                        <p>With deep knowledge of financial and technology business landscapes, we're fully prepared to assist clients in successfully navigating transactions.</p>
-                        <div class="founder-info">
-                            <h4>John Sosville</h4>
-                            <span>Founder & Broker</span>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <section id="services">
-            <div class="container">
-                <span class="section-label">Services</span>
-                <h2 class="section-title">How we can help</h2>
-                <p class="section-desc">Whether you're looking to buy or sell, Platform Brokerage provides expert guidance through every step.</p>
-                
-                <div class="services-grid">
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <svg viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-                        </div>
-                        <h3>Buying a Business</h3>
-                        <p>We'll work with you to identify a platform or company that fits your financial requirements and strategic goals.</p>
-                        <ul class="service-list">
-                            <li>Identify businesses matching your criteria</li>
-                            <li>Comprehensive financial analysis</li>
-                            <li>Due diligence support</li>
-                            <li>Negotiation assistance</li>
-                        </ul>
-                        <a href="https://platformbrokerage.com/buying/" target="_blank" class="link-arrow">
-                            Learn more
-                            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                        </a>
-                    </div>
-                    
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <svg viewBox="0 0 24 24"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                        </div>
-                        <h3>Selling Your Business</h3>
-                        <p>We offer expertise to properly manage the sale of your platform or privately owned business.</p>
-                        <ul class="service-list">
-                            <li>Professional sales package creation</li>
-                            <li>Custom marketing plan</li>
-                            <li>Industry-standard valuation</li>
-                            <li>Confidential consultation</li>
-                        </ul>
-                        <a href="https://platformbrokerage.com/selling/" target="_blank" class="link-arrow">
-                            Learn more
-                            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="cta">
-            <div class="container">
-                <div class="cta-inner">
-                    <h2>Ready to get started?</h2>
-                    <p>Schedule a free, confidential consultation to discuss your business buying or selling goals.</p>
-                    <a href="https://platformbrokerage.com/contact/" target="_blank" class="btn btn-primary">Schedule Consultation</a>
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-                            <a href="tel:+17204456431">+1 720-445-6431</a>
-                        </div>
-                        <div class="contact-item">
-                            <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                            <a href="mailto:jesosx@gmail.com">jesosx@gmail.com</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <a href="#" class="logo" style="color: var(--white);">Platform Brokerage</a>
-                    <p>Specializing in the sale of Financial, Technology and Recurring Revenue based businesses in Colorado and beyond.</p>
-                </div>
-                <div class="footer-col">
-                    <h4>Navigation</h4>
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Services</h4>
-                    <ul>
-                        <li><a href="https://platformbrokerage.com/buying/" target="_blank">Buying</a></li>
-                        <li><a href="https://platformbrokerage.com/selling/" target="_blank">Selling</a></li>
-                        <li><a href="https://platformbrokerage.com/businesses-for-sale/" target="_blank">Listings</a></li>
-                        <li><a href="https://platformbrokerage.com/faq/" target="_blank">FAQ</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Contact</h4>
-                    <ul>
-                        <li><a href="tel:+17204456431">+1 720-445-6431</a></li>
-                        <li><a href="mailto:jesosx@gmail.com">jesosx@gmail.com</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>© 2025 Platform Brokerage. All rights reserved.</p>
-                <div class="social-links">
-                    <a href="#" aria-label="LinkedIn">
-                        <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                    </a>
-                    <a href="#" aria-label="Twitter">
-                        <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                    </a>
-                </div>
-            </div>
+        <div class="mock-table">
+          <div class="mock-table-head" style="grid-template-columns:2fr 1fr 1fr 60px">
+            <span>Route</span><span>Machines</span><span>Ask</span><span>Score</span>
+          </div>
+          <div class="mock-row" style="grid-template-columns:2fr 1fr 1fr 60px">
+            <div class="mock-cell bold">Vending Route · Houston, TX</div>
+            <div class="mock-cell">38 units</div><div class="mock-cell">$195K</div>
+            <div class="mock-cell"><span class="mock-badge badge-green">High</span></div>
+          </div>
+          <div class="mock-row" style="grid-template-columns:2fr 1fr 1fr 60px">
+            <div class="mock-cell bold">Micro-Market · Portland, OR</div>
+            <div class="mock-cell">12 units</div><div class="mock-cell">$88K</div>
+            <div class="mock-cell"><span class="mock-badge badge-green">High</span></div>
+          </div>
+          <div class="mock-row" style="grid-template-columns:2fr 1fr 1fr 60px">
+            <div class="mock-cell bold">Snack Route · Nashville, TN</div>
+            <div class="mock-cell">24 units</div><div class="mock-cell">$142K</div>
+            <div class="mock-cell"><span class="mock-badge badge-yellow">Med</span></div>
+          </div>
+          <div class="mock-row" style="grid-template-columns:2fr 1fr 1fr 60px">
+            <div class="mock-cell bold">Office Vending · Boston, MA</div>
+            <div class="mock-cell">19 units</div><div class="mock-cell">$115K</div>
+            <div class="mock-cell"><span class="mock-badge badge-green">High</span></div>
+          </div>
         </div>
-    </footer>
+      </div>
+    </div>
+  </a>
+
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="sec sec-border" style="background:var(--off)">
+  <div class="sec-head r">
+    <div>
+      <div class="sec-label">What We Do</div>
+      <h2>Services</h2>
+    </div>
+    <div class="sec-note">We build it once. Then it runs itself.</div>
+  </div>
+  <div class="svc-grid" style="margin-top:40px;border-top:1px solid var(--line)">
+    <div class="svc r"><div class="svc-n">01</div><div class="svc-title">AI Agents & Automation</div><p class="svc-desc">AI that handles email triage, lead qualification, content scoring, and CRM updates — in your voice, without lifting a finger. We wire the right model into your existing workflow and let it run.</p></div>
+    <div class="svc r"><div class="svc-n">02</div><div class="svc-title">Managed Services for Operators</div><p class="svc-desc">For ATM operators of any size who want to grow without adding overhead. We handle installation coordination, wireless provisioning, processor relationships, and ongoing support — so you focus on your route.</p></div>
+    <div class="svc r"><div class="svc-n">03</div><div class="svc-title">Marketing & Lead Generation</div><p class="svc-desc">Targeted outreach to merchants, location owners, and acquisition prospects. Email campaigns, cold sequences, and programmatic SEO that put your business in front of the right people before your competitors do.</p></div>
+    <div class="svc r"><div class="svc-n">04</div><div class="svc-title">Platform & Marketplace Development</div><p class="svc-desc">Fast, SEO-ready platforms on Next.js and Supabase. Each listing gets its own indexed page. Built to rank organically, capture buyer emails, and update itself daily — no manual maintenance.</p></div>
+    <div class="svc r"><div class="svc-n">05</div><div class="svc-title">CRM & Deal Infrastructure</div><p class="svc-desc">Custom CRMs built for the way your business actually works. Gmail sync, deal pipelines, automated follow-up, buyer portals, AI-drafted replies. Not another off-the-shelf subscription you'll outgrow.</p></div>
+    <div class="svc r"><div class="svc-n">06</div><div class="svc-title">Website Redesign & Rebuild</div><p class="svc-desc">If your site was built in a different era, it's costing you deals. We rebuild it fast — modern, mobile, connected to your CRM — and hand you the keys.</p></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="contact" class="cta">
+  <div class="r">
+    <div class="sec-label" style="justify-content:center;display:flex;margin-bottom:28px;">Start a Project</div>
+    <h2>Let's build<br><em>something real.</em></h2>
+    <p class="cta-sub">Tell us what you're working on. We'll tell you how we'd build it.</p>
+    <a class="cta-email" href="mailto:info@sosville.co">info@sosville.co</a>
+    <div class="cta-row">
+      <a class="cta-link" href="https://dealledger.org" target="_blank">DealLedger ↗</a>
+      <a class="cta-link" href="https://cleaningexits.com" target="_blank">CleaningExits ↗</a>
+      <a class="cta-link" href="https://vendingexits.com" target="_blank">VendingExits ↗</a>
+      <a class="cta-link" href="https://atmbrokerage.com" target="_blank">ATM Brokerage ↗</a>
+      <a class="cta-link" href="https://connectatm.com" target="_blank">ConnectATM ↗</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="f-l">Sosville<span>.co</span></div>
+  <div class="f-r">© 2026 Sosville Group · Digital Agency & AI Automation</div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('on'); obs.unobserve(e.target); }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.r').forEach(el => obs.observe(el));
+</script>
 </body>
 </html>
