@@ -59,19 +59,56 @@ h2{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(36px,4vw
 .pm-n{font-family:'Playfair Display',serif;font-weight:700;font-size:24px;line-height:1;letter-spacing:-.01em}
 .pm-l{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray);margin-top:4px}
 
-/* SCREEN MOCKUP */
-.p-screen{background:var(--off);overflow:hidden;display:flex;flex-direction:column}
+/* BROWSER MOCKUP */
+.p-screen{background:var(--off);overflow:hidden;display:flex;flex-direction:column;min-height:520px}
 .b-chrome{background:var(--white);border-bottom:1px solid var(--line);padding:11px 18px;display:flex;align-items:center;gap:10px;flex-shrink:0}
 .b-dots{display:flex;gap:5px}
 .bd{width:10px;height:10px;border-radius:50%}
 .bd-r{background:#fe5f57}.bd-y{background:#febc2e}.bd-g{background:#29c740}
 .b-addr{background:var(--off);border:1px solid var(--line);border-radius:4px;padding:5px 14px;font-family:'DM Mono',monospace;font-size:10px;color:var(--gray);flex:1}
-.p-screenshot{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;flex:1;min-height:480px;transition:transform 6s ease}
-.project:hover .p-screenshot{transform:translateY(-8%)}
 
-/* Fallback gradient when no screenshot yet */
-.p-screenshot-placeholder{flex:1;min-height:480px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--off) 0%,#ececea 100%)}
-.p-screenshot-placeholder span{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--line)}
+/* BROWSER BODY */
+.browser-body{flex:1;padding:24px 24px 28px;display:flex;flex-direction:column;gap:14px;overflow:hidden}
+
+/* Live pulse */
+.live-badge{display:inline-flex;align-items:center;gap:6px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--gray)}
+.live-dot{width:6px;height:6px;border-radius:50%;background:#29c740;animation:pulse 2s infinite;flex-shrink:0}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* Stat row */
+.mock-stat-row{display:flex;gap:10px}
+.mock-stat{flex:1;background:var(--white);border:1px solid var(--line);padding:12px 14px;border-radius:2px}
+.mock-stat-n{font-family:'Playfair Display',serif;font-weight:700;font-size:20px;line-height:1;letter-spacing:-.01em;color:var(--black)}
+.mock-stat-l{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray);margin-top:3px}
+
+/* Table */
+.mock-table{background:var(--white);border:1px solid var(--line);border-radius:2px;overflow:hidden;flex:1}
+.mock-table-head{display:grid;padding:7px 12px;background:var(--off);border-bottom:1px solid var(--line)}
+.mock-table-head span{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray)}
+.mock-row{display:grid;padding:8px 12px;border-bottom:1px solid var(--line);align-items:center}
+.mock-row:last-child{border-bottom:none}
+.mock-cell{font-size:11px;color:var(--mid);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mock-cell.bold{font-weight:500;color:var(--black)}
+.mock-badge{display:inline-block;font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.04em;padding:2px 6px;border-radius:2px}
+.badge-green{background:#e8f7ec;color:#1a7a36}
+.badge-yellow{background:#fdf6e3;color:#8a6a00}
+.badge-gray{background:var(--off);color:var(--gray);border:1px solid var(--line)}
+
+/* Pipeline */
+.mock-pipeline{display:flex;background:var(--white);border:1px solid var(--line);border-radius:2px;overflow:hidden}
+.mock-pipe-stage{flex:1;padding:12px 8px;border-right:1px solid var(--line);text-align:center}
+.mock-pipe-stage:last-child{border-right:none}
+.mock-pipe-n{font-family:'Playfair Display',serif;font-weight:700;font-size:20px;color:var(--black)}
+.mock-pipe-l{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.06em;text-transform:uppercase;color:var(--gray);margin-top:2px}
+
+/* Activity feed */
+.mock-feed{background:var(--white);border:1px solid var(--line);border-radius:2px;overflow:hidden;flex:1}
+.mock-feed-item{display:flex;align-items:flex-start;gap:8px;padding:8px 12px;border-bottom:1px solid var(--line)}
+.mock-feed-item:last-child{border-bottom:none}
+.mock-feed-dot{width:6px;height:6px;border-radius:50%;margin-top:4px;flex-shrink:0}
+.mock-feed-text{font-size:11px;color:var(--mid);line-height:1.4;flex:1}
+.mock-feed-text strong{color:var(--black);font-weight:500}
+.mock-feed-time{font-family:'DM Mono',monospace;font-size:9px;color:var(--gray);flex-shrink:0;padding-top:1px}
 
 /* SERVICES */
 .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);border-left:1px solid var(--line)}
@@ -118,8 +155,7 @@ footer{padding:28px 72px;display:flex;justify-content:space-between;align-items:
   .sec-note{text-align:left;max-width:100%}
   .project{grid-template-columns:1fr}
   .p-info{border-right:none;border-bottom:1px solid var(--line);padding:36px 24px}
-  .p-screen{min-height:220px}
-  .p-screenshot{min-height:260px}
+  .p-screen{min-height:auto}
   .svc-grid{grid-template-columns:1fr}
   .cta{padding:100px 24px}
   footer{flex-direction:column;gap:10px;padding:24px;text-align:center}
@@ -143,26 +179,13 @@ footer{padding:28px 72px;display:flex;justify-content:space-between;align-items:
     <div class="hero-tag">Digital Agency · AI Automation · Custom Platforms</div>
     <div class="hero-top-right">We build platforms that work while you sleep — automated, intelligent, built to convert.</div>
   </div>
-
   <h1>We build<br>platforms<br>that <em>close deals.</em></h1>
-
   <div class="hero-bottom">
-    <p class="hero-desc">
-      From idea to live product — we design, engineer, and automate custom digital platforms for operators, brokers, and marketplaces. Powered by AI. Built to scale.
-    </p>
+    <p class="hero-desc">From idea to live product — we design, engineer, and automate custom digital platforms for operators, brokers, and marketplaces. Powered by AI. Built to scale.</p>
     <div class="hero-stats">
-      <div class="hs">
-        <div class="hs-n">$100M+</div>
-        <div class="hs-l">Deals Closed</div>
-      </div>
-      <div class="hs">
-        <div class="hs-n">65K+</div>
-        <div class="hs-l">Listings Live</div>
-      </div>
-      <div class="hs">
-        <div class="hs-n">13yr</div>
-        <div class="hs-l">Industry Depth</div>
-      </div>
+      <div class="hs"><div class="hs-n">$100M+</div><div class="hs-l">Deals Closed</div></div>
+      <div class="hs"><div class="hs-n">65K+</div><div class="hs-l">Listings Live</div></div>
+      <div class="hs"><div class="hs-n">13yr</div><div class="hs-l">Industry Depth</div></div>
     </div>
   </div>
 </div>
@@ -177,7 +200,7 @@ footer{padding:28px 72px;display:flex;justify-content:space-between;align-items:
     <div class="sec-note">Every platform we ship runs on automated AI infrastructure. Daily updates. Zero manual maintenance.</div>
   </div>
 
-  <!-- DealLedger -->
+  <!-- 01 DealLedger -->
   <a class="project r" href="https://dealledger.org" target="_blank">
     <div class="p-info">
       <div class="p-top">
@@ -198,14 +221,43 @@ footer{padding:28px 72px;display:flex;justify-content:space-between;align-items:
         <div class="b-dots"><div class="bd bd-r"></div><div class="bd bd-y"></div><div class="bd bd-g"></div></div>
         <div class="b-addr">dealledger.org</div>
       </div>
-      <!-- Replace src with your screenshot: e.g. /screenshots/dealledger.png -->
-      <img class="p-screenshot" src="/screenshots/dealledger.png" alt="DealLedger screenshot"
-        onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <div class="p-screenshot-placeholder" style="display:none"><span>dealledger.org</span></div>
+      <div class="browser-body">
+        <div class="live-badge"><span class="live-dot"></span>Pipeline running · last indexed 4 min ago</div>
+        <div class="mock-stat-row">
+          <div class="mock-stat"><div class="mock-stat-n">65,284</div><div class="mock-stat-l">Active Listings</div></div>
+          <div class="mock-stat"><div class="mock-stat-n">1,512</div><div class="mock-stat-l">Broker Sources</div></div>
+          <div class="mock-stat"><div class="mock-stat-n">46%</div><div class="mock-stat-l">Verified</div></div>
+        </div>
+        <div class="mock-table">
+          <div class="mock-table-head" style="grid-template-columns:2fr 1fr 1fr 80px">
+            <span>Business</span><span>Price</span><span>Revenue</span><span>Score</span>
+          </div>
+          <div class="mock-row" style="grid-template-columns:2fr 1fr 1fr 80px">
+            <div class="mock-cell bold">HVAC Route · Denver, CO</div>
+            <div class="mock-cell">$485K</div><div class="mock-cell">$1.2M</div>
+            <div class="mock-cell"><span class="mock-badge badge-green">Verified</span></div>
+          </div>
+          <div class="mock-row" style="grid-template-columns:2fr 1fr 1fr 80px">
+            <div class="mock-cell bold">Laundromat · Phoenix, AZ</div>
+            <div class="mock-cell">$320K</div><div class="mock-cell">$890K</div>
+            <div class="mock-cell"><span class="mock-badge badge-green">Verified</span></div>
+          </div>
+          <div class="mock-row" style="grid-template-columns:2fr 1fr 1fr 80px">
+            <div class="mock-cell bold">Cleaning Co · Austin, TX</div>
+            <div class="mock-cell">$210K</div><div class="mock-cell">$540K</div>
+            <div class="mock-cell"><span class="mock-badge badge-yellow">Likely Real</span></div>
+          </div>
+          <div class="mock-row" style="grid-template-columns:2fr 1fr 1fr 80px">
+            <div class="mock-cell bold">FedEx Route · Seattle, WA</div>
+            <div class="mock-cell">$1.1M</div><div class="mock-cell">$2.4M</div>
+            <div class="mock-cell"><span class="mock-badge badge-green">Verified</span></div>
+          </div>
+        </div>
+      </div>
     </div>
   </a>
 
-  <!-- ATM Brokerage -->
+  <!-- 02 ATM Brokerage -->
   <a class="project r" href="https://atmbrokerage.com" target="_blank">
     <div class="p-info">
       <div class="p-top">
@@ -224,15 +276,43 @@ footer{padding:28px 72px;display:flex;justify-content:space-between;align-items:
     <div class="p-screen">
       <div class="b-chrome">
         <div class="b-dots"><div class="bd bd-r"></div><div class="bd bd-y"></div><div class="bd bd-g"></div></div>
-        <div class="b-addr">atmbrokerage.com</div>
+        <div class="b-addr">atmbrokerage.com · Deal Room</div>
       </div>
-      <img class="p-screenshot" src="/screenshots/atmbrokerage.png" alt="ATM Brokerage screenshot"
-        onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <div class="p-screenshot-placeholder" style="display:none"><span>atmbrokerage.com</span></div>
+      <div class="browser-body">
+        <div class="live-badge"><span class="live-dot"></span>AI Concierge active · 3 drafts queued</div>
+        <div class="mock-pipeline">
+          <div class="mock-pipe-stage"><div class="mock-pipe-n">24</div><div class="mock-pipe-l">New Leads</div></div>
+          <div class="mock-pipe-stage"><div class="mock-pipe-n">11</div><div class="mock-pipe-l">Qualified</div></div>
+          <div class="mock-pipe-stage"><div class="mock-pipe-n">7</div><div class="mock-pipe-l">Under LOI</div></div>
+          <div class="mock-pipe-stage"><div class="mock-pipe-n">3</div><div class="mock-pipe-l">In Escrow</div></div>
+        </div>
+        <div class="mock-feed">
+          <div class="mock-feed-item">
+            <div class="mock-feed-dot" style="background:#29c740"></div>
+            <div class="mock-feed-text"><strong>AI drafted reply</strong> to seller — 12-machine CO route, asking $340K</div>
+            <div class="mock-feed-time">2m ago</div>
+          </div>
+          <div class="mock-feed-item">
+            <div class="mock-feed-dot" style="background:#febc2e"></div>
+            <div class="mock-feed-text"><strong>New seller intake</strong> submitted — 8-machine TX route, SDE $62K</div>
+            <div class="mock-feed-time">18m ago</div>
+          </div>
+          <div class="mock-feed-item">
+            <div class="mock-feed-dot" style="background:#0f0f0f"></div>
+            <div class="mock-feed-text"><strong>Deal closed</strong> — 22-machine FL route · $485,000</div>
+            <div class="mock-feed-time">2h ago</div>
+          </div>
+          <div class="mock-feed-item">
+            <div class="mock-feed-dot" style="background:#29c740"></div>
+            <div class="mock-feed-text"><strong>Buyer matched</strong> to 3 new listings via daily digest</div>
+            <div class="mock-feed-time">6h ago</div>
+          </div>
+        </div>
+      </div>
     </div>
   </a>
 
-  <!-- CleaningExits -->
+  <!-- 03 CleaningExits -->
   <a class="project r" href="https://cleaningexits.com" target="_blank">
     <div class="p-info">
       <div class="p-top">
@@ -253,13 +333,43 @@ footer{padding:28px 72px;display:flex;justify-content:space-between;align-items:
         <div class="b-dots"><div class="bd bd-r"></div><div class="bd bd-y"></div><div class="bd bd-g"></div></div>
         <div class="b-addr">cleaningexits.com</div>
       </div>
-      <img class="p-screenshot" src="/screenshots/cleaningexits.png" alt="CleaningExits screenshot"
-        onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <div class="p-screenshot-placeholder" style="display:none"><span>cleaningexits.com</span></div>
+      <div class="browser-body">
+        <div class="live-badge"><span class="live-dot"></span>Updated today · 1,043 active listings</div>
+        <div class="mock-stat-row">
+          <div class="mock-stat"><div class="mock-stat-n">1,043</div><div class="mock-stat-l">Listings</div></div>
+          <div class="mock-stat"><div class="mock-stat-n">~11</div><div class="mock-stat-l">GSC Position</div></div>
+          <div class="mock-stat"><div class="mock-stat-n">$0</div><div class="mock-stat-l">Paid Traffic</div></div>
+        </div>
+        <div class="mock-table">
+          <div class="mock-table-head" style="grid-template-columns:2fr 1fr 1fr 60px">
+            <span>Company</span><span>Ask</span><span>Contracts</span><span>DOM</span>
+          </div>
+          <div class="mock-row" style="grid-template-columns:2fr 1fr 1fr 60px">
+            <div class="mock-cell bold">Commercial Cleaning · Chicago, IL</div>
+            <div class="mock-cell">$390K</div><div class="mock-cell">14 active</div>
+            <div class="mock-cell"><span class="mock-badge badge-green">12d</span></div>
+          </div>
+          <div class="mock-row" style="grid-template-columns:2fr 1fr 1fr 60px">
+            <div class="mock-cell bold">Janitorial Route · Atlanta, GA</div>
+            <div class="mock-cell">$175K</div><div class="mock-cell">8 active</div>
+            <div class="mock-cell"><span class="mock-badge badge-yellow">34d</span></div>
+          </div>
+          <div class="mock-row" style="grid-template-columns:2fr 1fr 1fr 60px">
+            <div class="mock-cell bold">Residential + Comm · Miami, FL</div>
+            <div class="mock-cell">$225K</div><div class="mock-cell">11 active</div>
+            <div class="mock-cell"><span class="mock-badge badge-green">8d</span></div>
+          </div>
+          <div class="mock-row" style="grid-template-columns:2fr 1fr 1fr 60px">
+            <div class="mock-cell bold">Office Cleaning · Dallas, TX</div>
+            <div class="mock-cell">$310K</div><div class="mock-cell">22 active</div>
+            <div class="mock-cell"><span class="mock-badge badge-gray">61d</span></div>
+          </div>
+        </div>
+      </div>
     </div>
   </a>
 
-  <!-- ConnectATM -->
+  <!-- 04 ConnectATM -->
   <a class="project r" href="https://connectatm.com" target="_blank">
     <div class="p-info">
       <div class="p-top">
@@ -278,15 +388,45 @@ footer{padding:28px 72px;display:flex;justify-content:space-between;align-items:
     <div class="p-screen">
       <div class="b-chrome">
         <div class="b-dots"><div class="bd bd-r"></div><div class="bd bd-y"></div><div class="bd bd-g"></div></div>
-        <div class="b-addr">connectatm.com</div>
+        <div class="b-addr">connectatm.com · Operator Dashboard</div>
       </div>
-      <img class="p-screenshot" src="/screenshots/connectatm.png" alt="ConnectATM screenshot"
-        onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <div class="p-screenshot-placeholder" style="display:none"><span>connectatm.com</span></div>
+      <div class="browser-body">
+        <div class="live-badge"><span class="live-dot"></span>141 active wireless lines · billing synced</div>
+        <div class="mock-stat-row">
+          <div class="mock-stat"><div class="mock-stat-n">141</div><div class="mock-stat-l">Active Lines</div></div>
+          <div class="mock-stat"><div class="mock-stat-n">$3,390</div><div class="mock-stat-l">MRR Wireless</div></div>
+          <div class="mock-stat"><div class="mock-stat-n">Auto</div><div class="mock-stat-l">Cross-Sell</div></div>
+        </div>
+        <div class="mock-table">
+          <div class="mock-table-head" style="grid-template-columns:2fr 1fr 1fr 76px">
+            <span>Terminal</span><span>Carrier</span><span>Monthly</span><span>Status</span>
+          </div>
+          <div class="mock-row" style="grid-template-columns:2fr 1fr 1fr 76px">
+            <div class="mock-cell bold">Nautilus Hyosung 2700</div>
+            <div class="mock-cell">AT&T</div><div class="mock-cell">$24.99</div>
+            <div class="mock-cell"><span class="mock-badge badge-green">Active</span></div>
+          </div>
+          <div class="mock-row" style="grid-template-columns:2fr 1fr 1fr 76px">
+            <div class="mock-cell bold">Triton RL5000</div>
+            <div class="mock-cell">T-Mobile</div><div class="mock-cell">$19.99</div>
+            <div class="mock-cell"><span class="mock-badge badge-green">Active</span></div>
+          </div>
+          <div class="mock-row" style="grid-template-columns:2fr 1fr 1fr 76px">
+            <div class="mock-cell bold">Genmega GT3000</div>
+            <div class="mock-cell">ePay</div><div class="mock-cell">$9.99</div>
+            <div class="mock-cell"><span class="mock-badge badge-yellow">Review</span></div>
+          </div>
+          <div class="mock-row" style="grid-template-columns:2fr 1fr 1fr 76px">
+            <div class="mock-cell bold">Nautilus 1800SE</div>
+            <div class="mock-cell">AT&T</div><div class="mock-cell">$24.99</div>
+            <div class="mock-cell"><span class="mock-badge badge-green">Active</span></div>
+          </div>
+        </div>
+      </div>
     </div>
   </a>
 
-  <!-- VendingExits -->
+  <!-- 05 VendingExits -->
   <a class="project r" href="https://vendingexits.com" target="_blank">
     <div class="p-info">
       <div class="p-top">
@@ -307,9 +447,39 @@ footer{padding:28px 72px;display:flex;justify-content:space-between;align-items:
         <div class="b-dots"><div class="bd bd-r"></div><div class="bd bd-y"></div><div class="bd bd-g"></div></div>
         <div class="b-addr">vendingexits.com</div>
       </div>
-      <img class="p-screenshot" src="/screenshots/vendingexits.png" alt="VendingExits screenshot"
-        onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <div class="p-screenshot-placeholder" style="display:none"><span>vendingexits.com</span></div>
+      <div class="browser-body">
+        <div class="live-badge"><span class="live-dot"></span>486 listings · digest sent this week</div>
+        <div class="mock-stat-row">
+          <div class="mock-stat"><div class="mock-stat-n">486</div><div class="mock-stat-l">Listings</div></div>
+          <div class="mock-stat"><div class="mock-stat-n">Days</div><div class="mock-stat-l">To Deploy</div></div>
+          <div class="mock-stat"><div class="mock-stat-n">∞</div><div class="mock-stat-l">Verticals</div></div>
+        </div>
+        <div class="mock-table">
+          <div class="mock-table-head" style="grid-template-columns:2fr 1fr 1fr 60px">
+            <span>Route</span><span>Machines</span><span>Ask</span><span>Score</span>
+          </div>
+          <div class="mock-row" style="grid-template-columns:2fr 1fr 1fr 60px">
+            <div class="mock-cell bold">Vending Route · Houston, TX</div>
+            <div class="mock-cell">38 units</div><div class="mock-cell">$195K</div>
+            <div class="mock-cell"><span class="mock-badge badge-green">High</span></div>
+          </div>
+          <div class="mock-row" style="grid-template-columns:2fr 1fr 1fr 60px">
+            <div class="mock-cell bold">Micro-Market · Portland, OR</div>
+            <div class="mock-cell">12 units</div><div class="mock-cell">$88K</div>
+            <div class="mock-cell"><span class="mock-badge badge-green">High</span></div>
+          </div>
+          <div class="mock-row" style="grid-template-columns:2fr 1fr 1fr 60px">
+            <div class="mock-cell bold">Snack Route · Nashville, TN</div>
+            <div class="mock-cell">24 units</div><div class="mock-cell">$142K</div>
+            <div class="mock-cell"><span class="mock-badge badge-yellow">Med</span></div>
+          </div>
+          <div class="mock-row" style="grid-template-columns:2fr 1fr 1fr 60px">
+            <div class="mock-cell bold">Office Vending · Boston, MA</div>
+            <div class="mock-cell">19 units</div><div class="mock-cell">$115K</div>
+            <div class="mock-cell"><span class="mock-badge badge-green">High</span></div>
+          </div>
+        </div>
+      </div>
     </div>
   </a>
 
@@ -324,38 +494,13 @@ footer{padding:28px 72px;display:flex;justify-content:space-between;align-items:
     </div>
     <div class="sec-note">We build it once. Then it runs itself.</div>
   </div>
-
   <div class="svc-grid" style="margin-top:40px;border-top:1px solid var(--line)">
-    <div class="svc r">
-      <div class="svc-n">01</div>
-      <div class="svc-title">AI Agents & Automation</div>
-      <p class="svc-desc">AI that handles email triage, lead qualification, content scoring, and CRM updates — in your voice, without lifting a finger. We wire the right model into your existing workflow and let it run.</p>
-    </div>
-    <div class="svc r">
-      <div class="svc-n">02</div>
-      <div class="svc-title">Managed Services for Operators</div>
-      <p class="svc-desc">For ATM operators of any size who want to grow without adding overhead. We handle installation coordination, wireless provisioning, processor relationships, and ongoing support — so you focus on your route.</p>
-    </div>
-    <div class="svc r">
-      <div class="svc-n">03</div>
-      <div class="svc-title">Marketing & Lead Generation</div>
-      <p class="svc-desc">Targeted outreach to merchants, location owners, and acquisition prospects. Email campaigns, cold sequences, and programmatic SEO that put your business in front of the right people before your competitors do.</p>
-    </div>
-    <div class="svc r">
-      <div class="svc-n">04</div>
-      <div class="svc-title">Platform & Marketplace Development</div>
-      <p class="svc-desc">Fast, SEO-ready platforms on Next.js and Supabase. Each listing gets its own indexed page. Built to rank organically, capture buyer emails, and update itself daily — no manual maintenance.</p>
-    </div>
-    <div class="svc r">
-      <div class="svc-n">05</div>
-      <div class="svc-title">CRM & Deal Infrastructure</div>
-      <p class="svc-desc">Custom CRMs built for the way your business actually works. Gmail sync, deal pipelines, automated follow-up, buyer portals, AI-drafted replies. Not another off-the-shelf subscription you'll outgrow.</p>
-    </div>
-    <div class="svc r">
-      <div class="svc-n">06</div>
-      <div class="svc-title">Website Redesign & Rebuild</div>
-      <p class="svc-desc">If your site was built in a different era, it's costing you deals. We rebuild it fast — modern, mobile, connected to your CRM — and hand you the keys.</p>
-    </div>
+    <div class="svc r"><div class="svc-n">01</div><div class="svc-title">AI Agents & Automation</div><p class="svc-desc">AI that handles email triage, lead qualification, content scoring, and CRM updates — in your voice, without lifting a finger. We wire the right model into your existing workflow and let it run.</p></div>
+    <div class="svc r"><div class="svc-n">02</div><div class="svc-title">Managed Services for Operators</div><p class="svc-desc">For ATM operators of any size who want to grow without adding overhead. We handle installation coordination, wireless provisioning, processor relationships, and ongoing support — so you focus on your route.</p></div>
+    <div class="svc r"><div class="svc-n">03</div><div class="svc-title">Marketing & Lead Generation</div><p class="svc-desc">Targeted outreach to merchants, location owners, and acquisition prospects. Email campaigns, cold sequences, and programmatic SEO that put your business in front of the right people before your competitors do.</p></div>
+    <div class="svc r"><div class="svc-n">04</div><div class="svc-title">Platform & Marketplace Development</div><p class="svc-desc">Fast, SEO-ready platforms on Next.js and Supabase. Each listing gets its own indexed page. Built to rank organically, capture buyer emails, and update itself daily — no manual maintenance.</p></div>
+    <div class="svc r"><div class="svc-n">05</div><div class="svc-title">CRM & Deal Infrastructure</div><p class="svc-desc">Custom CRMs built for the way your business actually works. Gmail sync, deal pipelines, automated follow-up, buyer portals, AI-drafted replies. Not another off-the-shelf subscription you'll outgrow.</p></div>
+    <div class="svc r"><div class="svc-n">06</div><div class="svc-title">Website Redesign & Rebuild</div><p class="svc-desc">If your site was built in a different era, it's costing you deals. We rebuild it fast — modern, mobile, connected to your CRM — and hand you the keys.</p></div>
   </div>
 </section>
 
