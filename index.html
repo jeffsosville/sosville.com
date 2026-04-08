@@ -9,32 +9,101 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-:root{--black:#0f0f0f;--white:#ffffff;--off:#f8f8f6;--gray:#999;--mid:#555;--line:#e4e4e4}
+:root{--black:#0f0f0f;--white:#ffffff;--off:#f8f8f6;--gray:#999;--mid:#555;--line:#e4e4e4;--hero-bg:#0A0A0A;--hero-line:#1f1f1f;--hero-gray:#666;--hero-mid:#999;--hero-text:#F5F0E8}
 body{background:var(--white);color:var(--black);font-family:'DM Sans',sans-serif;font-weight:300;overflow-x:hidden}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:22px 72px;background:rgba(255,255,255,.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--line)}
-.nav-logo{font-family:'Playfair Display',serif;font-weight:900;font-size:20px;letter-spacing:-.02em;color:var(--black);text-decoration:none}
-.nav-logo span{font-style:italic;font-weight:400;color:var(--gray)}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:22px 72px;background:rgba(10,10,10,.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--hero-line)}
+.nav-logo{font-family:'Playfair Display',serif;font-weight:900;font-size:20px;letter-spacing:-.02em;color:var(--hero-text);text-decoration:none}
+.nav-logo span{font-style:italic;font-weight:400;color:var(--hero-gray)}
 .nav-right{display:flex;gap:40px;align-items:center}
-.nav-right a{font-family:'DM Sans',sans-serif;font-size:13px;color:var(--gray);text-decoration:none;transition:color .2s}
-.nav-right a:hover{color:var(--black)}
-.nav-cta{font-family:'DM Mono',monospace!important;font-size:10px!important;letter-spacing:.12em!important;text-transform:uppercase!important;background:var(--black)!important;color:var(--white)!important;padding:10px 24px!important;transition:opacity .2s!important}
+.nav-right a{font-family:'DM Sans',sans-serif;font-size:13px;color:var(--hero-gray);text-decoration:none;transition:color .2s}
+.nav-right a:hover{color:var(--hero-text)}
+.nav-cta{font-family:'DM Mono',monospace!important;font-size:10px!important;letter-spacing:.12em!important;text-transform:uppercase!important;background:var(--hero-text)!important;color:var(--hero-bg)!important;padding:10px 24px!important;transition:opacity .2s!important}
 .nav-cta:hover{opacity:.7!important}
 
-/* HERO */
-.hero{min-height:100vh;padding:140px 72px 100px;display:flex;flex-direction:column;justify-content:flex-end;border-bottom:1px solid var(--line);position:relative}
-.hero-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:80px}
-.hero-tag{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gray);padding-top:4px}
-.hero-top-right{font-size:14px;color:var(--gray);max-width:320px;text-align:right;line-height:1.7}
-.hero h1{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(72px,9vw,148px);line-height:.9;letter-spacing:-.03em;margin-bottom:0}
-.hero h1 em{font-style:italic;font-weight:400;color:var(--gray)}
-.hero-bottom{display:flex;justify-content:space-between;align-items:flex-end;margin-top:60px;padding-top:40px;border-top:1px solid var(--line)}
-.hero-desc{font-size:16px;line-height:1.75;color:var(--mid);max-width:420px}
-.hero-stats{display:flex;gap:48px}
+/* HERO — dark, full viewport */
+.hero{
+  min-height:100vh;
+  background:var(--hero-bg);
+  color:var(--hero-text);
+  padding:160px 72px 100px;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  position:relative;
+  border-bottom:1px solid var(--hero-line);
+}
+
+.hero-eyebrow{
+  font-family:'DM Mono',monospace;
+  font-size:10px;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--hero-gray);
+  margin-bottom:72px;
+}
+
+.hero-lines{
+  margin-bottom:80px;
+}
+
+.hero-line-1{
+  font-family:'Playfair Display',serif;
+  font-weight:700;
+  font-style:italic;
+  font-size:clamp(36px,5vw,64px);
+  line-height:1.15;
+  color:var(--hero-text);
+  margin-bottom:32px;
+  opacity:0;
+  transform:translateY(14px);
+  transition:opacity .7s ease, transform .7s ease;
+}
+.hero-line-1.on{opacity:1;transform:none}
+
+.hero-sublines{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+
+.hero-sub{
+  font-family:'DM Sans',sans-serif;
+  font-weight:300;
+  font-size:clamp(15px,1.8vw,22px);
+  color:var(--hero-mid);
+  line-height:1.4;
+  opacity:0;
+  transform:translateY(10px);
+  transition:opacity .6s ease, transform .6s ease;
+}
+.hero-sub.on{opacity:1;transform:none}
+.hero-sub.accent{color:var(--hero-text)}
+.hero-sub.dim{color:var(--hero-gray)}
+
+.hero-bottom{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  padding-top:48px;
+  border-top:1px solid var(--hero-line);
+  opacity:0;
+  transition:opacity .8s ease .6s;
+}
+.hero-bottom.on{opacity:1}
+
+.hero-tagline{
+  font-size:15px;
+  line-height:1.75;
+  color:var(--hero-gray);
+  max-width:400px;
+}
+
+.hero-stats{display:flex;gap:56px}
 .hs{text-align:right}
-.hs-n{font-family:'Playfair Display',serif;font-weight:700;font-size:36px;line-height:1;letter-spacing:-.02em}
-.hs-l{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray);margin-top:4px}
+.hs-n{font-family:'Playfair Display',serif;font-weight:700;font-size:36px;line-height:1;letter-spacing:-.02em;color:var(--hero-text)}
+.hs-l{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--hero-gray);margin-top:4px}
 
 /* SECTIONS */
 .sec{padding:100px 72px}
@@ -68,26 +137,6 @@ h2{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(36px,4vw
 .b-addr{background:var(--off);border:1px solid var(--line);border-radius:4px;padding:5px 14px;font-family:'DM Mono',monospace;font-size:10px;color:var(--gray);flex:1}
 .p-screenshot{width:100%;flex:1;min-height:480px;object-fit:cover;object-position:top center;display:block;transition:transform 6s ease}
 .project:hover .p-screenshot{transform:translateY(-8%)}
-
-/* Mock UI fallback (VendingExits) */
-.browser-body{flex:1;padding:24px;display:flex;flex-direction:column;gap:14px;min-height:480px}
-.live-badge{display:inline-flex;align-items:center;gap:6px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--gray)}
-.live-dot{width:6px;height:6px;border-radius:50%;background:#29c740;animation:pulse 2s infinite;flex-shrink:0}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
-.mock-stat-row{display:flex;gap:10px}
-.mock-stat{flex:1;background:var(--white);border:1px solid var(--line);padding:12px 14px;border-radius:2px}
-.mock-stat-n{font-family:'Playfair Display',serif;font-weight:700;font-size:20px;line-height:1;color:var(--black)}
-.mock-stat-l{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray);margin-top:3px}
-.mock-table{background:var(--white);border:1px solid var(--line);border-radius:2px;overflow:hidden;flex:1}
-.mock-table-head{display:grid;padding:7px 12px;background:var(--off);border-bottom:1px solid var(--line)}
-.mock-table-head span{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray)}
-.mock-row{display:grid;padding:8px 12px;border-bottom:1px solid var(--line);align-items:center}
-.mock-row:last-child{border-bottom:none}
-.mock-cell{font-size:11px;color:var(--mid);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.mock-cell.bold{font-weight:500;color:var(--black)}
-.mock-badge{display:inline-block;font-family:'DM Mono',monospace;font-size:8px;padding:2px 6px;border-radius:2px}
-.badge-green{background:#e8f7ec;color:#1a7a36}
-.badge-yellow{background:#fdf6e3;color:#8a6a00}
 
 /* SERVICES */
 .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);border-left:1px solid var(--line)}
@@ -124,8 +173,6 @@ footer{padding:28px 72px;display:flex;justify-content:space-between;align-items:
   nav{padding:16px 24px}
   .nav-right a:not(.nav-cta){display:none}
   .hero{padding:120px 24px 64px}
-  .hero-top{flex-direction:column;gap:16px}
-  .hero-top-right{text-align:left;max-width:100%}
   .hero-bottom{flex-direction:column;gap:32px;align-items:flex-start}
   .hero-stats{gap:24px}
   .hs{text-align:left}
@@ -152,19 +199,28 @@ footer{padding:28px 72px;display:flex;justify-content:space-between;align-items:
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- HERO — dark -->
 <div class="hero">
-  <div class="hero-top">
-    <div class="hero-tag">Digital Agency · AI Automation · Custom Platforms</div>
-    <div class="hero-top-right">We build platforms that work while you sleep — automated, intelligent, built to convert.</div>
+  <div class="hero-eyebrow">Sosville Group &mdash; Agency &middot; Brokerage &middot; Intelligence</div>
+
+  <div class="hero-lines">
+    <div class="hero-line-1" id="hl1">If you're not selling,<br>you're building.</div>
+    <div class="hero-sublines">
+      <div class="hero-sub accent" id="hs1">We know what buyers pay a premium for.</div>
+      <div class="hero-sub accent" id="hs2">We know what kills deals.</div>
+      <div class="hero-sub accent" id="hs3">We know every mistake — and every shortcut.</div>
+      <div class="hero-sub dim" id="hs4">We've closed 200+ transactions across $100M+.</div>
+      <div class="hero-sub dim" id="hs5">We've seen every number, every operation, every exit.</div>
+      <div class="hero-sub dim" id="hs6">So when we build your business, we build it to win.</div>
+    </div>
   </div>
-  <h1>We build<br>platforms<br>that <em>close deals.</em></h1>
-  <div class="hero-bottom">
-    <p class="hero-desc">From idea to live product — we design, engineer, and automate custom digital platforms for operators, brokers, and marketplaces. Powered by AI. Built to scale.</p>
+
+  <div class="hero-bottom" id="hb">
+    <p class="hero-tagline">From ATM routes to cleaning businesses to vending operations — we grow your business with the exit in mind, and close the deal when you're ready.</p>
     <div class="hero-stats">
       <div class="hs"><div class="hs-n">$100M+</div><div class="hs-l">Deals Closed</div></div>
+      <div class="hs"><div class="hs-n">200+</div><div class="hs-l">Transactions</div></div>
       <div class="hs"><div class="hs-n">65K+</div><div class="hs-l">Listings Live</div></div>
-      <div class="hs"><div class="hs-n">13yr</div><div class="hs-l">Industry Depth</div></div>
     </div>
   </div>
 </div>
@@ -279,7 +335,7 @@ footer{padding:28px 72px;display:flex;justify-content:space-between;align-items:
     </div>
   </a>
 
-  <!-- 05 VendingExits — mock UI fallback (site was down during screenshot run) -->
+  <!-- 05 VendingExits -->
   <a class="project r" href="https://vendingexits.com" target="_blank">
     <div class="p-info">
       <div class="p-top">
@@ -348,12 +404,31 @@ footer{padding:28px 72px;display:flex;justify-content:space-between;align-items:
 </footer>
 
 <script>
+// Scroll reveal for sections below hero
 const obs = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (e.isIntersecting) { e.target.classList.add('on'); obs.unobserve(e.target); }
   });
 }, { threshold: 0.1 });
 document.querySelectorAll('.r').forEach(el => obs.observe(el));
+
+// Hero staggered animation on load
+const delays = [
+  ['hl1',  100],
+  ['hs1',  380],
+  ['hs2',  560],
+  ['hs3',  740],
+  ['hs4',  960],
+  ['hs5', 1140],
+  ['hs6', 1320],
+  ['hb',  1500],
+];
+delays.forEach(([id, ms]) => {
+  setTimeout(() => {
+    const el = document.getElementById(id);
+    if (el) el.classList.add('on');
+  }, ms);
+});
 </script>
 </body>
 </html>
