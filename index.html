@@ -138,6 +138,29 @@ h2{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(36px,4vw
 .p-screenshot{width:100%;flex:1;min-height:480px;object-fit:cover;object-position:top center;display:block;transition:transform 6s ease}
 .project:hover .p-screenshot{transform:translateY(-8%)}
 
+/* EXITSIQ MOCK UI */
+.iq{flex:1;min-height:480px;background:var(--white);padding:30px 28px 24px;display:flex;flex-direction:column}
+.iq-head{display:flex;justify-content:space-between;align-items:baseline;padding-bottom:16px;border-bottom:1px solid var(--line);margin-bottom:0}
+.iq-eyebrow{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--gray)}
+.iq-head-title{font-family:'Playfair Display',serif;font-weight:700;font-style:italic;font-size:15px;letter-spacing:-.01em;color:var(--black)}
+.iq-cols{display:grid;grid-template-columns:1fr 1.05fr 1fr;flex:1}
+.iq-col{padding:20px 18px;border-right:1px solid var(--line);display:flex;flex-direction:column}
+.iq-col:last-child{border-right:none}
+.iq-col.mid{background:var(--off)}
+.iq-when{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray);margin-bottom:6px}
+.iq-h{font-family:'Playfair Display',serif;font-weight:700;font-size:15px;letter-spacing:-.01em;margin-bottom:20px;color:var(--black)}
+.iq-stat{margin-bottom:16px}
+.iq-sl{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:var(--gray);margin-bottom:3px}
+.iq-sv{font-family:'Playfair Display',serif;font-weight:700;font-size:26px;line-height:1;letter-spacing:-.02em;color:var(--black)}
+.iq-col.tgt .iq-sv{color:var(--black)}
+.iq-list{list-style:none;margin-top:2px}
+.iq-list li{font-size:11px;line-height:1.5;color:var(--mid);padding-left:14px;position:relative;margin-bottom:9px}
+.iq-list li::before{content:'';position:absolute;left:0;top:6px;width:5px;height:5px;border:1px solid var(--gray)}
+.iq-bar{margin-top:auto;padding-top:14px}
+.iq-track{height:3px;background:var(--line);position:relative;overflow:hidden}
+.iq-fill{position:absolute;left:0;top:0;bottom:0;background:var(--black)}
+.iq-foot{border-top:1px solid var(--line);padding-top:12px;display:flex;justify-content:space-between;align-items:center;font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray)}
+
 /* SERVICES */
 .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);border-left:1px solid var(--line)}
 .svc{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:44px 40px;transition:background .2s}
@@ -182,6 +205,11 @@ footer{padding:28px 72px;display:flex;justify-content:space-between;align-items:
   .project{grid-template-columns:1fr}
   .p-info{border-right:none;border-bottom:1px solid var(--line);padding:36px 24px}
   .p-screenshot{min-height:220px}
+  .iq{min-height:0;padding:22px 20px 18px}
+  .iq-cols{grid-template-columns:1fr}
+  .iq-col{border-right:none;border-bottom:1px solid var(--line);padding:18px 0}
+  .iq-col:last-child{border-bottom:none}
+  .iq-col.mid{background:transparent}
   .svc-grid{grid-template-columns:1fr}
   .cta{padding:100px 24px}
   footer{flex-direction:column;gap:10px;padding:24px;text-align:center}
@@ -381,7 +409,46 @@ footer{padding:28px 72px;display:flex;justify-content:space-between;align-items:
         <div class="b-dots"><div class="bd bd-r"></div><div class="bd bd-y"></div><div class="bd bd-g"></div></div>
         <div class="b-addr">exitsiq.com</div>
       </div>
-      <img class="p-screenshot" src="/screenshots/exitsiq.jpg" alt="ExitsIQ">
+      <div class="iq">
+        <div class="iq-head">
+          <span class="iq-eyebrow">The Exit Timeline</span>
+          <span class="iq-head-title">Will I be ok?</span>
+        </div>
+        <div class="iq-cols">
+          <div class="iq-col">
+            <div class="iq-when">Today</div>
+            <div class="iq-h">Where you are</div>
+            <div class="iq-stat"><div class="iq-sl">Business Value</div><div class="iq-sv">$1.8M</div></div>
+            <div class="iq-stat"><div class="iq-sl">After-Tax Proceeds</div><div class="iq-sv">$1.35M</div></div>
+            <div class="iq-stat"><div class="iq-sl">Retirement Readiness</div><div class="iq-sv">58%</div></div>
+            <div class="iq-bar"><div class="iq-track"><div class="iq-fill" style="width:58%"></div></div></div>
+          </div>
+          <div class="iq-col mid">
+            <div class="iq-when">12-Month Plan</div>
+            <div class="iq-h">The work</div>
+            <ul class="iq-list">
+              <li>Reduce customer concentration</li>
+              <li>Implement documented SOPs</li>
+              <li>Improve management delegation</li>
+              <li>Complete tax planning</li>
+              <li>Lift readiness to 74%</li>
+            </ul>
+            <div class="iq-bar"><div class="iq-track"><div class="iq-fill" style="width:74%"></div></div></div>
+          </div>
+          <div class="iq-col tgt">
+            <div class="iq-when">36-Month Target</div>
+            <div class="iq-h">Where you're headed</div>
+            <div class="iq-stat"><div class="iq-sl">Estimated Value</div><div class="iq-sv">$2.4M</div></div>
+            <div class="iq-stat"><div class="iq-sl">After-Tax Proceeds</div><div class="iq-sv">$1.9M</div></div>
+            <div class="iq-stat"><div class="iq-sl">Retirement Readiness</div><div class="iq-sv">91%</div></div>
+            <div class="iq-bar"><div class="iq-track"><div class="iq-fill" style="width:91%"></div></div></div>
+          </div>
+        </div>
+        <div class="iq-foot">
+          <span>Comps &mdash; DealLedger</span>
+          <span>Readiness 0&ndash;100</span>
+        </div>
+      </div>
     </div>
   </a>
 
