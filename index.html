@@ -3,524 +3,273 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sosville Group — Digital Agency & Business Brokerage</title>
+<title>Sosville — Brokerage as a service</title>
+<meta name="description" content="Your sellers fill in their own due diligence. Your buyers see a transparency score on every listing. Built and run by the team behind ATM Brokerage.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-:root{--black:#0f0f0f;--white:#ffffff;--off:#f8f8f6;--gray:#999;--mid:#555;--line:#e4e4e4;--hero-bg:#0A0A0A;--hero-line:#1f1f1f;--hero-gray:#666;--hero-mid:#999;--hero-text:#F5F0E8}
-body{background:var(--white);color:var(--black);font-family:'DM Sans',sans-serif;font-weight:300;overflow-x:hidden}
+:root{--ink:#0f0f0f;--paper:#ffffff;--off:#f8f8f6;--gray:#8a8a8a;--mid:#555;--line:#e4e4e4;--night:#0A0A0A;--night-line:#1f1f1f;--night-gray:#7a7a7a;--night-mid:#a3a3a3;--night-text:#F5F0E8;--ok:#1f7a4d;--soon:#9a6408;--no:#5f6672}
+body{background:var(--paper);color:var(--ink);font-family:'DM Sans',sans-serif;font-weight:300;overflow-x:hidden;line-height:1.6}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--night-text);outline-offset:3px}
+.sec :focus-visible{outline-color:var(--ink)}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:22px 72px;background:rgba(10,10,10,.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--hero-line)}
-.nav-logo{font-family:'Playfair Display',serif;font-weight:900;font-size:20px;letter-spacing:-.02em;color:var(--hero-text);text-decoration:none}
-.nav-logo span{font-style:italic;font-weight:400;color:var(--hero-gray)}
-.nav-right{display:flex;gap:40px;align-items:center}
-.nav-right a{font-family:'DM Sans',sans-serif;font-size:13px;color:var(--hero-gray);text-decoration:none;transition:color .2s}
-.nav-right a:hover{color:var(--hero-text)}
-.nav-cta{font-family:'DM Mono',monospace!important;font-size:10px!important;letter-spacing:.12em!important;text-transform:uppercase!important;background:var(--hero-text)!important;color:var(--hero-bg)!important;padding:10px 24px!important;transition:opacity .2s!important}
-.nav-cta:hover{opacity:.7!important}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:20px 72px;background:rgba(10,10,10,.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--night-line)}
+.nav-logo{font-family:'Playfair Display',serif;font-weight:900;font-size:20px;letter-spacing:-.02em;color:var(--night-text);text-decoration:none}
+.nav-logo span{font-style:italic;font-weight:400;color:var(--night-gray)}
+.nav-right{display:flex;gap:36px;align-items:center}
+.nav-right a{font-size:14px;color:var(--night-mid);text-decoration:none;transition:color .2s}
+.nav-right a:hover{color:var(--night-text)}
+.btn{display:inline-block;font-family:'DM Sans',sans-serif;font-weight:600;font-size:14px;text-decoration:none;padding:12px 22px;border-radius:2px;transition:opacity .2s;cursor:pointer;border:none}
+.btn:hover{opacity:.8}
+.btn-light{background:var(--night-text);color:var(--night)}
+.btn-dark{background:var(--ink);color:var(--paper)}
+.nav-right .btn{color:var(--night);padding:10px 18px}
 
-/* HERO — dark, full viewport */
-.hero{
-  min-height:100vh;
-  background:var(--hero-bg);
-  color:var(--hero-text);
-  padding:160px 72px 100px;
-  display:flex;
-  flex-direction:column;
-  justify-content:flex-end;
-  position:relative;
-  border-bottom:1px solid var(--hero-line);
-}
+/* HERO */
+.hero{min-height:100vh;background:var(--night);color:var(--night-text);padding:150px 72px 88px;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:72px;align-items:end;border-bottom:1px solid var(--night-line)}
+.hero h1{font-family:'Playfair Display',serif;font-weight:700;font-style:italic;font-size:clamp(40px,5.4vw,76px);line-height:1.06;letter-spacing:-.015em;max-width:13ch}
+.hero-lead{font-size:clamp(17px,1.6vw,21px);color:var(--night-mid);max-width:34em;margin-top:32px;line-height:1.55}
+.hero-actions{display:flex;gap:24px;align-items:center;margin-top:40px;flex-wrap:wrap}
+.hero-actions .link{font-size:15px;color:var(--night-mid);text-decoration:none;border-bottom:1px solid var(--night-line);padding-bottom:2px}
+.hero-actions .link:hover{color:var(--night-text)}
+.hero-proof{display:flex;gap:44px;margin-top:64px;padding-top:28px;border-top:1px solid var(--night-line)}
+.hp-n{font-family:'Playfair Display',serif;font-weight:700;font-size:34px;line-height:1;letter-spacing:-.02em}
+.hp-l{font-size:13px;color:var(--night-gray);margin-top:6px}
+.reveal{opacity:0;transform:translateY(12px);transition:opacity .8s ease,transform .8s ease}
+.reveal.on{opacity:1;transform:none}
 
-.hero-eyebrow{
-  font-family:'DM Mono',monospace;
-  font-size:10px;
-  letter-spacing:.22em;
-  text-transform:uppercase;
-  color:var(--hero-gray);
-  margin-bottom:72px;
-}
-
-.hero-lines{
-  margin-bottom:80px;
-}
-
-.hero-line-1{
-  font-family:'Playfair Display',serif;
-  font-weight:700;
-  font-style:italic;
-  font-size:clamp(36px,5vw,64px);
-  line-height:1.15;
-  color:var(--hero-text);
-  margin-bottom:32px;
-  opacity:0;
-  transform:translateY(14px);
-  transition:opacity .7s ease, transform .7s ease;
-}
-.hero-line-1.on{opacity:1;transform:none}
-
-.hero-sublines{
-  display:flex;
-  flex-direction:column;
-  gap:6px;
-}
-
-.hero-sub{
-  font-family:'DM Sans',sans-serif;
-  font-weight:300;
-  font-size:clamp(15px,1.8vw,22px);
-  color:var(--hero-mid);
-  line-height:1.4;
-  opacity:0;
-  transform:translateY(10px);
-  transition:opacity .6s ease, transform .6s ease;
-}
-.hero-sub.on{opacity:1;transform:none}
-.hero-sub.accent{color:var(--hero-text)}
-.hero-sub.dim{color:var(--hero-gray)}
-
-.hero-bottom{
-  display:flex;
-  justify-content:space-between;
-  align-items:flex-end;
-  padding-top:48px;
-  border-top:1px solid var(--hero-line);
-  opacity:0;
-  transition:opacity .8s ease .6s;
-}
-.hero-bottom.on{opacity:1}
-
-.hero-tagline{
-  font-size:15px;
-  line-height:1.75;
-  color:var(--hero-gray);
-  max-width:400px;
-}
-
-.hero-stats{display:flex;gap:56px}
-.hs{text-align:right}
-.hs-n{font-family:'Playfair Display',serif;font-weight:700;font-size:36px;line-height:1;letter-spacing:-.02em;color:var(--hero-text)}
-.hs-l{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--hero-gray);margin-top:4px}
+/* PHONE */
+.phone{justify-self:center;width:100%;max-width:300px;border:10px solid #1c1c1c;border-radius:34px;overflow:hidden;background:#fff;box-shadow:0 0 0 1px #2a2a2a}
+.phone img{display:block;width:100%;height:auto}
+.phone-cap{font-size:13px;color:var(--night-gray);text-align:center;margin-top:14px}
 
 /* SECTIONS */
-.sec{padding:100px 72px}
-.sec-border{border-bottom:1px solid var(--line)}
-.sec-head{display:flex;justify-content:space-between;align-items:flex-end;padding-bottom:40px;border-bottom:1px solid var(--line)}
-.sec-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gray);margin-bottom:12px}
-h2{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(36px,4vw,60px);line-height:.95;letter-spacing:-.03em}
-.sec-note{font-size:13px;color:var(--gray);max-width:240px;text-align:right;line-height:1.65}
+.sec{padding:112px 72px;border-bottom:1px solid var(--line)}
+.sec.alt{background:var(--off)}
+.sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:72px;align-items:end;padding-bottom:44px;border-bottom:1px solid var(--line)}
+h2{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(34px,3.8vw,56px);line-height:1;letter-spacing:-.03em;max-width:16ch}
+.sec-lead{font-size:17px;color:var(--mid);max-width:34em}
 
-/* PROJECTS */
-.project{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--line);text-decoration:none;color:inherit;transition:background .2s}
-.project:hover{background:var(--off)}
-.p-info{padding:56px;border-right:1px solid var(--line);display:flex;flex-direction:column}
-.p-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:36px}
-.p-num{font-family:'DM Mono',monospace;font-size:11px;color:var(--line)}
-.p-tags{display:flex;gap:6px}
-.p-tag{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--line);color:var(--gray);padding:3px 9px}
-.p-name{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(28px,2.8vw,44px);line-height:1;letter-spacing:-.02em;margin-bottom:6px}
-.p-url{font-family:'DM Mono',monospace;font-size:11px;color:var(--gray);margin-bottom:24px}
-.p-desc{font-size:14px;line-height:1.75;color:var(--mid);flex:1;margin-bottom:40px}
-.p-metrics{display:flex;gap:32px;margin-top:auto}
-.pm-n{font-family:'Playfair Display',serif;font-weight:700;font-size:24px;line-height:1;letter-spacing:-.01em}
-.pm-l{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray);margin-top:4px}
+/* STEPS (a real sequence) */
+.steps{list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-left:1px solid var(--line)}
+.step{padding:40px 32px 44px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.step-n{font-family:'Playfair Display',serif;font-style:italic;font-size:44px;line-height:1;color:#c9c9c9}
+.step h3{font-family:'Playfair Display',serif;font-weight:700;font-size:21px;letter-spacing:-.01em;margin:22px 0 12px;line-height:1.2}
+.step p{font-size:15px;color:var(--mid)}
+.answers{list-style:none;margin-top:16px;display:grid;gap:8px}
+.answers li{font-size:14px;display:flex;gap:10px;align-items:baseline}
+.dot{flex:none;width:9px;height:9px;border-radius:50%;transform:translateY(1px)}
 
-/* SCREEN MOCKUP */
-.p-screen{background:var(--off);overflow:hidden;display:flex;flex-direction:column}
-.b-chrome{background:var(--white);border-bottom:1px solid var(--line);padding:11px 18px;display:flex;align-items:center;gap:10px;flex-shrink:0}
-.b-dots{display:flex;gap:5px}
-.bd{width:10px;height:10px;border-radius:50%}
-.bd-r{background:#fe5f57}.bd-y{background:#febc2e}.bd-g{background:#29c740}
-.b-addr{background:var(--off);border:1px solid var(--line);border-radius:4px;padding:5px 14px;font-family:'DM Mono',monospace;font-size:10px;color:var(--gray);flex:1}
-.p-screenshot{width:100%;flex:1;min-height:480px;object-fit:cover;object-position:top center;display:block;transition:transform 6s ease}
-.project:hover .p-screenshot{transform:translateY(-8%)}
+/* TOOLKIT */
+.kit{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-left:1px solid var(--line)}
+.kit-item{padding:40px 36px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.kit-item h3{font-family:'Playfair Display',serif;font-weight:700;font-size:20px;letter-spacing:-.01em;margin-bottom:10px}
+.kit-item p{font-size:15px;color:var(--mid)}
 
-/* EXITSIQ MOCK UI */
-.iq{flex:1;min-height:480px;background:var(--white);padding:30px 28px 24px;display:flex;flex-direction:column}
-.iq-head{display:flex;justify-content:space-between;align-items:baseline;padding-bottom:16px;border-bottom:1px solid var(--line);margin-bottom:0}
-.iq-eyebrow{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--gray)}
-.iq-head-title{font-family:'Playfair Display',serif;font-weight:700;font-style:italic;font-size:15px;letter-spacing:-.01em;color:var(--black)}
-.iq-cols{display:grid;grid-template-columns:1fr 1.05fr 1fr;flex:1}
-.iq-col{padding:20px 18px;border-right:1px solid var(--line);display:flex;flex-direction:column}
-.iq-col:last-child{border-right:none}
-.iq-col.mid{background:var(--off)}
-.iq-when{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray);margin-bottom:6px}
-.iq-h{font-family:'Playfair Display',serif;font-weight:700;font-size:15px;letter-spacing:-.01em;margin-bottom:20px;color:var(--black)}
-.iq-stat{margin-bottom:16px}
-.iq-sl{font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:var(--gray);margin-bottom:3px}
-.iq-sv{font-family:'Playfair Display',serif;font-weight:700;font-size:26px;line-height:1;letter-spacing:-.02em;color:var(--black)}
-.iq-col.tgt .iq-sv{color:var(--black)}
-.iq-list{list-style:none;margin-top:2px}
-.iq-list li{font-size:11px;line-height:1.5;color:var(--mid);padding-left:14px;position:relative;margin-bottom:9px}
-.iq-list li::before{content:'';position:absolute;left:0;top:6px;width:5px;height:5px;border:1px solid var(--gray)}
-.iq-bar{margin-top:auto;padding-top:14px}
-.iq-track{height:3px;background:var(--line);position:relative;overflow:hidden}
-.iq-fill{position:absolute;left:0;top:0;bottom:0;background:var(--black)}
-.iq-foot{border-top:1px solid var(--line);padding-top:12px;display:flex;justify-content:space-between;align-items:center;font-family:'DM Mono',monospace;font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray)}
+/* PROOF + DEALLEDGER */
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:72px;align-items:start;margin-top:56px}
+.split p{font-size:17px;color:var(--mid);margin-bottom:18px;max-width:34em}
+.figures{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line)}
+.fig{padding:28px 0 4px}
+.fig-n{font-family:'Playfair Display',serif;font-weight:700;font-size:40px;line-height:1;letter-spacing:-.02em}
+.fig-l{font-size:14px;color:var(--gray);margin-top:8px;padding-right:16px}
+.note{font-size:14px;color:var(--gray);margin-top:28px;max-width:34em}
+.textlink{font-weight:500;border-bottom:1px solid var(--ink);text-decoration:none}
 
-/* SERVICES */
-.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);border-left:1px solid var(--line)}
-.svc{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:44px 40px;transition:background .2s}
-.svc:hover{background:var(--off)}
-.svc-n{font-family:'DM Mono',monospace;font-size:10px;color:var(--line);margin-bottom:20px}
-.svc-title{font-family:'Playfair Display',serif;font-weight:700;font-size:18px;letter-spacing:-.01em;margin-bottom:12px}
-.svc-desc{font-size:13px;line-height:1.7;color:var(--gray)}
+/* PILOT */
+.pilot{padding:128px 72px;background:var(--night);color:var(--night-text)}
+.pilot h2{color:var(--night-text);font-style:italic;font-weight:700;max-width:18ch}
+.pilot .sec-lead{color:var(--night-mid);margin-top:20px}
+.pilot-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:72px;align-items:start}
+form{display:grid;gap:14px}
+label{font-size:14px;color:var(--night-mid);display:grid;gap:6px}
+input,select{font:inherit;font-size:16px;color:var(--night-text);background:#141414;border:1px solid #2c2c2c;border-radius:2px;padding:12px 14px}
+input:focus,select:focus{border-color:var(--night-text);outline:none}
+.form-note{font-size:13px;color:var(--night-gray)}
 
-/* CTA */
-.cta{padding:140px 72px;background:var(--black);color:var(--white);text-align:center}
-.cta .sec-label{color:#555}
-.cta h2{font-size:clamp(52px,7vw,108px);color:var(--white);margin-bottom:20px}
-.cta h2 em{color:#444}
-.cta-sub{font-size:16px;color:#666;margin-bottom:48px}
-.cta-email{display:block;font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(22px,3vw,44px);color:var(--white);text-decoration:none;letter-spacing:-.02em;margin-bottom:56px;transition:opacity .2s}
-.cta-email:hover{opacity:.5}
-.cta-row{display:flex;justify-content:center;gap:40px;flex-wrap:wrap}
-.cta-link{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#555;text-decoration:none;transition:color .2s}
-.cta-link:hover{color:var(--white)}
+/* PLATFORMS */
+.plats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-left:1px solid var(--line);margin-top:0}
+.plat{display:block;padding:32px 32px 36px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);text-decoration:none;transition:background .2s}
+.plat:hover{background:var(--off)}
+.plat-name{font-family:'Playfair Display',serif;font-weight:700;font-size:20px;letter-spacing:-.01em}
+.plat-url{font-size:13px;color:var(--gray);margin:2px 0 12px}
+.plat p{font-size:15px;color:var(--mid)}
 
-/* FOOTER */
-footer{padding:28px 72px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line)}
-.f-l{font-family:'Playfair Display',serif;font-weight:700;font-size:16px;letter-spacing:-.01em}
+footer{padding:28px 72px;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.f-l{font-family:'Playfair Display',serif;font-weight:700;font-size:16px}
 .f-l span{font-style:italic;font-weight:400;color:var(--gray)}
-.f-r{font-family:'DM Mono',monospace;font-size:10px;color:var(--gray);letter-spacing:.1em}
+.f-r{font-size:13px;color:var(--gray)}
 
-/* REVEAL */
-.r{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
-.r.on{opacity:1;transform:none}
-
-/* RESPONSIVE */
+@media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
 @media(max-width:1024px){
-  nav{padding:16px 24px}
-  .nav-right a:not(.nav-cta){display:none}
-  .hero{padding:120px 24px 64px}
-  .hero-bottom{flex-direction:column;gap:32px;align-items:flex-start}
-  .hero-stats{gap:24px}
-  .hs{text-align:left}
-  .sec{padding:72px 24px}
-  .sec-head{flex-direction:column;align-items:flex-start;gap:12px}
-  .sec-note{text-align:left;max-width:100%}
-  .project{grid-template-columns:1fr}
-  .p-info{border-right:none;border-bottom:1px solid var(--line);padding:36px 24px}
-  .p-screenshot{min-height:220px}
-  .iq{min-height:0;padding:22px 20px 18px}
-  .iq-cols{grid-template-columns:1fr}
-  .iq-col{border-right:none;border-bottom:1px solid var(--line);padding:18px 0}
-  .iq-col:last-child{border-bottom:none}
-  .iq-col.mid{background:transparent}
-  .svc-grid{grid-template-columns:1fr}
-  .cta{padding:100px 24px}
-  footer{flex-direction:column;gap:10px;padding:24px;text-align:center}
+  nav{padding:14px 20px}
+  .nav-right a:not(.btn){display:none}
+  .hero{grid-template-columns:1fr;padding:116px 20px 64px;gap:56px}
+  .hero-proof{gap:28px;flex-wrap:wrap}
+  .sec,.pilot{padding:80px 20px}
+  .sec-head,.split,.pilot-grid{grid-template-columns:1fr;gap:24px}
+  .steps{grid-template-columns:1fr 1fr}
+  .kit{grid-template-columns:1fr 1fr}
+  .plats{grid-template-columns:1fr}
+  .figures{grid-template-columns:1fr 1fr 1fr}
+  footer{flex-direction:column;padding:24px 20px;text-align:center}
 }
+@media(max-width:600px){.steps,.kit{grid-template-columns:1fr}.figures{grid-template-columns:1fr}.fig-n{font-size:34px}}
 </style>
 </head>
 <body>
-
 <nav>
   <a class="nav-logo" href="#">Sosville<span>.co</span></a>
   <div class="nav-right">
-    <a href="#work">Work</a>
-    <a href="#services">Services</a>
-    <a href="#contact" class="nav-cta">Start a Project</a>
+    <a href="#how">How it works</a>
+    <a href="#toolkit">What you get</a>
+    <a href="#proof">Our track record</a>
+    <a href="#pilot" class="btn btn-light">Join the broker pilot</a>
   </div>
 </nav>
 
-<!-- HERO — dark -->
-<div class="hero">
-  <div class="hero-eyebrow">Sosville Group &mdash; Agency &middot; Brokerage &middot; Intelligence</div>
-
-  <div class="hero-lines">
-    <div class="hero-line-1" id="hl1">If you're not selling,<br>you're building.</div>
-    <div class="hero-sublines">
-      <div class="hero-sub accent" id="hs1">We know what buyers pay a premium for.</div>
-      <div class="hero-sub accent" id="hs2">We know what buyers walk away from.</div>
-      <div class="hero-sub accent" id="hs3">We know every mistake — and every shortcut.</div>
-      <div class="hero-sub dim" id="hs4">We've closed 200+ transactions across $100M+.</div>
-      <div class="hero-sub dim" id="hs5">We've seen every number, every operation, every exit.</div>
-      <div class="hero-sub dim" id="hs6">So when we build your business, we build it to win.</div>
+<header class="hero">
+  <div>
+    <h1 class="reveal" id="r1">Your sellers fill in their own due diligence.</h1>
+    <p class="hero-lead reveal" id="r2">Send one link. The seller answers every item a buyer will ask about, tells you when the rest is coming, or says they won't provide it. Every listing gets a transparency score your buyers can see, and you stop chasing P&amp;Ls by email.</p>
+    <div class="hero-actions reveal" id="r3">
+      <a href="#pilot" class="btn btn-light">Join the broker pilot</a>
+      <a href="#how" class="link">See how it works</a>
+    </div>
+    <div class="hero-proof reveal" id="r4">
+      <div><div class="hp-n">200+</div><div class="hp-l">deals we've closed ourselves</div></div>
+      <div><div class="hp-n">$100M+</div><div class="hp-l">in transaction volume</div></div>
+      <div><div class="hp-n">27,000+</div><div class="hp-l">listings on DealLedger</div></div>
     </div>
   </div>
+  <figure class="reveal" id="r5">
+    <div class="phone"><img src="/screenshots/seller-portal.jpg" alt="The seller portal on a phone: a listing's file at 47% complete, with Answer, Coming soon and Won't provide buttons on each checklist item" width="390" height="1240"></div>
+    <figcaption class="phone-cap">What your seller sees (sample listing)</figcaption>
+  </figure>
+</header>
 
-  <div class="hero-bottom" id="hb">
-    <p class="hero-tagline">From ATM routes to cleaning businesses to vending operations — we grow your business with the exit in mind, and close the deal when you're ready.</p>
-    <div class="hero-stats">
-      <div class="hs"><div class="hs-n">$100M+</div><div class="hs-l">Deals Closed</div></div>
-      <div class="hs"><div class="hs-n">200+</div><div class="hs-l">Transactions</div></div>
-      <div class="hs"><div class="hs-n">65K+</div><div class="hs-l">Listings Live</div></div>
-    </div>
+<section id="how" class="sec">
+  <div class="sec-head">
+    <h2>One link replaces the due diligence chase.</h2>
+    <p class="sec-lead">It works like a mortgage application. Nothing is left blank, and nobody on your team has to follow up item by item.</p>
   </div>
-</div>
-
-<!-- WORK -->
-<section id="work" class="sec sec-border">
-  <div class="sec-head r">
-    <div>
-      <div class="sec-label">Our Work</div>
-      <h2>Live Platforms</h2>
-    </div>
-    <div class="sec-note">Every platform we ship runs on automated AI infrastructure. Daily updates. Zero manual maintenance.</div>
-  </div>
-
-  <!-- 01 DealLedger -->
-  <a class="project r" href="https://dealledger.org" target="_blank">
-    <div class="p-info">
-      <div class="p-top">
-        <span class="p-num">01</span>
-        <div class="p-tags"><span class="p-tag">AI Platform</span><span class="p-tag">Open Data</span></div>
-      </div>
-      <div class="p-name">DealLedger</div>
-      <div class="p-url">dealledger.org</div>
-      <p class="p-desc">A public intelligence layer for the business-for-sale market. 65,000+ listings indexed daily with AI quality scoring, days-on-market tracking, and buyer demand signals — scraped from 1,500+ broker sources and updated every morning without human intervention.</p>
-      <div class="p-metrics">
-        <div><div class="pm-n">65K+</div><div class="pm-l">Listings</div></div>
-        <div><div class="pm-n">1,500+</div><div class="pm-l">Sources</div></div>
-        <div><div class="pm-n">Daily</div><div class="pm-l">AI Pipeline</div></div>
-      </div>
-    </div>
-    <div class="p-screen">
-      <div class="b-chrome">
-        <div class="b-dots"><div class="bd bd-r"></div><div class="bd bd-y"></div><div class="bd bd-g"></div></div>
-        <div class="b-addr">dealledger.org</div>
-      </div>
-      <img class="p-screenshot" src="/screenshots/dealledger.jpg" alt="DealLedger">
-    </div>
-  </a>
-
-  <!-- 02 ATM Brokerage -->
-  <a class="project r" href="https://atmbrokerage.com" target="_blank">
-    <div class="p-info">
-      <div class="p-top">
-        <span class="p-num">02</span>
-        <div class="p-tags"><span class="p-tag">Brokerage</span><span class="p-tag">CRM</span><span class="p-tag">AI Agent</span></div>
-      </div>
-      <div class="p-name">ATM Brokerage</div>
-      <div class="p-url">atmbrokerage.com</div>
-      <p class="p-desc">The dominant national marketplace for ATM route businesses — 90% market share, 200+ closed transactions, $100M+ in volume since 2013. Backed by a custom AI-powered CRM with Gmail sync, an AI email agent that drafts replies in the broker's voice, and an automated deal pipeline from seller intake to close.</p>
-      <div class="p-metrics">
-        <div><div class="pm-n">$100M+</div><div class="pm-l">Deal Volume</div></div>
-        <div><div class="pm-n">200+</div><div class="pm-l">Transactions</div></div>
-        <div><div class="pm-n">90%</div><div class="pm-l">Market Share</div></div>
-      </div>
-    </div>
-    <div class="p-screen">
-      <div class="b-chrome">
-        <div class="b-dots"><div class="bd bd-r"></div><div class="bd bd-y"></div><div class="bd bd-g"></div></div>
-        <div class="b-addr">atmbrokerage.com</div>
-      </div>
-      <img class="p-screenshot" src="/screenshots/atmbrokerage.jpg" alt="ATM Brokerage">
-    </div>
-  </a>
-
-  <!-- 03 CleaningExits -->
-  <a class="project r" href="https://cleaningexits.com" target="_blank">
-    <div class="p-info">
-      <div class="p-top">
-        <span class="p-num">03</span>
-        <div class="p-tags"><span class="p-tag">Marketplace</span><span class="p-tag">SEO</span><span class="p-tag">AI</span></div>
-      </div>
-      <div class="p-name">CleaningExits</div>
-      <div class="p-url">cleaningexits.com</div>
-      <p class="p-desc">A vertical acquisition marketplace for the commercial cleaning industry. AI-scored listings, real-time days-on-market badges, direct broker sourcing, and automated weekly buyer digests. Built to rank organically and convert serious buyers — without paid traffic.</p>
-      <div class="p-metrics">
-        <div><div class="pm-n">1K+</div><div class="pm-l">Listings</div></div>
-        <div><div class="pm-n">Weekly</div><div class="pm-l">Buyer Digest</div></div>
-        <div><div class="pm-n">Auto</div><div class="pm-l">Daily Updates</div></div>
-      </div>
-    </div>
-    <div class="p-screen">
-      <div class="b-chrome">
-        <div class="b-dots"><div class="bd bd-r"></div><div class="bd bd-y"></div><div class="bd bd-g"></div></div>
-        <div class="b-addr">cleaningexits.com</div>
-      </div>
-      <img class="p-screenshot" src="/screenshots/cleaningexits.jpg" alt="CleaningExits">
-    </div>
-  </a>
-
-  <!-- 04 ConnectATM -->
-  <a class="project r" href="https://connectatm.com" target="_blank">
-    <div class="p-info">
-      <div class="p-top">
-        <span class="p-num">04</span>
-        <div class="p-tags"><span class="p-tag">E-Commerce</span><span class="p-tag">Automation</span></div>
-      </div>
-      <div class="p-name">ConnectATM</div>
-      <div class="p-url">connectatm.com</div>
-      <p class="p-desc">ATM equipment and wireless services for operators at every scale. Deep CRM integration with ATM Brokerage means every transaction — machine purchase, wireless activation, service call — routes through the same intelligent pipeline and cross-sells automatically.</p>
-      <div class="p-metrics">
-        <div><div class="pm-n">National</div><div class="pm-l">Coverage</div></div>
-        <div><div class="pm-n">Auto</div><div class="pm-l">Cross-Sell</div></div>
-        <div><div class="pm-n">Full</div><div class="pm-l">CRM Sync</div></div>
-      </div>
-    </div>
-    <div class="p-screen">
-      <div class="b-chrome">
-        <div class="b-dots"><div class="bd bd-r"></div><div class="bd bd-y"></div><div class="bd bd-g"></div></div>
-        <div class="b-addr">connectatm.com</div>
-      </div>
-      <img class="p-screenshot" src="/screenshots/connectatm.jpg" alt="ConnectATM">
-    </div>
-  </a>
-
-  <!-- 05 VendingExits -->
-  <a class="project r" href="https://vendingexits.com" target="_blank">
-    <div class="p-info">
-      <div class="p-top">
-        <span class="p-num">05</span>
-        <div class="p-tags"><span class="p-tag">Marketplace</span><span class="p-tag">Vertical</span></div>
-      </div>
-      <div class="p-name">VendingExits</div>
-      <div class="p-url">vendingexits.com</div>
-      <p class="p-desc">A vertical acquisition marketplace for vending machine businesses — the same infrastructure powering CleaningExits, deployed to a new market in days. AI-scored listings, weekly buyer digest, and no-spam filtering built in. Proof that the playbook scales.</p>
-      <div class="p-metrics">
-        <div><div class="pm-n">486+</div><div class="pm-l">Listings</div></div>
-        <div><div class="pm-n">Weekly</div><div class="pm-l">Buyer Digest</div></div>
-        <div><div class="pm-n">Auto</div><div class="pm-l">AI Scored</div></div>
-      </div>
-    </div>
-    <div class="p-screen">
-      <div class="b-chrome">
-        <div class="b-dots"><div class="bd bd-r"></div><div class="bd bd-y"></div><div class="bd bd-g"></div></div>
-        <div class="b-addr">vendingexits.com</div>
-      </div>
-      <img class="p-screenshot" src="/screenshots/vendingexits.jpg" alt="VendingExits">
-    </div>
-  </a>
-
-  <!-- 06 ExitsIQ -->
-  <a class="project r" href="https://www.exitsiq.com" target="_blank">
-    <div class="p-info">
-      <div class="p-top">
-        <span class="p-num">06</span>
-        <div class="p-tags"><span class="p-tag">Exit Advisory</span><span class="p-tag">SaaS</span><span class="p-tag">AI</span></div>
-      </div>
-      <div class="p-name">ExitsIQ</div>
-      <div class="p-url">exitsiq.com</div>
-      <p class="p-desc">Financial exit readiness for owners years before they sell. A Signal Engine watches the ten things that quietly move what a business is worth — concentration, leases, debt maturities, comps drift — and surfaces the moment before an owner would think to ask. An AI Chief Exit Officer answers questions against their real numbers, and a 36-month roadmap turns a readiness score into a bigger number at close.</p>
-      <div class="p-metrics">
-        <div><div class="pm-n">0&ndash;100</div><div class="pm-l">Readiness Score</div></div>
-        <div><div class="pm-n">10</div><div class="pm-l">Signals Tracked</div></div>
-        <div><div class="pm-n">24/7</div><div class="pm-l">AI Exit Officer</div></div>
-      </div>
-    </div>
-    <div class="p-screen">
-      <div class="b-chrome">
-        <div class="b-dots"><div class="bd bd-r"></div><div class="bd bd-y"></div><div class="bd bd-g"></div></div>
-        <div class="b-addr">exitsiq.com</div>
-      </div>
-      <div class="iq">
-        <div class="iq-head">
-          <span class="iq-eyebrow">The Exit Timeline</span>
-          <span class="iq-head-title">Will I be ok?</span>
-        </div>
-        <div class="iq-cols">
-          <div class="iq-col">
-            <div class="iq-when">Today</div>
-            <div class="iq-h">Where you are</div>
-            <div class="iq-stat"><div class="iq-sl">Business Value</div><div class="iq-sv">$1.8M</div></div>
-            <div class="iq-stat"><div class="iq-sl">After-Tax Proceeds</div><div class="iq-sv">$1.35M</div></div>
-            <div class="iq-stat"><div class="iq-sl">Retirement Readiness</div><div class="iq-sv">58%</div></div>
-            <div class="iq-bar"><div class="iq-track"><div class="iq-fill" style="width:58%"></div></div></div>
-          </div>
-          <div class="iq-col mid">
-            <div class="iq-when">12-Month Plan</div>
-            <div class="iq-h">The work</div>
-            <ul class="iq-list">
-              <li>Reduce customer concentration</li>
-              <li>Implement documented SOPs</li>
-              <li>Improve management delegation</li>
-              <li>Complete tax planning</li>
-              <li>Lift readiness to 74%</li>
-            </ul>
-            <div class="iq-bar"><div class="iq-track"><div class="iq-fill" style="width:74%"></div></div></div>
-          </div>
-          <div class="iq-col tgt">
-            <div class="iq-when">36-Month Target</div>
-            <div class="iq-h">Where you're headed</div>
-            <div class="iq-stat"><div class="iq-sl">Estimated Value</div><div class="iq-sv">$2.4M</div></div>
-            <div class="iq-stat"><div class="iq-sl">After-Tax Proceeds</div><div class="iq-sv">$1.9M</div></div>
-            <div class="iq-stat"><div class="iq-sl">Retirement Readiness</div><div class="iq-sv">91%</div></div>
-            <div class="iq-bar"><div class="iq-track"><div class="iq-fill" style="width:91%"></div></div></div>
-          </div>
-        </div>
-        <div class="iq-foot">
-          <span>Comps &mdash; DealLedger</span>
-          <span>Readiness 0&ndash;100</span>
-        </div>
-      </div>
-    </div>
-  </a>
-
+  <ol class="steps">
+    <li class="step">
+      <div class="step-n">1</div>
+      <h3>Send the seller one link</h3>
+      <p>From your CRM, one click emails the seller a private page for their listing. No login, works on a phone, and they can come back to it any time.</p>
+    </li>
+    <li class="step">
+      <div class="step-n">2</div>
+      <h3>Every item gets an answer</h3>
+      <p>For each checklist item the seller picks one:</p>
+      <ul class="answers">
+        <li><span class="dot" style="background:var(--ok)"></span>The answer, or a file</li>
+        <li><span class="dot" style="background:var(--soon)"></span>Coming soon, with a date</li>
+        <li><span class="dot" style="background:var(--no)"></span>Won't provide</li>
+      </ul>
+    </li>
+    <li class="step">
+      <div class="step-n">3</div>
+      <h3>The listing gets a score</h3>
+      <p>Answered items count fully, partial answers half, and "won't provide" a third. At 70% your listing page shows buyers a transparency badge.</p>
+    </li>
+    <li class="step">
+      <div class="step-n">4</div>
+      <h3>Buyers get answers without you</h3>
+      <p>The answers feed your deal room and draft your replies to buyer emails. NDA-level facts only go to buyers who have signed.</p>
+    </li>
+  </ol>
 </section>
 
-<!-- SERVICES -->
-<section id="services" class="sec sec-border" style="background:var(--off)">
-  <div class="sec-head r">
-    <div>
-      <div class="sec-label">What We Do</div>
-      <h2>Services</h2>
-    </div>
-    <div class="sec-note">We build it once. Then it runs itself.</div>
+<section id="toolkit" class="sec alt">
+  <div class="sec-head">
+    <h2>Everything we run our own brokerage on.</h2>
+    <p class="sec-lead">The same system ATM Brokerage uses every day, set up for your listings and your inbox. Start with the seller portal, or take the whole stack.</p>
   </div>
-  <div class="svc-grid" style="margin-top:40px;border-top:1px solid var(--line)">
-    <div class="svc r"><div class="svc-n">01</div><div class="svc-title">AI Agents & Automation</div><p class="svc-desc">AI that handles email triage, lead qualification, content scoring, and CRM updates — in your voice, without lifting a finger. We wire the right model into your existing workflow and let it run.</p></div>
-    <div class="svc r"><div class="svc-n">02</div><div class="svc-title">Managed Services for Operators</div><p class="svc-desc">For ATM operators of any size who want to grow without adding overhead. We handle installation coordination, wireless provisioning, processor relationships, and ongoing support — so you focus on your route.</p></div>
-    <div class="svc r"><div class="svc-n">03</div><div class="svc-title">Marketing & Lead Generation</div><p class="svc-desc">Targeted outreach to merchants, location owners, and acquisition prospects. Email campaigns, cold sequences, and programmatic SEO that put your business in front of the right people before your competitors do.</p></div>
-    <div class="svc r"><div class="svc-n">04</div><div class="svc-title">Platform & Marketplace Development</div><p class="svc-desc">Fast, SEO-ready platforms on Next.js and Supabase. Each listing gets its own indexed page. Built to rank organically, capture buyer emails, and update itself daily — no manual maintenance.</p></div>
-    <div class="svc r"><div class="svc-n">05</div><div class="svc-title">CRM & Deal Infrastructure</div><p class="svc-desc">Custom CRMs built for the way your business actually works. Gmail sync, deal pipelines, automated follow-up, buyer portals, AI-drafted replies. Not another off-the-shelf subscription you'll outgrow.</p></div>
-    <div class="svc r"><div class="svc-n">06</div><div class="svc-title">Website Redesign & Rebuild</div><p class="svc-desc">If your site was built in a different era, it's costing you deals. We rebuild it fast — modern, mobile, connected to your CRM — and hand you the keys.</p></div>
+  <div class="kit">
+    <div class="kit-item"><h3>Seller due diligence portal</h3><p>Weighted checklists by industry, file uploads, "coming soon" dates the system tracks, and a transparency score on every listing.</p></div>
+    <div class="kit-item"><h3>Your website and listing pages</h3><p>A fast, mobile broker site with listing pages that stay current on their own and carry your transparency badge.</p></div>
+    <div class="kit-item"><h3>NDA automation</h3><p>Buyers sign online, get into the right deal room right away, and get a follow-up sequence if they go quiet.</p></div>
+    <div class="kit-item"><h3>Deal rooms</h3><p>One NDA-gated room per listing with the files, the answers and who has looked at what.</p></div>
+    <div class="kit-item"><h3>A smart agent for buyers</h3><p>Answers buyer questions in the deal room from the seller's own answers. Offers, pricing and anything it can't answer come to you.</p></div>
+    <div class="kit-item"><h3>Email automation</h3><p>Every buyer email gets a reply drafted in your Gmail, in your voice. Marketplace leads get answered within minutes. It learns from what you send.</p></div>
+    <div class="kit-item"><h3>A CRM built for brokers</h3><p>Marketplace leads, website forms, chat and NDA signatures in one queue, with one record per buyer and seller.</p></div>
+    <div class="kit-item"><h3>Your listings on DealLedger</h3><p>Listed on the open public record of businesses for sale, with true days on market, at no cost.</p></div>
   </div>
 </section>
 
-<!-- CTA -->
-<section id="contact" class="cta">
-  <div class="r">
-    <div class="sec-label" style="justify-content:center;display:flex;margin-bottom:28px;">Start a Project</div>
-    <h2>Let's build<br><em>something real.</em></h2>
-    <p class="cta-sub">Tell us what you're working on. We'll tell you how we'd build it.</p>
-    <a class="cta-email" href="mailto:info@sosville.co">info@sosville.co</a>
-    <div class="cta-row">
-      <a class="cta-link" href="https://dealledger.org" target="_blank">DealLedger &#8599;</a>
-      <a class="cta-link" href="https://cleaningexits.com" target="_blank">CleaningExits &#8599;</a>
-      <a class="cta-link" href="https://vendingexits.com" target="_blank">VendingExits &#8599;</a>
-      <a class="cta-link" href="https://www.exitsiq.com" target="_blank">ExitsIQ &#8599;</a>
-      <a class="cta-link" href="https://atmbrokerage.com" target="_blank">ATM Brokerage &#8599;</a>
-      <a class="cta-link" href="https://connectatm.com" target="_blank">ConnectATM &#8599;</a>
+<section id="proof" class="sec">
+  <div class="sec-head">
+    <h2>Built by brokers who still close deals.</h2>
+    <p class="sec-lead">We didn't build this for a pitch deck. We built it because chasing sellers for P&amp;Ls was costing us deals.</p>
+  </div>
+  <div class="split">
+    <div>
+      <div class="figures">
+        <div class="fig"><div class="fig-n">200+</div><div class="fig-l">ATM route transactions closed</div></div>
+        <div class="fig"><div class="fig-n">$100M+</div><div class="fig-l">total deal volume</div></div>
+        <div class="fig"><div class="fig-n">~90%</div><div class="fig-l">of the U.S. ATM route market</div></div>
+      </div>
+      <p class="note">ATM Brokerage is moving its own listings onto the seller portal now. Vending and cleaning listings on VendingExits and CleaningExits come next.</p>
     </div>
+    <div>
+      <p>Your listings are probably already on <a class="textlink" href="https://dealledger.org" target="_blank" rel="noopener">DealLedger</a>, the free, open record of small businesses for sale in the U.S. It tracks more than 27,000 listings from over 660 broker websites, with true days on market and relist history.</p>
+      <p>DealLedger's data is open (CC0) and stays that way. Our own marketplaces get no special treatment in it.</p>
+    </div>
+  </div>
+</section>
+
+<section id="pilot" class="pilot">
+  <div class="pilot-grid">
+    <div>
+      <h2>We're taking a few brokers into the pilot.</h2>
+      <p class="sec-lead">Small and mid-size Main Street brokers first. We set it up on a handful of your live listings, you send the links, and we look at the results together.</p>
+    </div>
+    <form id="pilot-form">
+      <label>Your name<input name="name" autocomplete="name" required></label>
+      <label>Brokerage<input name="firm" autocomplete="organization" required></label>
+      <label>Email<input name="email" type="email" autocomplete="email" required></label>
+      <label>Active listings right now
+        <select name="listings"><option>1–10</option><option>11–25</option><option>26–50</option><option>More than 50</option></select>
+      </label>
+      <button class="btn btn-light" type="submit">Join the broker pilot</button>
+      <p class="form-note">This opens an email to info@sosville.co with your details filled in. Or just write to us.</p>
+    </form>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="plat-h">
+  <div class="sec-head">
+    <h2 id="plat-h">Sosville Group</h2>
+    <p class="sec-lead">The businesses this is built from.</p>
+  </div>
+  <div class="plats">
+    <a class="plat" href="https://atmbrokerage.com" target="_blank" rel="noopener"><div class="plat-name">ATM Brokerage</div><div class="plat-url">atmbrokerage.com</div><p>The national brokerage for ATM route businesses.</p></a>
+    <a class="plat" href="https://dealledger.org" target="_blank" rel="noopener"><div class="plat-name">DealLedger</div><div class="plat-url">dealledger.org</div><p>Open public record of businesses for sale, straight from broker websites.</p></a>
+    <a class="plat" href="https://www.exitsiq.com" target="_blank" rel="noopener"><div class="plat-name">ExitsIQ</div><div class="plat-url">exitsiq.com</div><p>Exit readiness for owners years before they sell.</p></a>
+    <a class="plat" href="https://vendingexits.com" target="_blank" rel="noopener"><div class="plat-name">VendingExits</div><div class="plat-url">vendingexits.com</div><p>Buying and selling vending route businesses.</p></a>
+    <a class="plat" href="https://cleaningexits.com" target="_blank" rel="noopener"><div class="plat-name">CleaningExits</div><div class="plat-url">cleaningexits.com</div><p>Buying and selling commercial cleaning businesses.</p></a>
+    <a class="plat" href="https://connectatm.com" target="_blank" rel="noopener"><div class="plat-name">ConnectATM</div><div class="plat-url">connectatm.com</div><p>ATM equipment and wireless for operators.</p></a>
   </div>
 </section>
 
 <footer>
   <div class="f-l">Sosville<span>.co</span></div>
-  <div class="f-r">© 2026 Sosville Group · Digital Agency & Business Brokerage</div>
+  <div class="f-r">© 2026 Sosville Group · <a href="mailto:info@sosville.co">info@sosville.co</a></div>
 </footer>
 
 <script>
-// Scroll reveal for sections below hero
-const obs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) { e.target.classList.add('on'); obs.unobserve(e.target); }
-  });
-}, { threshold: 0.1 });
-document.querySelectorAll('.r').forEach(el => obs.observe(el));
-
-// Hero staggered animation on load
-const delays = [
-  ['hl1',  100],
-  ['hs1',  380],
-  ['hs2',  560],
-  ['hs3',  740],
-  ['hs4',  960],
-  ['hs5', 1140],
-  ['hs6', 1320],
-  ['hb',  1500],
-];
-delays.forEach(([id, ms]) => {
-  setTimeout(() => {
-    const el = document.getElementById(id);
-    if (el) el.classList.add('on');
-  }, ms);
+['r1','r2','r3','r4','r5'].forEach(function(id,i){setTimeout(function(){var el=document.getElementById(id);if(el)el.classList.add('on');},120+i*160);});
+document.getElementById('pilot-form').addEventListener('submit',function(e){
+  e.preventDefault();
+  var f=e.target, v=function(n){return (f.elements[n].value||'').trim();};
+  var body='Name: '+v('name')+'\nBrokerage: '+v('firm')+'\nEmail: '+v('email')+'\nActive listings: '+v('listings')+'\n';
+  window.location.href='mailto:info@sosville.co?subject='+encodeURIComponent('Broker pilot: '+v('firm'))+'&body='+encodeURIComponent(body);
 });
 </script>
 </body>
