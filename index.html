@@ -7,129 +7,13 @@
 <meta name="description" content="Websites, CRM, email automation, NDAs, deal rooms, a smart buyer agent and seller due diligence for business brokers. Built and run by the team behind ATM Brokerage.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-:root{--ink:#0f0f0f;--paper:#ffffff;--off:#f8f8f6;--gray:#8a8a8a;--mid:#555;--line:#e4e4e4;--night:#0A0A0A;--night-line:#1f1f1f;--night-gray:#7a7a7a;--night-mid:#a3a3a3;--night-text:#F5F0E8;--ok:#1f7a4d;--soon:#9a6408;--no:#5f6672}
-body{background:var(--paper);color:var(--ink);font-family:'DM Sans',sans-serif;font-weight:300;overflow-x:hidden;line-height:1.6}
-a{color:inherit}
-:focus-visible{outline:2px solid var(--night-text);outline-offset:3px}
-.sec :focus-visible{outline-color:var(--ink)}
-
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:20px 72px;background:rgba(10,10,10,.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--night-line)}
-.nav-logo{font-family:'Playfair Display',serif;font-weight:900;font-size:20px;letter-spacing:-.02em;color:var(--night-text);text-decoration:none}
-.nav-logo span{font-style:italic;font-weight:400;color:var(--night-gray)}
-.nav-right{display:flex;gap:36px;align-items:center}
-.nav-right a{font-size:14px;color:var(--night-mid);text-decoration:none;transition:color .2s}
-.nav-right a:hover{color:var(--night-text)}
-.btn{display:inline-block;font-family:'DM Sans',sans-serif;font-weight:600;font-size:14px;text-decoration:none;padding:12px 22px;border-radius:2px;transition:opacity .2s;cursor:pointer;border:none}
-.btn:hover{opacity:.8}
-.btn-light{background:var(--night-text);color:var(--night)}
-.btn-dark{background:var(--ink);color:var(--paper)}
-.nav-right .btn{color:var(--night);padding:10px 18px}
-
-/* HERO */
-.hero{min-height:100vh;background:var(--night);color:var(--night-text);padding:150px 72px 88px;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:72px;align-items:end;border-bottom:1px solid var(--night-line)}
-.hero h1{font-family:'Playfair Display',serif;font-weight:700;font-style:italic;font-size:clamp(40px,5.4vw,76px);line-height:1.06;letter-spacing:-.015em;max-width:13ch}
-.hero-lead{font-size:clamp(17px,1.6vw,21px);color:var(--night-mid);max-width:34em;margin-top:32px;line-height:1.55}
-.hero-actions{display:flex;gap:24px;align-items:center;margin-top:40px;flex-wrap:wrap}
-.hero-actions .link{font-size:15px;color:var(--night-mid);text-decoration:none;border-bottom:1px solid var(--night-line);padding-bottom:2px}
-.hero-actions .link:hover{color:var(--night-text)}
-.hero-proof{display:flex;gap:44px;margin-top:64px;padding-top:28px;border-top:1px solid var(--night-line)}
-.hp-n{font-family:'Playfair Display',serif;font-weight:700;font-size:34px;line-height:1;letter-spacing:-.02em}
-.hp-l{font-size:13px;color:var(--night-gray);margin-top:6px}
-.reveal{opacity:0;transform:translateY(12px);transition:opacity .8s ease,transform .8s ease}
-.reveal.on{opacity:1;transform:none}
-
-
-/* FLOW (hero) */
-.flow{list-style:none;border-top:1px solid var(--night-line);align-self:end}
-.flow li{display:grid;grid-template-columns:96px minmax(0,1fr);gap:16px;padding:16px 0;border-bottom:1px solid var(--night-line);align-items:baseline}
-.flow-k{font-family:'Playfair Display',serif;font-style:italic;font-size:19px;color:var(--night-text)}
-.flow-v{font-size:15px;color:var(--night-mid)}
-.flow-you .flow-k,.flow-you .flow-v{color:var(--night-gray)}
-
-
-/* SECTIONS */
-.sec{padding:112px 72px;border-bottom:1px solid var(--line)}
-.sec.alt{background:var(--off)}
-.sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:72px;align-items:end;padding-bottom:44px;border-bottom:1px solid var(--line)}
-h2{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(34px,3.8vw,56px);line-height:1;letter-spacing:-.03em;max-width:16ch}
-.sec-lead{font-size:17px;color:var(--mid);max-width:34em}
-
-/* STEPS (a real sequence) */
-.steps{list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-left:1px solid var(--line)}
-.step{padding:40px 32px 44px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
-.step-n{font-family:'Playfair Display',serif;font-style:italic;font-size:44px;line-height:1;color:#c9c9c9}
-.step h3{font-family:'Playfair Display',serif;font-weight:700;font-size:21px;letter-spacing:-.01em;margin:22px 0 12px;line-height:1.2}
-.step p{font-size:15px;color:var(--mid)}
-.answers{list-style:none;margin-top:16px;display:grid;gap:8px}
-.answers li{font-size:14px;display:flex;gap:10px;align-items:baseline}
-.dot{flex:none;width:9px;height:9px;border-radius:50%;transform:translateY(1px)}
-
-/* TOOLKIT */
-.kit{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-left:1px solid var(--line)}
-.kit-item{padding:40px 36px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
-.kit-item h3{font-family:'Playfair Display',serif;font-weight:700;font-size:20px;letter-spacing:-.01em;margin-bottom:10px}
-.kit-item p{font-size:15px;color:var(--mid)}
-
-/* PROOF + DEALLEDGER */
-.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:72px;align-items:start;margin-top:56px}
-.split p{font-size:17px;color:var(--mid);margin-bottom:18px;max-width:34em}
-.figures{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line)}
-.fig{padding:28px 0 4px}
-.fig-n{font-family:'Playfair Display',serif;font-weight:700;font-size:40px;line-height:1;letter-spacing:-.02em}
-.fig-l{font-size:14px;color:var(--gray);margin-top:8px;padding-right:16px}
-.note{font-size:14px;color:var(--gray);margin-top:28px;max-width:34em}
-.textlink{font-weight:500;border-bottom:1px solid var(--ink);text-decoration:none}
-
-/* PILOT */
-.pilot{padding:128px 72px;background:var(--night);color:var(--night-text)}
-.pilot h2{color:var(--night-text);font-style:italic;font-weight:700;max-width:18ch}
-.pilot .sec-lead{color:var(--night-mid);margin-top:20px}
-.pilot-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:72px;align-items:start}
-form{display:grid;gap:14px}
-label{font-size:14px;color:var(--night-mid);display:grid;gap:6px}
-input,select{font:inherit;font-size:16px;color:var(--night-text);background:#141414;border:1px solid #2c2c2c;border-radius:2px;padding:12px 14px}
-input:focus,select:focus{border-color:var(--night-text);outline:none}
-.form-note{font-size:13px;color:var(--night-gray)}
-
-/* PLATFORMS */
-.plats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-left:1px solid var(--line);margin-top:0}
-.plat{display:block;padding:32px 32px 36px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);text-decoration:none;transition:background .2s}
-.plat:hover{background:var(--off)}
-.plat-name{font-family:'Playfair Display',serif;font-weight:700;font-size:20px;letter-spacing:-.01em}
-.plat-url{font-size:13px;color:var(--gray);margin:2px 0 12px}
-.plat p{font-size:15px;color:var(--mid)}
-
-footer{padding:28px 72px;display:flex;justify-content:space-between;align-items:center;gap:16px}
-.f-l{font-family:'Playfair Display',serif;font-weight:700;font-size:16px}
-.f-l span{font-style:italic;font-weight:400;color:var(--gray)}
-.f-r{font-size:13px;color:var(--gray)}
-
-@media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
-@media(max-width:1024px){
-  nav{padding:14px 20px}
-  .nav-right a:not(.btn){display:none}
-  .hero{grid-template-columns:1fr;padding:116px 20px 64px;gap:56px}
-  .hero-proof{gap:28px;flex-wrap:wrap}
-  .sec,.pilot{padding:80px 20px}
-  .sec-head,.split,.pilot-grid{grid-template-columns:1fr;gap:24px}
-  .steps{grid-template-columns:1fr 1fr}
-  .kit{grid-template-columns:1fr 1fr}
-  .plats{grid-template-columns:1fr}
-  .figures{grid-template-columns:1fr 1fr 1fr}
-  footer{flex-direction:column;padding:24px 20px;text-align:center}
-}
-@media(max-width:600px){.steps,.kit{grid-template-columns:1fr}.figures{grid-template-columns:1fr}.fig-n{font-size:34px}}
-</style>
+<link rel="stylesheet" href="/styles.css">
 </head>
 <body>
 <nav>
   <a class="nav-logo" href="#">Sosville<span>.co</span></a>
   <div class="nav-right">
-    <a href="#how">How it works</a>
+    <a href="/how-it-works">How it works</a>
     <a href="#toolkit">What you get</a>
     <a href="#proof">Our track record</a>
     <a href="#pilot" class="btn btn-light">Join the broker pilot</a>
@@ -142,7 +26,7 @@ footer{padding:28px 72px;display:flex;justify-content:space-between;align-items:
     <p class="hero-lead reveal" id="r2">Your website, CRM, buyer emails, NDAs, deal rooms and seller due diligence, wired together and working every day. You spend your time on sellers and closings. We built it for our own brokerage first.</p>
     <div class="hero-actions reveal" id="r3">
       <a href="#pilot" class="btn btn-light">Join the broker pilot</a>
-      <a href="#toolkit" class="link">See what we build</a>
+      <a href="/how-it-works" class="link">See how the whole system works</a>
     </div>
     <div class="hero-proof reveal" id="r4">
       <div><div class="hp-n">200+</div><div class="hp-l">deals we've closed ourselves</div></div>
@@ -187,6 +71,7 @@ footer{padding:28px 72px;display:flex;justify-content:space-between;align-items:
       <p>One link: each item gets an answer, a "coming soon" date, or "won't provide." Buyers see a transparency score instead of chasing you.</p>
     </li>
   </ol>
+  <p style="margin-top:32px;font-size:16px"><a class="textlink" href="/how-it-works">Read how each piece works</a></p>
 </section>
 
 <section id="toolkit" class="sec alt">
