@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sosville — Brokerage as a service</title>
-<meta name="description" content="Your sellers fill in their own due diligence. Your buyers see a transparency score on every listing. Built and run by the team behind ATM Brokerage.">
+<meta name="description" content="Websites, CRM, email automation, NDAs, deal rooms, a smart buyer agent and seller due diligence for business brokers. Built and run by the team behind ATM Brokerage.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -42,10 +42,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .reveal{opacity:0;transform:translateY(12px);transition:opacity .8s ease,transform .8s ease}
 .reveal.on{opacity:1;transform:none}
 
-/* PHONE */
-.phone{justify-self:center;width:100%;max-width:300px;border:10px solid #1c1c1c;border-radius:34px;overflow:hidden;background:#fff;box-shadow:0 0 0 1px #2a2a2a}
-.phone img{display:block;width:100%;height:auto}
-.phone-cap{font-size:13px;color:var(--night-gray);text-align:center;margin-top:14px}
+
+/* FLOW (hero) */
+.flow{list-style:none;border-top:1px solid var(--night-line);align-self:end}
+.flow li{display:grid;grid-template-columns:96px minmax(0,1fr);gap:16px;padding:16px 0;border-bottom:1px solid var(--night-line);align-items:baseline}
+.flow-k{font-family:'Playfair Display',serif;font-style:italic;font-size:19px;color:var(--night-text)}
+.flow-v{font-size:15px;color:var(--night-mid)}
+.flow-you .flow-k,.flow-you .flow-v{color:var(--night-gray)}
+
 
 /* SECTIONS */
 .sec{padding:112px 72px;border-bottom:1px solid var(--line)}
@@ -134,11 +138,11 @@ footer{padding:28px 72px;display:flex;justify-content:space-between;align-items:
 
 <header class="hero">
   <div>
-    <h1 class="reveal" id="r1">Your sellers fill in their own due diligence.</h1>
-    <p class="hero-lead reveal" id="r2">Send one link. The seller answers every item a buyer will ask about, tells you when the rest is coming, or says they won't provide it. Every listing gets a transparency score your buyers can see, and you stop chasing P&amp;Ls by email.</p>
+    <h1 class="reveal" id="r1">The whole back office of a brokerage, built and running.</h1>
+    <p class="hero-lead reveal" id="r2">Your website, CRM, buyer emails, NDAs, deal rooms and seller due diligence, wired together and working every day. You spend your time on sellers and closings. We built it for our own brokerage first.</p>
     <div class="hero-actions reveal" id="r3">
       <a href="#pilot" class="btn btn-light">Join the broker pilot</a>
-      <a href="#how" class="link">See how it works</a>
+      <a href="#toolkit" class="link">See what we build</a>
     </div>
     <div class="hero-proof reveal" id="r4">
       <div><div class="hp-n">200+</div><div class="hp-l">deals we've closed ourselves</div></div>
@@ -146,42 +150,41 @@ footer{padding:28px 72px;display:flex;justify-content:space-between;align-items:
       <div><div class="hp-n">27,000+</div><div class="hp-l">listings on DealLedger</div></div>
     </div>
   </div>
-  <figure class="reveal" id="r5">
-    <div class="phone"><img src="/screenshots/seller-portal.jpg" alt="The seller portal on a phone: a listing's file at 47% complete, with Answer, Coming soon and Won't provide buttons on each checklist item" width="390" height="1240"></div>
-    <figcaption class="phone-cap">What your seller sees (sample listing)</figcaption>
-  </figure>
+  <ol class="flow reveal" id="r5" aria-label="What runs on its own, from listing to close">
+    <li><span class="flow-k">Listing</span><span class="flow-v">Live on your site and DealLedger</span></li>
+    <li><span class="flow-k">Inquiry</span><span class="flow-v">Answered in minutes, logged in your CRM</span></li>
+    <li><span class="flow-k">NDA</span><span class="flow-v">Signed online, deal room opens itself</span></li>
+    <li><span class="flow-k">Questions</span><span class="flow-v">Answered from the seller's file, drafts in your Gmail</span></li>
+    <li><span class="flow-k">Diligence</span><span class="flow-v">Seller fills it in from one link</span></li>
+    <li class="flow-you"><span class="flow-k">Close</span><span class="flow-v">That part's still yours</span></li>
+  </ol>
 </header>
 
 <section id="how" class="sec">
   <div class="sec-head">
-    <h2>One link replaces the due diligence chase.</h2>
-    <p class="sec-lead">It works like a mortgage application. Nothing is left blank, and nobody on your team has to follow up item by item.</p>
+    <h2>From first inquiry to closing, the busywork runs itself.</h2>
+    <p class="sec-lead">Most of a broker's week goes to answering the same buyer questions, chasing NDAs and chasing sellers for documents. That's the part we automate.</p>
   </div>
   <ol class="steps">
     <li class="step">
       <div class="step-n">1</div>
-      <h3>Send the seller one link</h3>
-      <p>From your CRM, one click emails the seller a private page for their listing. No login, works on a phone, and they can come back to it any time.</p>
+      <h3>Buyers find the listing</h3>
+      <p>A fast site with listing pages that keep themselves current, plus your listings on DealLedger and the marketplaces you already use.</p>
     </li>
     <li class="step">
       <div class="step-n">2</div>
-      <h3>Every item gets an answer</h3>
-      <p>For each checklist item the seller picks one:</p>
-      <ul class="answers">
-        <li><span class="dot" style="background:var(--ok)"></span>The answer, or a file</li>
-        <li><span class="dot" style="background:var(--soon)"></span>Coming soon, with a date</li>
-        <li><span class="dot" style="background:var(--no)"></span>Won't provide</li>
-      </ul>
+      <h3>Every inquiry gets an answer</h3>
+      <p>Marketplace leads, forms and chats land in one CRM queue. Replies are drafted in your Gmail, in your voice, within minutes.</p>
     </li>
     <li class="step">
       <div class="step-n">3</div>
-      <h3>The listing gets a score</h3>
-      <p>Answered items count fully, partial answers half, and "won't provide" a third. At 70% your listing page shows buyers a transparency badge.</p>
+      <h3>NDAs and deal rooms run themselves</h3>
+      <p>Buyers sign online and get into the right deal room right away. A smart agent answers their questions; quiet buyers get a follow-up.</p>
     </li>
     <li class="step">
       <div class="step-n">4</div>
-      <h3>Buyers get answers without you</h3>
-      <p>The answers feed your deal room and draft your replies to buyer emails. NDA-level facts only go to buyers who have signed.</p>
+      <h3>The seller fills in the file</h3>
+      <p>One link: each item gets an answer, a "coming soon" date, or "won't provide." Buyers see a transparency score instead of chasing you.</p>
     </li>
   </ol>
 </section>
@@ -189,16 +192,16 @@ footer{padding:28px 72px;display:flex;justify-content:space-between;align-items:
 <section id="toolkit" class="sec alt">
   <div class="sec-head">
     <h2>Everything we run our own brokerage on.</h2>
-    <p class="sec-lead">The same system ATM Brokerage uses every day, set up for your listings and your inbox. Start with the seller portal, or take the whole stack.</p>
+    <p class="sec-lead">The same system ATM Brokerage runs on every day, set up for your listings and your inbox. Take one piece or the whole stack.</p>
   </div>
   <div class="kit">
-    <div class="kit-item"><h3>Seller due diligence portal</h3><p>Weighted checklists by industry, file uploads, "coming soon" dates the system tracks, and a transparency score on every listing.</p></div>
-    <div class="kit-item"><h3>Your website and listing pages</h3><p>A fast, mobile broker site with listing pages that stay current on their own and carry your transparency badge.</p></div>
+    <div class="kit-item"><h3>Your website and listing pages</h3><p>A fast, mobile broker site with listing pages that stay current on their own and rank in search.</p></div>
+    <div class="kit-item"><h3>A CRM built for brokers</h3><p>Marketplace leads, website forms, chat and NDA signatures in one queue, with one record per buyer and seller.</p></div>
+    <div class="kit-item"><h3>Email automation</h3><p>Buyer replies drafted in your Gmail in your voice, marketplace leads answered in minutes, and follow-ups that send themselves. It learns from what you send.</p></div>
     <div class="kit-item"><h3>NDA automation</h3><p>Buyers sign online, get into the right deal room right away, and get a follow-up sequence if they go quiet.</p></div>
     <div class="kit-item"><h3>Deal rooms</h3><p>One NDA-gated room per listing with the files, the answers and who has looked at what.</p></div>
-    <div class="kit-item"><h3>A smart agent for buyers</h3><p>Answers buyer questions in the deal room from the seller's own answers. Offers, pricing and anything it can't answer come to you.</p></div>
-    <div class="kit-item"><h3>Email automation</h3><p>Every buyer email gets a reply drafted in your Gmail, in your voice. Marketplace leads get answered within minutes. It learns from what you send.</p></div>
-    <div class="kit-item"><h3>A CRM built for brokers</h3><p>Marketplace leads, website forms, chat and NDA signatures in one queue, with one record per buyer and seller.</p></div>
+    <div class="kit-item"><h3>A smart agent for buyers</h3><p>Answers buyer questions from the listing file, day or night. Offers, pricing and anything it can't answer come to you.</p></div>
+    <div class="kit-item"><h3>Seller due diligence</h3><p>Sellers fill in a checklist from one link, with file uploads and "coming soon" dates. Every listing gets a transparency score.</p></div>
     <div class="kit-item"><h3>Your listings on DealLedger</h3><p>Listed on the open public record of businesses for sale, with true days on market, at no cost.</p></div>
   </div>
 </section>
@@ -206,7 +209,7 @@ footer{padding:28px 72px;display:flex;justify-content:space-between;align-items:
 <section id="proof" class="sec">
   <div class="sec-head">
     <h2>Built by brokers who still close deals.</h2>
-    <p class="sec-lead">We didn't build this for a pitch deck. We built it because chasing sellers for P&amp;Ls was costing us deals.</p>
+    <p class="sec-lead">We didn't build this for a pitch deck. We built it because the busywork was costing us deals.</p>
   </div>
   <div class="split">
     <div>
@@ -215,7 +218,7 @@ footer{padding:28px 72px;display:flex;justify-content:space-between;align-items:
         <div class="fig"><div class="fig-n">$100M+</div><div class="fig-l">total deal volume</div></div>
         <div class="fig"><div class="fig-n">~90%</div><div class="fig-l">of the U.S. ATM route market</div></div>
       </div>
-      <p class="note">ATM Brokerage is moving its own listings onto the seller portal now. Vending and cleaning listings on VendingExits and CleaningExits come next.</p>
+      <p class="note">All of it runs ATM Brokerage today, and the same stack powers VendingExits and CleaningExits.</p>
     </div>
     <div>
       <p>Your listings are probably already on <a class="textlink" href="https://dealledger.org" target="_blank" rel="noopener">DealLedger</a>, the free, open record of small businesses for sale in the U.S. It tracks more than 27,000 listings from over 660 broker websites, with true days on market and relist history.</p>
@@ -228,7 +231,7 @@ footer{padding:28px 72px;display:flex;justify-content:space-between;align-items:
   <div class="pilot-grid">
     <div>
       <h2>We're taking a few brokers into the pilot.</h2>
-      <p class="sec-lead">Small and mid-size Main Street brokers first. We set it up on a handful of your live listings, you send the links, and we look at the results together.</p>
+      <p class="sec-lead">Small and mid-size Main Street brokers first. Tell us what eats your week. We set up the pieces that fix it on a handful of your live listings and look at the results together.</p>
     </div>
     <form id="pilot-form">
       <label>Your name<input name="name" autocomplete="name" required></label>
