@@ -2,14 +2,13 @@
   "cleanUrls": true,
   "redirects": [
     {
-      "source": "/brokerage",
-      "has": [{ "type": "host", "value": "(?:www\\.)?sosville\\.co" }],
-      "destination": "https://brokerageautomation.com/",
-      "permanent": false
-    },
-    {
       "source": "/:path*",
-      "has": [{ "type": "host", "value": "www.brokerageautomation.com" }],
+      "has": [
+        {
+          "type": "host",
+          "value": "www.brokerageautomation.com"
+        }
+      ],
       "destination": "https://brokerageautomation.com/:path*",
       "permanent": false
     }
@@ -17,7 +16,12 @@
   "rewrites": [
     {
       "source": "/",
-      "has": [{ "type": "host", "value": "brokerageautomation.com" }],
+      "has": [
+        {
+          "type": "host",
+          "value": "brokerageautomation.com"
+        }
+      ],
       "destination": "/brokerage"
     }
   ]
