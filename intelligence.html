@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Acquisition Intelligence — Sosville</title>
+<meta name="description" content="Acquisition research and off-market sourcing for family offices and professional buyers: companies that fit your buy box, found in public records before they ever reach a broker.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{--black:#0f0f0f;--white:#fff;--off:#f8f8f6;--gray:#999;--mid:#555;--line:#e4e4e4;--hero-bg:#0A0A0A;--hero-line:#1f1f1f;--hero-gray:#666;--hero-mid:#999;--hero-text:#F5F0E8}
+body{background:var(--white);color:var(--black);font-family:'DM Sans',sans-serif;font-weight:300;overflow-x:hidden}
+a{color:inherit}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:22px 72px;background:rgba(10,10,10,.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--hero-line)}
+.nav-logo{font-family:'Playfair Display',serif;font-weight:900;font-size:20px;letter-spacing:-.02em;color:var(--hero-text);text-decoration:none}
+.nav-logo span{font-style:italic;font-weight:400;color:var(--hero-gray)}
+.nav-right{display:flex;gap:40px;align-items:center}
+.nav-right a{font-size:13px;color:var(--hero-gray);text-decoration:none;transition:color .2s}
+.nav-right a:hover{color:var(--hero-text)}
+.nav-cta{font-family:'DM Mono',monospace!important;font-size:10px!important;letter-spacing:.12em!important;text-transform:uppercase!important;background:var(--hero-text)!important;color:var(--hero-bg)!important;padding:10px 24px!important}
+.hero{background:var(--hero-bg);color:var(--hero-text);padding:180px 72px 96px;border-bottom:1px solid var(--hero-line)}
+.eyebrow{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--hero-gray);margin-bottom:48px}
+.hero h1{font-family:'Playfair Display',serif;font-weight:700;font-style:italic;font-size:clamp(38px,5.4vw,72px);line-height:1.08;max-width:900px;margin-bottom:28px}
+.hero p{font-size:clamp(16px,1.6vw,20px);color:var(--hero-mid);max-width:640px;line-height:1.6;margin-bottom:44px}
+.btns{display:flex;gap:16px;flex-wrap:wrap}
+.btn{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding:14px 28px;text-decoration:none;border:1px solid var(--hero-text);transition:opacity .2s}
+.btn:hover{opacity:.7}
+.btn-solid{background:var(--hero-text);color:var(--hero-bg)}
+.btn-line{color:var(--hero-text)}
+.btn-dark{background:var(--black);color:var(--white);border-color:var(--black)}
+.btn-dark-line{color:var(--black);border-color:var(--black)}
+.sec{padding:100px 72px;border-bottom:1px solid var(--line)}
+.sec-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gray);margin-bottom:12px}
+h2{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(34px,4vw,56px);line-height:.98;letter-spacing:-.03em;margin-bottom:44px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);border-left:1px solid var(--line);border-top:1px solid var(--line)}
+.step{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:40px 36px}
+.step-n{font-family:'Playfair Display',serif;font-weight:900;font-size:40px;color:var(--line);line-height:1;margin-bottom:18px}
+.step h3{font-family:'Playfair Display',serif;font-weight:700;font-size:20px;margin-bottom:10px}
+.step p{font-size:14px;line-height:1.7;color:var(--mid)}
+.step .tag{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray);margin-top:16px;display:block}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{text-align:left;padding:18px 16px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.6}
+th{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray);font-weight:400}
+td:first-child{font-weight:500}
+td:nth-child(2){color:var(--gray)}
+.pricing{background:var(--off)}
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-left:1px solid var(--line);border-top:1px solid var(--line);background:var(--white)}
+.tier{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:44px 40px;display:flex;flex-direction:column}
+.tier.feat{background:var(--black);color:var(--white)}
+.tier-name{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gray);margin-bottom:18px}
+.price{font-family:'Playfair Display',serif;font-weight:900;font-size:56px;letter-spacing:-.03em;line-height:1}
+.per{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray);margin:8px 0 22px}
+.tier-desc{font-size:14px;line-height:1.7;color:var(--mid);margin-bottom:26px}
+.tier.feat .tier-desc{color:#aaa}
+.tier ul{list-style:none;margin-bottom:34px;flex:1}
+.tier li{font-size:14px;line-height:1.55;padding:9px 0 9px 20px;border-top:1px solid var(--line);position:relative}
+.tier.feat li{border-color:#2a2a2a}
+.tier li::before{content:'';position:absolute;left:0;top:16px;width:6px;height:6px;border:1px solid currentColor}
+.tier li.inc{color:var(--gray)}
+.tier.feat .btn{border-color:var(--white);background:var(--white);color:var(--black);text-align:center}
+.tier .btn{text-align:center}
+.note{font-size:13px;color:var(--gray);margin-top:28px;line-height:1.7;max-width:760px}
+.faq{display:grid;grid-template-columns:1fr 1fr;gap:0 72px}
+.q{padding:26px 0;border-top:1px solid var(--line)}
+.q h4{font-family:'Playfair Display',serif;font-weight:700;font-size:18px;margin-bottom:8px}
+.q p{font-size:14px;line-height:1.75;color:var(--mid)}
+.cta{padding:120px 72px;background:var(--black);color:var(--white);text-align:center}
+.cta h2{color:var(--white);margin-bottom:18px}
+.cta p{color:#777;font-size:16px;margin-bottom:40px}
+.cta .btns{justify-content:center}
+footer{padding:28px 72px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line)}
+.f-l{font-family:'Playfair Display',serif;font-weight:700;font-size:16px;text-decoration:none}
+.f-l span{font-style:italic;font-weight:400;color:var(--gray)}
+.f-r{font-family:'DM Mono',monospace;font-size:10px;color:var(--gray);letter-spacing:.1em}
+@media(max-width:1024px){
+  nav{padding:16px 24px}.nav-right a:not(.nav-cta){display:none}
+  .hero{padding:130px 24px 64px}.sec,.cta{padding:72px 24px}
+  .steps,.tiers{grid-template-columns:1fr}.faq{grid-template-columns:1fr}
+  th:nth-child(2),td:nth-child(2){display:none}
+  footer{flex-direction:column;gap:10px;padding:24px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="/">Sosville<span>.co</span></a>
+  <div class="nav-right">
+    <a href="#how">How it works</a>
+    <a href="/">Sosville</a>
+    <a href="#pricing">Engagements</a>
+    <a class="nav-cta" href="mailto:info@sosville.co?subject=Deal%20sourcing%20%E2%80%94%20family%20office">Send your buy box</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="eyebrow">Acquisition Intelligence &mdash; research and sourcing for professional buyers</div>
+  <h1>The companies that fit your buy box, before a broker ever lists them.</h1>
+  <p>We find private companies in the $5M&ndash;$75M revenue range from public records, screen them against your criteria, and bring you owners who are open to a conversation. Off-market, by default.</p>
+  <div class="btns">
+    <a class="btn btn-solid" href="#pricing">See engagements</a>
+    <a class="btn btn-line" href="mailto:info@sosville.co?subject=Deal%20sourcing%20%E2%80%94%20family%20office">Send your buy box</a>
+  </div>
+</header>
+
+<section id="how" class="sec">
+  <div class="sec-label">How It Works</div>
+  <h2>Data first.<br>Then a phone call.</h2>
+  <div class="steps">
+    <div class="step"><div class="step-n">01</div><h3>Your buy box</h3><p>Revenue range, margin floor, industries and states. We agree on a valuation metric and what reasonable diligence looks like before we source a single company.</p><span class="tag">One call to set it</span></div>
+    <div class="step"><div class="step-n">02</div><h3>The universe</h3><p>Every company we can find that fits: state business registries, federal benefit-plan filings (a headcount signal), licensing data and market history on businesses that have been listed for sale.</p><span class="tag">Public records, not scraped lists</span></div>
+    <div class="step"><div class="step-n">03</div><h3>The screen</h3><p>We cut the universe to companies that match on size, age, ownership and industry, and name the owner. Sold, PE-backed and already-listed companies are flagged or removed.</p><span class="tag">Owner-operated, founder-held</span></div>
+    <div class="step"><div class="step-n">04</div><h3>The outreach</h3><p>On the Sourced plan we contact owners directly, quietly and under our name, and find out who would take a conversation in the next year or two.</p><span class="tag">No blast emails under your name</span></div>
+    <div class="step"><div class="step-n">05</div><h3>The introduction</h3><p>You get owners who said yes to talking, with notes on why they might sell, rough numbers and timing. You decide who to meet.</p><span class="tag">Warm intros only</span></div>
+    <div class="step"><div class="step-n">06</div><h3>The match</h3><p>We match on four things: the money is real, buyer and seller fit, both sides accept the valuation method, and diligence is reasonable. If one is missing, we say so early.</p><span class="tag">Fewer meetings, better ones</span></div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="sec-label">Why Us</div>
+  <h2>We have been on the<br>sell side for 200+ deals.</h2>
+  <table>
+    <thead><tr><th>What you need</th><th>The usual source</th><th>What we do</th></tr></thead>
+    <tbody>
+      <tr><td>Deal flow</td><td>Banker books shopped to every buyer</td><td>Companies found in public records, before they&rsquo;re marketed</td></tr>
+      <tr><td>Fit</td><td>Lists filtered by a database&rsquo;s guesses</td><td>Screened against your buy box, owner named</td></tr>
+      <tr><td>Owner contact</td><td>Cold email from an analyst</td><td>A direct conversation from people who have sold businesses</td></tr>
+      <tr><td>Market context</td><td>Asking prices with no history</td><td>Listing history: what has been on the market, relisted and cut</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="pricing" class="sec pricing">
+  <div class="sec-label">Engagements</div>
+  <h2>Scoped to your buy box,<br>priced after one call.</h2>
+  <div class="tiers">
+    <div class="tier">
+      <div class="tier-name">Research</div>
+      <p class="tier-desc" style="margin-top:6px">The screened universe for your buy box. Your team does the outreach.</p>
+      <ul>
+        <li>Buy-box setup call</li>
+        <li>Screened target list for your states and industries</li>
+        <li>Owner names and company details</li>
+        <li>Refreshed monthly, new names flagged</li>
+      </ul>
+      <a class="btn btn-dark-line" href="mailto:info@sosville.co?subject=Acquisition%20Intelligence%20%E2%80%94%20Research">Scope research</a>
+    </div>
+    <div class="tier feat">
+      <div class="tier-name">Sourcing</div>
+      <p class="tier-desc" style="margin-top:6px">We work the list and bring you owners who want to talk.</p>
+      <ul>
+        <li class="inc">Everything in Research, plus:</li>
+        <li>Direct owner outreach under our name</li>
+        <li>Qualification notes: motive, timing, rough numbers</li>
+        <li>Warm introductions to interested owners</li>
+        <li>Weekly pipeline update</li>
+      </ul>
+      <a class="btn" href="mailto:info@sosville.co?subject=Acquisition%20Intelligence%20%E2%80%94%20Sourcing">Scope sourcing</a>
+    </div>
+    <div class="tier">
+      <div class="tier-name">Success Fee</div>
+      <p class="tier-desc" style="margin-top:6px">When a company we introduced closes with you. Agreed in writing before any introduction.</p>
+      <ul>
+        <li>Only on deals we introduced</li>
+        <li>Set before the first meeting</li>
+        <li>Optional support through closing</li>
+      </ul>
+      <a class="btn btn-dark-line" href="mailto:info@sosville.co?subject=Acquisition%20Intelligence%20%E2%80%94%20Terms">Talk terms</a>
+    </div>
+  </div>
+  <p class="note">Monthly retainers, scoped to the size of your buy box and how many states and industries it covers. Exclusivity by industry and state available on Sourcing. Confidential: your buy box and our research stay private and never appear in DealLedger.</p>
+</section>
+
+<section class="cta">
+  <div class="sec-label" style="color:#555">Next Step</div>
+  <h2>Send us your buy box.</h2>
+  <p>Revenue range, margin, industries, states. We&rsquo;ll come back with how many companies fit and a scope for the work.</p>
+  <div class="btns">
+    <a class="btn btn-solid" href="mailto:info@sosville.co?subject=Deal%20sourcing%20%E2%80%94%20family%20office">info@sosville.co</a>
+  </div>
+</section>
+
+<footer>
+  <a class="f-l" href="/">Sosville<span>.co</span></a>
+  <div class="f-r">&copy; 2026 Sosville Group &middot; Skaneateles, NY</div>
+</footer>
+</body>
+</html>

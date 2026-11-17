@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brokerage Automation — From inquiry to deal room</title>
+<link rel="canonical" href="https://brokerageautomation.com/">
+<meta name="description" content="Lead routing, online NDAs, a buyer CRM and private deal rooms for independent business brokers. Your brand, your inbox, our rails.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{--black:#0f0f0f;--white:#fff;--off:#f8f8f6;--gray:#999;--mid:#555;--line:#e4e4e4;--hero-bg:#0A0A0A;--hero-line:#1f1f1f;--hero-gray:#666;--hero-mid:#999;--hero-text:#F5F0E8}
+body{background:var(--white);color:var(--black);font-family:'DM Sans',sans-serif;font-weight:300;overflow-x:hidden}
+a{color:inherit}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:22px 72px;background:rgba(10,10,10,.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--hero-line)}
+.nav-logo{font-family:'Playfair Display',serif;font-weight:900;font-size:20px;letter-spacing:-.02em;color:var(--hero-text);text-decoration:none}
+.nav-logo span{font-style:italic;font-weight:400;color:var(--hero-gray)}
+.nav-right{display:flex;gap:40px;align-items:center}
+.nav-right a{font-size:13px;color:var(--hero-gray);text-decoration:none;transition:color .2s}
+.nav-right a:hover{color:var(--hero-text)}
+.nav-cta{font-family:'DM Mono',monospace!important;font-size:10px!important;letter-spacing:.12em!important;text-transform:uppercase!important;background:var(--hero-text)!important;color:var(--hero-bg)!important;padding:10px 24px!important}
+.hero{background:var(--hero-bg);color:var(--hero-text);padding:180px 72px 96px;border-bottom:1px solid var(--hero-line)}
+.eyebrow{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--hero-gray);margin-bottom:48px}
+.hero h1{font-family:'Playfair Display',serif;font-weight:700;font-style:italic;font-size:clamp(38px,5.4vw,72px);line-height:1.08;max-width:900px;margin-bottom:28px}
+.hero p{font-size:clamp(16px,1.6vw,20px);color:var(--hero-mid);max-width:640px;line-height:1.6;margin-bottom:44px}
+.btns{display:flex;gap:16px;flex-wrap:wrap}
+.btn{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding:14px 28px;text-decoration:none;border:1px solid var(--hero-text);transition:opacity .2s}
+.btn:hover{opacity:.7}
+.btn-solid{background:var(--hero-text);color:var(--hero-bg)}
+.btn-line{color:var(--hero-text)}
+.btn-dark{background:var(--black);color:var(--white);border-color:var(--black)}
+.btn-dark-line{color:var(--black);border-color:var(--black)}
+.sec{padding:100px 72px;border-bottom:1px solid var(--line)}
+.sec-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gray);margin-bottom:12px}
+h2{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(34px,4vw,56px);line-height:.98;letter-spacing:-.03em;margin-bottom:44px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);border-left:1px solid var(--line);border-top:1px solid var(--line)}
+.step{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:40px 36px}
+.step-n{font-family:'Playfair Display',serif;font-weight:900;font-size:40px;color:var(--line);line-height:1;margin-bottom:18px}
+.step h3{font-family:'Playfair Display',serif;font-weight:700;font-size:20px;margin-bottom:10px}
+.step p{font-size:14px;line-height:1.7;color:var(--mid)}
+.step .tag{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray);margin-top:16px;display:block}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{text-align:left;padding:18px 16px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.6}
+th{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray);font-weight:400}
+td:first-child{font-weight:500}
+td:nth-child(2){color:var(--gray)}
+.pricing{background:var(--off)}
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-left:1px solid var(--line);border-top:1px solid var(--line);background:var(--white)}
+.tier{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:44px 40px;display:flex;flex-direction:column}
+.tier.feat{background:var(--black);color:var(--white)}
+.tier-name{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gray);margin-bottom:18px}
+.price{font-family:'Playfair Display',serif;font-weight:900;font-size:56px;letter-spacing:-.03em;line-height:1}
+.per{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray);margin:8px 0 22px}
+.tier-desc{font-size:14px;line-height:1.7;color:var(--mid);margin-bottom:26px}
+.tier.feat .tier-desc{color:#aaa}
+.tier ul{list-style:none;margin-bottom:34px;flex:1}
+.tier li{font-size:14px;line-height:1.55;padding:9px 0 9px 20px;border-top:1px solid var(--line);position:relative}
+.tier.feat li{border-color:#2a2a2a}
+.tier li::before{content:'';position:absolute;left:0;top:16px;width:6px;height:6px;border:1px solid currentColor}
+.tier li.inc{color:var(--gray)}
+.tier.feat .btn{border-color:var(--white);background:var(--white);color:var(--black);text-align:center}
+.tier .btn{text-align:center}
+.note{font-size:13px;color:var(--gray);margin-top:28px;line-height:1.7;max-width:760px}
+.faq{display:grid;grid-template-columns:1fr 1fr;gap:0 72px}
+.q{padding:26px 0;border-top:1px solid var(--line)}
+.q h4{font-family:'Playfair Display',serif;font-weight:700;font-size:18px;margin-bottom:8px}
+.q p{font-size:14px;line-height:1.75;color:var(--mid)}
+.cta{padding:120px 72px;background:var(--black);color:var(--white);text-align:center}
+.cta h2{color:var(--white);margin-bottom:18px}
+.cta p{color:#777;font-size:16px;margin-bottom:40px}
+.cta .btns{justify-content:center}
+footer{padding:28px 72px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line)}
+.f-l{font-family:'Playfair Display',serif;font-weight:700;font-size:16px;text-decoration:none}
+.f-l span{font-style:italic;font-weight:400;color:var(--gray)}
+.f-r{font-family:'DM Mono',monospace;font-size:10px;color:var(--gray);letter-spacing:.1em}
+@media(max-width:1024px){
+  nav{padding:16px 24px}.nav-right a:not(.nav-cta){display:none}
+  .hero{padding:130px 24px 64px}.sec,.cta{padding:72px 24px}
+  .steps,.tiers{grid-template-columns:1fr}.faq{grid-template-columns:1fr}
+  th:nth-child(2),td:nth-child(2){display:none}
+  footer{flex-direction:column;gap:10px;padding:24px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="https://brokerageautomation.com/">Brokerage<span>Automation</span></a>
+  <div class="nav-right">
+    <a href="#how">How it works</a>
+    <a href="#pricing">Pricing</a>
+    <a href="https://brokerageautomation.com/decks/brokerage-automation.pdf">The deck</a>
+    <a class="nav-cta" href="mailto:info@sosville.co?subject=Brokerage%20Automation">Get started</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="eyebrow">Brokerage Automation &mdash; for independent business brokers</div>
+  <h1>From inquiry to deal room, without anyone touching an inbox.</h1>
+  <p>Your brand, your inbox, your listings, running on the same lead routing, NDA flow, CRM and deal rooms we use on our own deals.</p>
+  <div class="btns">
+    <a class="btn btn-solid" href="#pricing">See pricing</a>
+    <a class="btn btn-line" href="https://brokerageautomation.com/decks/brokerage-automation.pdf">Download the deck (PDF)</a>
+  </div>
+</header>
+
+<section id="how" class="sec">
+  <div class="sec-label">The Flow</div>
+  <h2>Six steps, one system,<br>no manual handoffs.</h2>
+  <div class="steps">
+    <div class="step"><div class="step-n">01</div><h3>A buyer inquires</h3><p>A lead arrives from BizBuySell or your own site. Routing reads which listing it&rsquo;s for and sends it to that listing&rsquo;s brand inbox.</p><span class="tag">Marketplace leads and your own forms</span></div>
+    <div class="step"><div class="step-n">02</div><h3>The NDA invite goes out</h3><p>The buyer gets a personal email from your address with one link to sign. Replies come back to the same inbox.</p><span class="tag">Sent under your brand, not ours</span></div>
+    <div class="step"><div class="step-n">03</div><h3>The buyer signs online</h3><p>One short form: contact details, budget and what they&rsquo;re looking for. A binding e-signature, with date, IP and exact terms recorded.</p><span class="tag">Non-circumvention included</span></div>
+    <div class="step"><div class="step-n">04</div><h3>You&rsquo;re alerted</h3><p>The moment the NDA is signed you get the buyer&rsquo;s details, budget and reason for interest. The buyer is added to the CRM.</p><span class="tag">Every signed NDA on record, per listing</span></div>
+    <div class="step"><div class="step-n">05</div><h3>Access is granted</h3><p>The buyer receives a private data-room link for that listing and can come back to it any time.</p><span class="tag">One private link per buyer, per deal</span></div>
+    <div class="step"><div class="step-n">06</div><h3>The deal room does the first round</h3><p>CIM and financials in one place. The Deal Concierge answers routine questions, and every view is logged, so you know who&rsquo;s serious.</p><span class="tag">Confidential, all access logged</span></div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="sec-label">What Changes</div>
+  <h2>The busywork between a lead<br>and a qualified buyer, handled.</h2>
+  <table>
+    <thead><tr><th>Step</th><th>The usual way</th><th>With our system</th></tr></thead>
+    <tbody>
+      <tr><td>Routing leads</td><td>Forwarding marketplace emails by hand</td><td>Routed to the right brand inbox automatically</td></tr>
+      <tr><td>Sending NDAs</td><td>Attaching a PDF and chasing signatures</td><td>Auto-sent link, signed online</td></tr>
+      <tr><td>Tracking buyers</td><td>A spreadsheet that goes out of date</td><td>Every buyer and NDA recorded in the CRM</td></tr>
+      <tr><td>Sharing documents</td><td>Emailing financials one buyer at a time</td><td>Private data room, with every view logged</td></tr>
+      <tr><td>First questions</td><td>Answering the same questions again and again</td><td>Deal Concierge handles the routine ones</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="pricing" class="sec pricing">
+  <div class="sec-label">Pricing</div>
+  <h2>Start on the pilot.<br>Stay on what you use.</h2>
+  <div class="tiers">
+    <div class="tier">
+      <div class="tier-name">Pilot</div>
+      <div class="price">$0</div>
+      <div class="per">During the pilot</div>
+      <p class="tier-desc">For our first brokers. Full automation on your live listings while we set it up with you and take your feedback.</p>
+      <ul>
+        <li>Everything in Full Automation</li>
+        <li>Set up with you, listing by listing</li>
+        <li>Direct line to the people who built it</li>
+      </ul>
+      <a class="btn btn-dark-line" href="mailto:info@sosville.co?subject=Pilot%20%E2%80%94%20Brokerage%20Automation">Join the pilot</a>
+    </div>
+    <div class="tier">
+      <div class="tier-name">Partial</div>
+      <div class="price">$150</div>
+      <div class="per">Per month</div>
+      <p class="tier-desc">The NDA-to-deal-room rails. You keep handling your own inbox; buyers sign and get access on their own.</p>
+      <ul>
+        <li>Online NDA with binding e-signature</li>
+        <li>Instant alert on every signed NDA</li>
+        <li>Buyer CRM, every NDA on record per listing</li>
+        <li>Private data room per buyer, views logged</li>
+        <li>NDA link for your listings and website</li>
+      </ul>
+      <a class="btn btn-dark-line" href="mailto:info@sosville.co?subject=Partial%20%E2%80%94%20Brokerage%20Automation">Get Partial</a>
+    </div>
+    <div class="tier feat">
+      <div class="tier-name">Full Automation</div>
+      <div class="price">$350</div>
+      <div class="per">Per month</div>
+      <p class="tier-desc">Gmail to deal room. Nobody touches an inbox between the inquiry and a qualified buyer.</p>
+      <ul>
+        <li class="inc">Everything in Partial, plus:</li>
+        <li>Gmail automation: marketplace leads parsed and routed to the right brand inbox</li>
+        <li>NDA invites sent automatically from your address</li>
+        <li>Data-room access granted on signature</li>
+        <li>Deal Concierge answers routine buyer questions</li>
+      </ul>
+      <a class="btn" href="mailto:info@sosville.co?subject=Full%20Automation%20%E2%80%94%20Brokerage%20Automation">Get Full Automation</a>
+    </div>
+  </div>
+  <p class="note">Pricing is per brokerage. Pilot brokers move to Partial or Full when the pilot ends, and nothing changes in how buyers see your listings. No long contract.</p>
+</section>
+
+<section class="sec">
+  <div class="sec-label">Questions</div>
+  <h2>What brokers ask.</h2>
+  <div class="faq">
+    <div class="q"><h4>Does it show our name or yours?</h4><p>Yours. Emails go out from your brand&rsquo;s address and replies come back to your inbox. Buyers never see Sosville.</p></div>
+    <div class="q"><h4>Which marketplaces does routing work with?</h4><p>BizBuySell today, plus inquiry forms on your own website. Tell us where else your leads come from.</p></div>
+    <div class="q"><h4>Is the NDA enforceable?</h4><p>Checking the box is a binding e-signature. The date, IP address and exact terms are recorded, and non-circumvention is included.</p></div>
+    <div class="q"><h4>Who runs this?</h4><p><a href="https://sosville.co">Sosville</a>. We built it for our own deals and run the same flow on our own listings every day.</p></div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="sec-label" style="color:#555">Next Step</div>
+  <h2>Put your listings<br>on the same rails.</h2>
+  <p>Write to us and we&rsquo;ll set up your first listing.</p>
+  <div class="btns">
+    <a class="btn btn-solid" href="mailto:info@sosville.co?subject=Brokerage%20Automation">info@sosville.co</a>
+    <a class="btn btn-line" href="https://brokerageautomation.com/decks/brokerage-automation.pdf">Download the deck</a>
+  </div>
+</section>
+
+<footer>
+  <a class="f-l" href="https://brokerageautomation.com/">Brokerage<span>Automation</span></a>
+  <div class="f-r">A <a href="https://sosville.co" style="color:inherit">Sosville</a> company &middot; &copy; 2026</div>
+</footer>
+</body>
+</html>
