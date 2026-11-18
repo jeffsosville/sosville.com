@@ -2,6 +2,17 @@
   "cleanUrls": true,
   "redirects": [
     {
+      "source": "/brokerage",
+      "has": [
+        {
+          "type": "host",
+          "value": "(?:www\\.)?sosville\\.co"
+        }
+      ],
+      "destination": "https://brokerageautomation.com/",
+      "permanent": false
+    },
+    {
       "source": "/:path*",
       "has": [
         {
@@ -10,6 +21,28 @@
         }
       ],
       "destination": "https://brokerageautomation.com/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/brokerage",
+      "has": [
+        {
+          "type": "host",
+          "value": "brokerageautomation.com"
+        }
+      ],
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/:path((?!decks/|screenshots/|brokerage$).+)",
+      "has": [
+        {
+          "type": "host",
+          "value": "brokerageautomation.com"
+        }
+      ],
+      "destination": "https://sosville.co/:path",
       "permanent": false
     }
   ],
