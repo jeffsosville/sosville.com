@@ -2,6 +2,11 @@
   "cleanUrls": true,
   "redirects": [
     {
+      "source": "/home",
+      "destination": "/",
+      "permanent": false
+    },
+    {
       "source": "/brokerage",
       "has": [
         {
@@ -56,6 +61,10 @@
         }
       ],
       "destination": "/brokerage"
+    },
+    {
+      "source": "/",
+      "destination": "/home"
     }
   ]
 }
