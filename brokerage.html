@@ -60,6 +60,13 @@ td:nth-child(2){color:var(--gray)}
 .tier.feat li{border-color:#2a2a2a}
 .tier li::before{content:'';position:absolute;left:0;top:16px;width:6px;height:6px;border:1px solid currentColor}
 .tier li.inc{color:var(--gray)}
+.plan{display:grid;grid-template-columns:1fr 1.6fr;border:1px solid var(--line);background:var(--white)}
+.plan-l{padding:44px 40px;border-right:1px solid var(--line);display:flex;flex-direction:column}
+.plan-l .tier-desc{flex:1}
+.plan-r{padding:44px 40px}
+.splits{width:100%;border-collapse:collapse}
+.splits td{font-weight:400;padding:16px 0;border-bottom:0;border-top:1px solid var(--line);font-size:15px;vertical-align:top}
+.splits td:last-child{color:var(--black);font-weight:500;text-align:right;font-family:'DM Mono',monospace;font-size:14px;white-space:nowrap;padding-left:24px}
 .tier.feat .btn{border-color:var(--white);background:var(--white);color:var(--black);text-align:center}
 .tier .btn{text-align:center}
 .note{font-size:13px;color:var(--gray);margin-top:28px;line-height:1.7;max-width:760px}
@@ -78,8 +85,10 @@ footer{padding:28px 72px;display:flex;justify-content:space-between;align-items:
 @media(max-width:1024px){
   nav{padding:16px 24px}.nav-right a:not(.nav-cta){display:none}
   .hero{padding:130px 24px 64px}.sec,.cta{padding:72px 24px}
-  .steps,.tiers{grid-template-columns:1fr}.faq{grid-template-columns:1fr}
+  .steps,.tiers,.plan{grid-template-columns:1fr}.plan-l{border-right:0;border-bottom:1px solid var(--line)}.faq{grid-template-columns:1fr}
   th:nth-child(2),td:nth-child(2){display:none}
+  .splits td:nth-child(2){display:table-cell}
+  .plan-l,.plan-r{padding:32px 24px}
   footer{flex-direction:column;gap:10px;padding:24px}
 }
 </style>
@@ -136,50 +145,28 @@ footer{padding:28px 72px;display:flex;justify-content:space-between;align-items:
 
 <section id="pricing" class="sec pricing">
   <div class="sec-label">Pricing</div>
-  <h2>Start on the pilot.<br>Stay on what you use.</h2>
-  <div class="tiers">
-    <div class="tier">
-      <div class="tier-name">Pilot</div>
-      <div class="price">$0</div>
-      <div class="per">During the pilot</div>
-      <p class="tier-desc">For our first brokers. Full automation on your live listings while we set it up with you and take your feedback.</p>
-      <ul>
-        <li>Everything in Full Automation</li>
-        <li>Set up with you, listing by listing</li>
-        <li>Direct line to the people who built it</li>
-      </ul>
-      <a class="btn btn-dark-line" href="mailto:info@sosville.co?subject=Pilot%20%E2%80%94%20Brokerage%20Automation">Join the pilot</a>
+  <h2>A flat fee for the rails.<br>A share when deals close.</h2>
+  <div class="plan">
+    <div class="plan-l">
+      <div class="tier-name">Managed Services</div>
+      <div class="price">$199</div>
+      <div class="per">Per month, per brokerage</div>
+      <p class="tier-desc">We run the system on your listings: lead routing, NDAs, buyer CRM, deal rooms and the Deal Concierge, under your brand.</p>
+      <a class="btn btn-solid" href="mailto:info@sosville.co?subject=Managed%20Services%20%E2%80%94%20Brokerage%20Automation">Get started</a>
     </div>
-    <div class="tier">
-      <div class="tier-name">Partial</div>
-      <div class="price">$150</div>
-      <div class="per">Per month</div>
-      <p class="tier-desc">The NDA-to-deal-room rails. You keep handling your own inbox; buyers sign and get access on their own.</p>
-      <ul>
-        <li>Online NDA with binding e-signature</li>
-        <li>Instant alert on every signed NDA</li>
-        <li>Buyer CRM, every NDA on record per listing</li>
-        <li>Private data room per buyer, views logged</li>
-        <li>NDA link for your listings and website</li>
-      </ul>
-      <a class="btn btn-dark-line" href="mailto:info@sosville.co?subject=Partial%20%E2%80%94%20Brokerage%20Automation">Get Partial</a>
-    </div>
-    <div class="tier feat">
-      <div class="tier-name">Full Automation</div>
-      <div class="price">$350</div>
-      <div class="per">Per month</div>
-      <p class="tier-desc">Gmail to deal room. Nobody touches an inbox between the inquiry and a qualified buyer.</p>
-      <ul>
-        <li class="inc">Everything in Partial, plus:</li>
-        <li>Gmail automation: marketplace leads parsed and routed to the right brand inbox</li>
-        <li>NDA invites sent automatically from your address</li>
-        <li>Data-room access granted on signature</li>
-        <li>Deal Concierge answers routine buyer questions</li>
-      </ul>
-      <a class="btn" href="mailto:info@sosville.co?subject=Full%20Automation%20%E2%80%94%20Brokerage%20Automation">Get Full Automation</a>
+    <div class="plan-r">
+      <div class="tier-name">Deal participation &mdash; share of gross commission to Sosville</div>
+      <table class="splits">
+        <tbody>
+          <tr><td>You bring the seller and the buyer</td><td>5&ndash;15%</td></tr>
+          <tr><td>We provide the buyer or seller lead</td><td>20&ndash;50%</td></tr>
+          <tr><td>We substantially manage the transaction <span style="color:var(--gray)">(negotiated)</span></td><td>25&ndash;50%</td></tr>
+          <tr><td>You run a niche or territory for us and close its deals</td><td>35&ndash;80%</td></tr>
+        </tbody>
+      </table>
     </div>
   </div>
-  <p class="note">Pricing is per brokerage. Pilot brokers move to Partial or Full when the pilot ends, and nothing changes in how buyers see your listings. No long contract.</p>
+  <p class="note">The point is closed deals. The monthly fee covers the rails; the split depends on who brings the lead and who does the work, agreed per deal before it starts. Pilot brokers pay nothing for the first 30 days. No long contract.</p>
 </section>
 
 <section class="sec">
