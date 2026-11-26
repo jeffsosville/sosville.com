@@ -211,6 +211,12 @@ footer{padding:28px 72px;display:flex;justify-content:space-between;align-items:
 .person a{color:var(--black)}
 .also{display:flex;gap:40px;flex-wrap:wrap;padding:32px 0 0;font-size:14px;color:var(--mid);line-height:1.7}
 .also b{font-family:'Playfair Display',serif;font-weight:700;color:var(--black);font-size:16px}
+.person-h{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--gray);margin:28px 0 12px}
+.stack{display:flex;flex-wrap:wrap;gap:6px}
+.stack span{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.06em;border:1px solid var(--line);color:var(--mid);padding:4px 10px}
+.facts{list-style:none;border-top:1px solid var(--line)}
+.facts li{display:flex;justify-content:space-between;gap:16px;font-size:13px;color:var(--mid);padding:10px 0;border-bottom:1px solid var(--line)}
+.facts b{font-weight:500;color:var(--black);text-align:right}
 @media(max-width:1024px){.people{grid-template-columns:1fr}.person{padding:36px 24px}}
 
 /* REVEAL */
@@ -343,21 +349,33 @@ footer{padding:28px 72px;display:flex;justify-content:space-between;align-items:
       <div class="sec-label">Who We Are</div>
       <h2>The People<br>Behind It</h2>
     </div>
-    <div class="sec-note">A small team. No account managers. You talk to the people doing the work.</div>
+    <div class="sec-note">Two partners. No account managers. You talk to the people doing the work.</div>
   </div>
   <div class="people">
     <div class="person r">
-      <div class="person-role">Partner &middot; Broker</div>
+      <div class="person-role">Partner &middot; M&amp;A Advisory &amp; Brokerage</div>
       <div class="person-name">John Sosville</div>
       <blockquote>&ldquo;We create competition to drive price up, and we protect both buyer and seller.&rdquo;</blockquote>
-      <p>John runs the deals. He has been lead broker on 200+ business sales in 35+ states since 2013, and before that spent nearly twenty years in business development and M&amp;A in technology.</p>
-      <p>He has been on the other side of the table too: he bought, grew and sold his own business.</p>
+      <p>John runs the deals. He has been lead broker on 200+ business sales in 35+ states since 2013, from single-route owners to multi-state ATM portfolios.</p>
+      <p>Over the past five years he has moved up-market into lower middle market M&amp;A. Through Sosville Capital he now advises on transactions of $10 million to $100 million: running competitive sale processes, bringing strategic acquirers, private equity and family offices to the table, and negotiating structure as hard as price.</p>
+      <p>Before brokerage he spent nearly twenty years in technology business development and M&amp;A. He has also been on the other side of the table: he bought, grew and sold his own business.</p>
+      <div class="person-h">At a glance</div>
+      <ul class="facts">
+        <li><span>Transactions closed</span><b>200+</b></li>
+        <li><span>States</span><b>35+</b></li>
+        <li><span>Current focus</span><b>Lower middle market, $10M&ndash;$100M</b></li>
+        <li><span>Sectors</span><b>Payments &middot; route-based services</b></li>
+      </ul>
     </div>
     <div class="person r">
-      <div class="person-role">Founder</div>
+      <div class="person-role">Founder &middot; Data &amp; Technology</div>
       <div class="person-name">Jeff Sosville</div>
-      <p>Jeff has spent 25 years in small business, including a business brokerage he started with his brother in 2006.</p>
-      <p>He builds the data, the systems and DealLedger. He writes at <a href="https://jeffsosville.com">jeffsosville.com</a>.</p>
+      <p>Jeff has spent 25 years in small business, including a business brokerage he started with his brother in 2006 and an ATM company he founded in 2008.</p>
+      <p>He is a self-taught developer and builds everything Sosville runs on himself: the data pipelines behind DealLedger, the CRMs and deal rooms behind the brokerages, and the research systems that map an industry and flag owners getting ready to sell. Small team, no outsourced dev shop.</p>
+      <p>DealLedger is open source and its data is free to use. Jeff is teaming up with universities so students and researchers can work with it, because a public record of the private-company market should be public.</p>
+      <p>He writes at <a href="https://jeffsosville.com">jeffsosville.com</a>.</p>
+      <div class="person-h">Stack</div>
+      <div class="stack"><span>Python</span><span>PostgreSQL</span><span>Supabase</span><span>Next.js</span><span>React</span><span>Vercel</span><span>Claude</span><span>Instantly</span><span>Open data &middot; CC0</span></div>
     </div>
   </div>
 </section>
