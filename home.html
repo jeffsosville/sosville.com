@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sosville — Infrastructure for buying and selling businesses</title>
-<meta name="description" content="Sosville is the company behind DealLedger, BrokerageAutomation.com and ExitsIQ: infrastructure for buying and selling small businesses.">
+<title>Sosville | Business brokerage, technology and market intelligence</title>
+<meta name="description" content="Sosville builds and operates businesses that help people buy, sell and understand privately held companies: ATM Brokerage, CleaningExits, VendingExits, Sosville Capital, Brokerage Automation and DealLedger.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -170,6 +170,18 @@ h2{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(36px,4vw
 .svc-title{font-family:'Playfair Display',serif;font-weight:700;font-size:18px;letter-spacing:-.01em;margin-bottom:12px}
 .svc-desc{font-size:13px;line-height:1.7;color:var(--gray)}
 
+/* COMPANY GRID */
+.co-grid{display:grid;grid-template-columns:repeat(3,1fr);border-left:1px solid var(--line)}
+.co{display:flex;flex-direction:column;border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:48px 40px 40px;min-height:300px;text-decoration:none;color:inherit;transition:background .2s}
+.co:hover{background:var(--off)}
+.co-tag{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray);margin-bottom:28px}
+.co-name{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(26px,2.4vw,36px);line-height:1;letter-spacing:-.02em;margin-bottom:16px}
+.co-desc{font-size:14px;line-height:1.7;color:var(--mid);flex:1;margin-bottom:32px}
+.co-url{font-family:'DM Mono',monospace;font-size:11px;color:var(--black)}
+.co:hover .co-url{text-decoration:underline}
+@media(max-width:1024px){.co-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.co-grid{grid-template-columns:1fr}.co{min-height:0;padding:36px 24px}}
+
 /* CTA */
 .cta{padding:140px 72px;background:var(--black);color:var(--white);text-align:center}
 .cta .sec-label{color:#555}
@@ -248,29 +260,28 @@ footer{padding:28px 72px;display:flex;justify-content:space-between;align-items:
 <nav>
   <a class="nav-logo" href="/">Sosville<span>.co</span></a>
   <div class="nav-right">
-    <a href="#companies">Our companies</a>
-    <a href="#capital">M&amp;A advisory</a>
-    <a href="#team">Who we are</a>
+    <a href="#companies">Our Companies</a>
+    <a href="#team">About</a>
     <a class="nav-cta" href="mailto:info@sosville.co">Contact</a>
   </div>
 </nav>
 
 <!-- HERO -->
 <div class="hero">
-  <div class="hero-eyebrow">Sosville Group &mdash; Data &middot; Software &middot; Exit Readiness</div>
+  <div class="hero-eyebrow">Sosville &mdash; Brokerage &middot; Technology &middot; Market Data</div>
 
   <div class="hero-lines">
-    <div class="hero-line-1" id="hl1">Better infrastructure<br>for buying and selling<br>small businesses.</div>
+    <div class="hero-line-1" id="hl1">Business brokerage,<br>technology and<br>market intelligence.</div>
     <div class="hero-sublines">
-      <div class="hero-sub accent" id="hs1">DealLedger: the public record of the market.</div>
-      <div class="hero-sub accent" id="hs2">BrokerageAutomation: the rails brokers run deals on.</div>
-      <div class="hero-sub accent" id="hs3">ExitsIQ: owners ready years before they sell.</div>
+      <div class="hero-sub accent" id="hs1">Brokerage &amp; advisory: ATM Brokerage, CleaningExits, VendingExits, Sosville Capital.</div>
+      <div class="hero-sub accent" id="hs2">Brokerage technology: Brokerage Automation.</div>
+      <div class="hero-sub accent" id="hs3">Market data: DealLedger.</div>
       <div class="hero-sub dim" id="hs4">Built by people who have closed 200+ deals.</div>
     </div>
   </div>
 
   <div class="hero-bottom" id="hb">
-    <p class="hero-tagline">Sosville is the company behind a group of businesses that make the small-business market more transparent and easier to transact in.</p>
+    <p class="hero-tagline">We build and operate businesses that help people buy, sell and understand privately held companies.</p>
     <div class="hero-stats">
       <div class="hs"><div class="hs-n">21K+</div><div class="hs-l">Listings Tracked</div></div>
       <div class="hs"><div class="hs-n">500+</div><div class="hs-l">Broker Sites</div></div>
@@ -283,135 +294,47 @@ footer{padding:28px 72px;display:flex;justify-content:space-between;align-items:
 <section id="companies" class="sec sec-border">
   <div class="sec-head r">
     <div>
-      <h2>Our companies</h2>
+      <h2>Our Companies</h2>
     </div>
-    <div class="sec-note">Each runs on its own. They share a team and a view of the market nobody else has.</div>
   </div>
-  <a class="project r" href="https://dealledger.org" target="_blank">
-    <div class="p-info">
-      <div class="p-top">
-        <span class="p-num">01</span>
-        <div class="p-tags"><span class="p-tag">Public Data</span><span class="p-tag">CC0</span></div>
-      </div>
-      <div class="p-name">DealLedger</div>
-      <div class="p-url">dealledger.org</div>
-      <p class="p-desc">The free, open public record of businesses for sale in the U.S., pulled straight from broker websites, with true days on market, price changes and relist history. Run independently: no Sosville customer gets special treatment in it, and no private buyer or broker data goes into it.</p>
-      <div class="p-metrics"><div><div class="pm-n">21K+</div><div class="pm-l">Listings Tracked</div></div><div><div class="pm-n">500+</div><div class="pm-l">Broker Sites</div></div><div><div class="pm-n">Free</div><div class="pm-l">And Open</div></div></div>
-    </div>
-    <div class="p-screen">
-      <div class="b-chrome">
-        <div class="b-dots"><div class="bd bd-r"></div><div class="bd bd-y"></div><div class="bd bd-g"></div></div>
-        <div class="b-addr">dealledger.org</div>
-      </div>
-      <img class="p-screenshot" src="/screenshots/dealledger.jpg" alt="DealLedger">
-    </div>
-  </a>
-  <a class="project r" href="https://brokerageautomation.com" target="_blank">
-    <div class="p-info">
-      <div class="p-top">
-        <span class="p-num">02</span>
-        <div class="p-tags"><span class="p-tag">For Brokers</span><span class="p-tag">Software</span></div>
-      </div>
-      <div class="p-name">BrokerageAutomation</div>
-      <div class="p-url">brokerageautomation.com</div>
-      <p class="p-desc">From inquiry to deal room without anyone touching an inbox. Marketplace leads routed to the right brand inbox, NDAs sent and signed online, every buyer in the CRM, and a private deal room per buyer with every view logged.</p>
-      <div class="p-metrics"><div><div class="pm-n">$150</div><div class="pm-l">Partial / Month</div></div><div><div class="pm-n">$350</div><div class="pm-l">Full / Month</div></div><div><div class="pm-n">Pilot</div><div class="pm-l">Open Now</div></div></div>
-    </div>
-    <div class="p-screen">
-      <div class="b-chrome">
-        <div class="b-dots"><div class="bd bd-r"></div><div class="bd bd-y"></div><div class="bd bd-g"></div></div>
-        <div class="b-addr">brokerageautomation.com</div>
-      </div>
-      <img class="p-screenshot" style="object-position:left top" src="/screenshots/brokerage-flow.jpg" alt="BrokerageAutomation: six steps from inquiry to deal room">
-    </div>
-  </a>
-  <a class="project r" href="https://www.exitsiq.com" target="_blank">
-    <div class="p-info">
-      <div class="p-top">
-        <span class="p-num">03</span>
-        <div class="p-tags"><span class="p-tag">For Owners</span><span class="p-tag">Exit Readiness</span></div>
-      </div>
-      <div class="p-name">ExitsIQ</div>
-      <div class="p-url">exitsiq.com</div>
-      <p class="p-desc">Valuation and exit preparation for owners one to five years before they sell. A free readiness score, then a plan to raise the value, with vetted tax advisors and SBA lenders alongside.</p>
-      <div class="p-metrics"><div><div class="pm-n">Free</div><div class="pm-l">Readiness Score</div></div><div><div class="pm-n">$199</div><div class="pm-l">Exit Prep / Month</div></div><div><div class="pm-n">0&ndash;100</div><div class="pm-l">Score</div></div></div>
-    </div>
-    <div class="p-screen">
-      <div class="b-chrome">
-        <div class="b-dots"><div class="bd bd-r"></div><div class="bd bd-y"></div><div class="bd bd-g"></div></div>
-        <div class="b-addr">exitsiq.com</div>
-      </div>
-      <div class="iq">
-        <div class="iq-head">
-          <span class="iq-eyebrow">The Exit Timeline</span>
-          <span class="iq-head-title">Will I be ok?</span>
-        </div>
-        <div class="iq-cols">
-          <div class="iq-col">
-            <div class="iq-when">Today</div>
-            <div class="iq-h">Where you are</div>
-            <div class="iq-stat"><div class="iq-sl">Business Value</div><div class="iq-sv">$1.8M</div></div>
-            <div class="iq-stat"><div class="iq-sl">After-Tax Proceeds</div><div class="iq-sv">$1.35M</div></div>
-            <div class="iq-stat"><div class="iq-sl">Retirement Readiness</div><div class="iq-sv">58%</div></div>
-            <div class="iq-bar"><div class="iq-track"><div class="iq-fill" style="width:58%"></div></div></div>
-          </div>
-          <div class="iq-col mid">
-            <div class="iq-when">12-Month Plan</div>
-            <div class="iq-h">The work</div>
-            <ul class="iq-list">
-              <li>Reduce customer concentration</li>
-              <li>Implement documented SOPs</li>
-              <li>Improve management delegation</li>
-              <li>Complete tax planning</li>
-              <li>Lift readiness to 74%</li>
-            </ul>
-            <div class="iq-bar"><div class="iq-track"><div class="iq-fill" style="width:74%"></div></div></div>
-          </div>
-          <div class="iq-col tgt">
-            <div class="iq-when">36-Month Target</div>
-            <div class="iq-h">Where you're headed</div>
-            <div class="iq-stat"><div class="iq-sl">Estimated Value</div><div class="iq-sv">$2.4M</div></div>
-            <div class="iq-stat"><div class="iq-sl">After-Tax Proceeds</div><div class="iq-sv">$1.9M</div></div>
-            <div class="iq-stat"><div class="iq-sl">Retirement Readiness</div><div class="iq-sv">91%</div></div>
-            <div class="iq-bar"><div class="iq-track"><div class="iq-fill" style="width:91%"></div></div></div>
-          </div>
-        </div>
-        <div class="iq-foot">
-          <span>Comps &mdash; DealLedger</span>
-          <span>Readiness 0&ndash;100</span>
-        </div>
-      </div>
-    </div>
-  </a>
-</section>
-
-<!-- CAPITAL -->
-<section id="capital" class="sec sec-border" style="background:var(--off)">
-  <div class="sec-head r">
-    <div>
-      <div class="sec-label">M&amp;A Advisory</div>
-      <h2>Sosville<br>Capital</h2>
-    </div>
-    <div class="sec-note">Sell-side advisory for payments and route-based businesses. Confidential by default.</div>
+  <div class="co-grid r">
+    <a class="co" href="https://atmbrokerage.com" target="_blank" rel="noopener">
+      <div class="co-tag">Brokerage &amp; Advisory</div>
+      <div class="co-name">ATM Brokerage</div>
+      <p class="co-desc">ATM portfolio sales, acquisitions and valuations.</p>
+      <div class="co-url">atmbrokerage.com</div>
+    </a>
+    <a class="co" href="https://cleaningexits.com" target="_blank" rel="noopener">
+      <div class="co-tag">Brokerage &amp; Advisory</div>
+      <div class="co-name">CleaningExits</div>
+      <p class="co-desc">A marketplace for cleaning businesses and acquisition opportunities.</p>
+      <div class="co-url">cleaningexits.com</div>
+    </a>
+    <a class="co" href="https://vendingexits.com" target="_blank" rel="noopener">
+      <div class="co-tag">Brokerage &amp; Advisory</div>
+      <div class="co-name">VendingExits</div>
+      <p class="co-desc">A marketplace for vending businesses and routes.</p>
+      <div class="co-url">vendingexits.com</div>
+    </a>
+    <a class="co" href="/capital">
+      <div class="co-tag">Brokerage &amp; Advisory</div>
+      <div class="co-name">Sosville Capital</div>
+      <p class="co-desc">Strategic acquisitions, divestitures and M&amp;A advisory.</p>
+      <div class="co-url">Explore Sosville Capital &rarr;</div>
+    </a>
+    <a class="co" href="https://brokerageautomation.com" target="_blank" rel="noopener">
+      <div class="co-tag">Brokerage Technology</div>
+      <div class="co-name">Brokerage Automation</div>
+      <p class="co-desc">Managed technology and operations for business brokers.</p>
+      <div class="co-url">brokerageautomation.com</div>
+    </a>
+    <a class="co" href="https://dealledger.org" target="_blank" rel="noopener">
+      <div class="co-tag">Market Data</div>
+      <div class="co-name">DealLedger</div>
+      <p class="co-desc">The public record of businesses for sale and their listing histories.</p>
+      <div class="co-url">dealledger.org</div>
+    </a>
   </div>
-  <a class="project r" href="/capital">
-    <div class="p-info">
-      <div class="p-top">
-        <span class="p-num">&mdash;</span>
-        <div class="p-tags"><span class="p-tag">Sell-Side</span><span class="p-tag">M&amp;A</span></div>
-      </div>
-      <div class="p-name">Sosville Capital</div>
-      <div class="p-url">sosville.co/capital</div>
-      <p class="p-desc">A confidential, competitive sale process for ATM portfolios, ISOs, merchant residuals, vending and route-based service businesses. Strategic acquirers, ISOs, private equity and family offices bid against each other, so the market sets the price, not a single buyer. Then we structure the deal with your CPA so you keep more of it. Acquirers get an early look at sellers before they go to market.</p>
-      <span class="p-cta">Request a confidential valuation &rarr;</span>
-    </div>
-    <div class="int">
-      <div class="int-row"><span>Closed transactions</span><b>200+</b></div>
-      <div class="int-row"><span>Volume advised</span><b>$200M+</b></div>
-      <div class="int-row"><span>Recent mandates</span><b>4.2x&ndash;4.5x EBITDA</b></div>
-      <div class="int-row" style="border:none"><span>In the ATM industry</span><b>Since 2008</b></div>
-    </div>
-  </a>
 </section>
 <!-- TEAM -->
 <section id="team" class="sec sec-border">
@@ -441,8 +364,8 @@ footer{padding:28px 72px;display:flex;justify-content:space-between;align-items:
 
 <footer>
   <div class="f-l">Sosville<span>.co</span></div>
-  <div class="f-mid"><a href="https://dealledger.org">DealLedger</a> &middot; <a href="https://brokerageautomation.com">BrokerageAutomation</a> &middot; <a href="https://www.exitsiq.com">ExitsIQ</a></div>
-  <div class="f-r">&copy; 2026 Sosville Group &middot; Skaneateles, NY</div>
+  <div class="f-mid"><a href="https://atmbrokerage.com">ATM Brokerage</a> &middot; <a href="https://cleaningexits.com">CleaningExits</a> &middot; <a href="https://vendingexits.com">VendingExits</a> &middot; <a href="/capital">Sosville Capital</a> &middot; <a href="https://brokerageautomation.com">Brokerage Automation</a> &middot; <a href="https://dealledger.org">DealLedger</a></div>
+  <div class="f-r">&copy; 2026 Sosville &middot; Skaneateles, NY</div>
 </footer>
 
 <script>
